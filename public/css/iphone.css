@@ -1,0 +1,32 @@
+@media only screen and (orientation:portrait) {
+	.kidsvblock .panel-body {
+		padding: 0px;
+	}
+	.iconleft, .iconright, .rightcloud, .leftcloud {
+		display: none;
+	}
+	.cloudlinks li {
+		font-size: 18px;
+	}
+}
+
+@media only screen and (orientation:landscape) {
+	.kidsvblock .panel-body {
+	padding: 0px;
+}
+.iconleft, .iconright, .rightcloud, .leftcloud {
+	display: none;
+}
+.cloudlinks li {
+	font-size: 18px;
+}
+}
+.kidsvblock .panel-body {
+	padding: 0px;
+}
+.iconleft, .iconright, .rightcloud, .leftcloud {
+	display: none;
+}
+.cloudlinks li {
+	font-size: 18px;
+}

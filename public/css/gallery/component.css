@@ -1,0 +1,292 @@
+@font-face {
+	font-family: 'fontawesome' !important;
+	src:url('../../fonts/fontawesome/fontawesome.eot?-e43dk9') !important;
+	src:url('../../fonts/fontawesome/fontawesome.eot?#iefix-e43dk9') format('embedded-opentype'),
+		url('../../fonts/fontawesome/fontawesome.woff?-e43dk9') format('woff'),
+		url('../../fonts/fontawesome/fontawesome.ttf?-e43dk9') format('truetype'),
+		url('../../fonts/fontawesome/fontawesome.svg?-e43dk9#fontawesome') format('svg') !important;
+	font-weight: normal !important;
+	font-style: normal !important;
+} /* Made with http://icomoon.io/app */
+
+* {
+	!important !important;
+}
+
+/* General style */
+.grid-gallery ul {
+	list-style: none !important;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+.grid-gallery figure {
+	margin: 0 !important;
+}
+
+.grid-gallery figure img {
+	display: block !important;
+	width: 100% !important;
+	height: 170px;
+display: block;
+position: relative;
+overflow: hidden;
+margin: 0px auto;
+background-position: center center;
+}
+
+.tofront figure img {
+	display: block !important;
+	width: 100% !important;
+	height: auto !important;
+display: block;
+position: relative;
+overflow: hidden;
+margin: 0px auto;
+background-position: center center;
+}
+
+.grid-gallery figcaption h3 {
+	margin: 0 !important;
+	padding: 0 0 0.5em !important;
+}
+
+.grid-gallery figcaption p {
+	margin: 0 !important;
+}
+
+/* Grid style */
+.grid-wrap {
+	/*max-width: 69em !important;*/
+	padding: 0px 25px 10px 10px;
+}
+
+.grid {
+	margin: 0 auto !important;
+}
+
+.grid li {
+	width: 20% !important;
+	float: left !important;
+	cursor: pointer !important;
+	padding: 5px 5px !important;
+}
+
+.grid figure {
+	-webkit-transition: opacity 0.2s !important;
+	transition: opacity 0.2s !important;
+}
+
+.grid li:hover figure {
+	opacity: 0.7 !important;
+}
+
+.grid figcaption {
+	background: #e4e4e4 !important;
+	padding: 25px !important;
+}
+
+/* Slideshow style */
+.slideshow {
+	position: fixed !important;
+	background: rgba(0,0,0,0.6) !important;
+	width: 100% !important;
+	height: 100% !important;
+	top: 0 !important;
+	left: 0 !important;
+	z-index: 500 !important;
+	opacity: 0 !important;
+	visibility: hidden !important;
+	overflow: hidden !important;
+	-webkit-perspective: 1000px !important;
+	perspective: 1000px !important;
+	-webkit-transition: opacity 0.5s, visibility 0s 0.5s !important;
+	transition: opacity 0.5s, visibility 0s 0.5s !important;
+}
+
+.slideshow-open .slideshow {
+	opacity: 1 !important;
+	visibility: visible !important;
+	-webkit-transition: opacity 0.5s !important;
+	transition: opacity 0.5s !important;
+}
+
+.slideshow ul {
+	width: 100% !important;
+	height: 100% !important;
+	-webkit-transform-style: preserve-3d !important;
+	transform-style: preserve-3d !important;
+	-webkit-transform: translate3d(0,0,150px) !important;
+	transform: translate3d(0,0,150px) !important;
+	-webkit-transition: -webkit-transform 0.5s !important;
+	transition: transform 0.5s !important;
+}
+
+.slideshow ul.animatable li {
+	-webkit-transition: -webkit-transform 0.5s !important;
+	transition: transform 0.5s !important;
+}
+
+.slideshow-open .slideshow ul {
+	-webkit-transform: translate3d(0,0,0) !important;
+	transform: translate3d(0,0,0) !important;
+}
+
+.slideshow li {
+	width: 660px !important;
+	height: 560px !important;
+	position: absolute !important;
+	top: 50% !important;
+	left: 50% !important;
+	margin: -280px 0 0 -330px !important;
+	visibility: hidden !important;
+}
+
+.slideshow li.show {
+	visibility: visible !important;
+}
+
+.slideshow li:after {
+	content: '' !important;
+	position: absolute !important;
+	width: 100% !important;
+	height: 100% !important;
+	top: 0 !important;
+	left: 0 !important;
+	background: rgba(255,255,255,0.8) !important;
+	-webkit-transition: opacity 0.3s !important;
+	transition: opacity 0.3s !important;
+}
+
+.slideshow li.current:after {
+	visibility: hidden !important;
+	opacity: 0 !important;
+	-webkit-transition: opacity 0.3s, visibility 0s 0.3s !important;
+	transition: opacity 0.3s, visibility 0s 0.3s !important;
+}
+
+.slideshow figure {
+	width: 100% !important;
+	height: 100% !important;
+	background: #fff !important;
+	border: 50px solid #fff !important;
+	overflow: hidden !important;
+}
+
+.slideshow figcaption {
+	padding-bottom: 20px !important;
+}
+
+.slideshow figcaption h3 {
+	font-weight: 300 !important;
+	font-size: 200% !important;
+	color: #444;
+}
+
+/* Navigation */
+.slideshow nav span {
+	position: fixed ;
+	z-index: 1000 ;
+	color: #59656c ;
+	text-align: center ;
+	padding: 3% ;
+	cursor: pointer ;
+	font-size: 2.2em ;
+}
+
+.slideshow nav span.nav-prev,
+.slideshow nav span.nav-next {
+	top: 50% ;
+	-webkit-transform: translateY(-50%) ;
+	transform: translateY(-50%) ;
+}
+
+.slideshow nav span.nav-next {
+	right: 0 ;
+}
+
+.slideshow nav span.nav-close {
+	top: 0 ;
+	right: 0 ;
+	padding: 0.5em 1em ;
+	color: #59656c ;
+}
+
+.icon:before,
+.icon:after {
+	font-family: 'fontawesome' ;
+	speak: none ;
+	font-style: normal ;
+	font-weight: normal ;
+	font-variant: normal ;
+	text-transform: none ;
+	line-height: 1 ;
+	-webkit-font-smoothing: antialiased ;
+	-moz-osx-font-smoothing: grayscale ;
+}
+
+
+/* Info on arrow key navigation */
+.info-keys {
+	position: fixed ;
+	top: 10px ;
+	left: 10px ;
+	width: 60px ;
+	font-size: 11px ;
+	text-transform: uppercase ;
+	color: #fff ;
+	letter-spacing: 1px ;
+	text-align: left ;
+}
+
+.info-keys i {
+	font-size: 25px;
+	text-align: center;
+}
+
+
+/* Example media queries (reduce number of columns and change slideshow layout) */
+
+@media screen and (max-width: 60em) {
+	/* responsive columns !important; see "Element sizing" on http://masonry.desandro.com/options.html */
+	.grid li {
+		width: 33.3% !important;
+	}
+
+	.slideshow li {
+		width: 100% !important;
+		height: 100% !important;
+		top: 0 !important;
+		left: 0 !important;
+		margin: 0 !important;
+	}
+
+	.slideshow li figure img {
+		width: auto !important;
+		margin: 0 auto !important;
+		max-width: 100% !important;
+	}
+
+	.slideshow nav span,
+	.slideshow nav span.nav-close {
+		font-size: 1.8em !important;
+		padding: 0.3em !important;
+	}
+
+	.info-keys {
+		display: none !important;
+	}
+
+}
+
+@media screen and (max-width: 35em) {
+	.grid li {
+		width: 50% !important;
+	}
+}
+
+@media screen and (max-width: 24em) {
+	.grid li {
+		width: 100% !important;
+	}
+}

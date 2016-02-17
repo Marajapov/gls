@@ -1,0 +1,40 @@
+/*Date Filter*/
+.date-filter .form-group{
+    padding: 0 5px;
+}
+.date-filter .input-group input{
+    border: 1px solid #237dac;
+    height: 26px;
+    padding: 5px 10px;
+
+    font-size: 12px;
+    line-height: 1;
+}
+.date-filter .input-group-addon{
+    border-color: #237dac;
+    border: 0;
+    padding: 5px 10px;
+
+    background: #237dac;
+    color: #ffffff;
+}
+.form-divider{
+    line-height: 26px;
+}
+.btn-filter{
+    padding: 5px 10px;
+    background: #ffffff;
+    font-size: 12px;
+    line-height: 14px;
+}
+.date-filter .bootstrap-datetimepicker-widget{
+    display: block !important;
+    padding: 10px;
+    background: #ffffff;
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    -moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+.date-filter .bootstrap-datetimepicker-widget th, .date-filter .bootstrap-datetimepicker-widget td{
+    text-align: center;
+}

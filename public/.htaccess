@@ -1,0 +1,6 @@
+Options -MultiViews
+RewriteEngine On
+
+rewritebase /
+RewriteCond %{HTTP_HOST} ^\.(.*)$ [NC]
+RewriteRule ^(.*)$ http://www.%1/$1 [R=301,L]

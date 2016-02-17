@@ -1,0 +1,29 @@
+public function destroyChild(Request $request)
+    {
+        $photoDeleteId = $request->photoDeleteId;
+        $photoChild = \Model\PhotoChild\ModelName::where('id','=',$photoDeleteId)->first();
+
+        $photoParentId = $request->photoParentId;
+        $photoChild->delete();
+        $photoParent = \Model\PhotoParent\ModelName::where('id','=',$photoParentId)->first();
+
+        return redirect()->route('admin.photoParent.show', $photoParent);
+    }
+
+    \Model\PhotoChild\ModelName::create([
+                    'file '=> $destinationPath.'/'.$filename,
+                    'parentId' => $photoParent->id
+                ]);
+
+
+                <div class="photo-child">
+                                                            <img src="{{ asset($row->file) }} " alt="">
+                                                            <a class="edit" href="{{ route('admin.photoChild.edit', $row) }}">
+                                                                <i class="fa fa-pencil"></i>
+                                                            </a>
+                                                            {!! Form::open(['route' => ['admin.photoParent.destroyChild', $row], 'method' => 'get', 'onsubmit' => "return confirm('Вы уверены ?')"]) !!}
+                                                            <input type="hidden" value="{{ $row->id }}" name="photoDeleteId">
+                                                            <input type="hidden" value="{{ $photoParent->id }}" name="photoParentId">
+                                                            <button type="submit"><i class="fa fa-times"></i></button>
+                                                            {!! Form::close() !!}
+                                                        </div>

@@ -1,0 +1,1046 @@
+@font-face {
+    font-family: 'merge_probold';
+    src: url('../fonts/merge-pro-bold.eot');
+    src: url('../fonts/merge-pro-bold.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/merge-pro-bold.woff2') format('woff2'),
+         url('../fonts/merge-pro-bold.woff') format('woff'),
+         url('../fonts/merge-pro-bold.ttf') format('truetype'),
+         url('../fonts/merge-pro-bold.svg#merge_probold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'merriweatherregular';
+    src: url('fonts/merriweather/merriweather-regular.eot');
+    src: url('fonts/merriweather/merriweather-regular.eot?#iefix') format('embedded-opentype'),
+    url('fonts/merriweather/merriweather-regular.woff2') format('woff2'),
+    url('fonts/merriweather/merriweather-regular.woff') format('woff'),
+    url('fonts/merriweather/merriweather-regular.ttf') format('truetype'),
+    url('fonts/merriweather/merriweather-regular.svg#merriweatherregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'merriweatherbold';
+    src: url('fonts/merriweather/merriweather-bold.eot');
+    src: url('fonts/merriweather/merriweather-bold.eot?#iefix') format('embedded-opentype'),
+    url('fonts/merriweather/merriweather-bold.woff2') format('woff2'),
+    url('fonts/merriweather/merriweather-bold.woff') format('woff'),
+    url('fonts/merriweather/merriweather-bold.ttf') format('truetype'),
+    url('fonts/merriweather/merriweather-bold.svg#merriweatherbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+#balastan {
+    overflow-x: hidden;
+    /*background: #2083c4;*/
+	font-family: 'Open Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+
+    /*background-image: -o-linear-gradient(bottom, #FF0088 0%, #FF803C  100%);*/
+    /*background-image: -moz-linear-gradient(bottom, #FF0088 0%, #FF803C  100%);*/
+    /*background-image: -webkit-linear-gradient(bottom, #FF0088 0%, #FF803C  100%);*/
+    /*background-image: -ms-linear-gradient(bottom, #FF0088 0%, #FF803C  100%);*/
+    /*background-image: linear-gradient(to bottom, #FF0088 0%, #FF803C  100%);*/
+
+    background: -moz-radial-gradient(center, ellipse cover, #FF803C 0%, #FF0088 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#FF803C), color-stop(100%,#FF0088));
+    background: -webkit-radial-gradient(center, ellipse cover, #FF803C 0%,#FF0088 100%);
+    background: -o-radial-gradient(center, ellipse cover, #FF803C 0%,#FF0088 100%);
+    background: -ms-radial-gradient(center, ellipse cover, #FF803C 0%,#FF0088 100%);
+    background: radial-gradient(ellipse at center, #FF803C 0%,#FF0088 100%);
+
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+#balastan a{
+    outline: none;
+}
+
+#balastan .switch{
+	-webkit-box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.5);
+	box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.5);
+	background: #ffffff;
+}
+#balastan .sitemenu{
+	margin: 0 20px;
+}
+#balastan .sitemenu h4{
+	padding-left: 5px;
+	color: #00283d;
+	font-size: 20px;
+}
+.nav{
+    position: relative;
+}
+.title{
+    position: relative;
+}
+.title h3{
+	position: relative;
+	margin: 0 0 20px;
+	padding-bottom: 24px;
+    font-family: 'merge_probold', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+	font-size: 40px;
+    font-weight: bold;
+	color: #ffffff;
+}
+.title h3:after{
+    content: '';
+    background-image: url('../images/channels/balastan/wave-white.png');
+    background-repeat: repeat-x;
+    position: absolute;
+    bottom: 6px;
+    left: 0;
+    width: 100%;
+    height: 7px;
+}
+.title a.more-link{
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 20px;
+    color: #ffffff;
+    font-family: 'Open Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.title a.more-link:hover{
+    color: #353535;
+    border-bottom: 1px dotted #fff;
+}
+
+/*BEGIN Background images sor sections*/
+.kidsmainbg{
+    position: relative;
+    /*background: #ff6160;*/
+    z-index: 100;
+}
+.kidsmainbg::before{
+    display: block;
+    content: '';
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+
+    background: url('../images/channels/balastan/texture3.jpg');
+    opacity: .1;
+}
+
+
+/*END Background images sor sections*/
+
+/*BEGIN Header*/
+.bl-logo,.kidstopheader{
+    display: inline-block;
+    vertical-align: middle;
+    padding: 20px 0;
+}
+.bl-logo{
+    width: 19%;
+}
+.bl-logo img{
+    width: 100px;
+}
+.kidstopheader{
+    width: 80%;
+    border-radius: 5px !important;
+    text-align: right;
+}
+
+.kidstopheader li{
+	display:inline-block;
+    padding: 10px 20px;
+}
+.kidstopheader li:last-child{
+    padding-right: 0;
+}
+.kidstopheader li a{
+    display: block;
+    font-family: 'merge_probold',Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+
+    color: #fff;
+}
+.kidstopheader li a i{
+    padding-right: 5px;
+    font-size: 30px;
+}
+.kidstopheader li a i, .kidstopheader li a span{
+    display: inline-block;
+    vertical-align: middle;
+}
+.kidstopheader li:hover a, .kidstopheader li:hover i{
+	color: #fff;
+}
+
+.kidstopheader li:hover i{
+	animation-name: i;
+	-webkit-animation-name: i;
+
+	animation-duration: 0.7s;
+	-webkit-animation-duration: 0.7s;
+
+	animation-timing-function: ease;
+	-webkit-animation-timing-function: ease;
+
+	visibility: visible !important;
+}
+
+@keyframes i {
+	0% {
+		transform: translateY(100%) scale(0.6) scaleY(0.5);
+	}
+	60%{
+		transform: translateY(-7%) scaleY(1.12);
+	}
+	75%{
+		transform: translateY(3%);
+	}
+	100% {
+		transform: translateY(0%) scale(1) scaleY(1);
+	}
+}
+
+@-webkit-keyframes i {
+	0% {
+		-webkit-transform: translateY(100%) scale(0.6) scaleY(0.5);
+	}
+	60%{
+		-webkit-transform: translateY(-7%) scaleY(1.12);
+	}
+	75%{
+		-webkit-transform: translateY(3%);
+	}
+	100% {
+		-webkit-transform: translateY(0%) scale(1) scaleY(1);
+	}
+}
+
+.logo-block{
+    position: relative;
+    top: -30px;
+    right: -5px;
+}
+.form-search.visible{
+    background: #FF9800;
+    border-radius: 3px !important;
+    padding: 2px;
+}
+
+.logo-block .fa-close{
+    position: relative;
+    top: -7px;
+}
+/* END Header*/
+
+/* BEGIN Programms slide*/
+.kidsslider{
+	position: relative;
+	width: 150%;
+    border-radius: 50% 50% 0 0 !important;
+    left: -25%;
+    margin-top: -50px;
+    z-index: 101;
+
+    padding: 60px 0 40px;
+    background: #ff6a2e;
+}
+.programs-slide {
+    /*padding: 35px 0px 40px 0px;*/
+}
+
+.programs-slide .slick-slider{
+	margin: 0px;
+}
+
+.programs-slide .kids-slide .slick-next{
+	margin-top: -20px;
+}
+.programs-slide .kids-slide .slick-prev{
+	margin-top: -20px;
+	margin-left:-30px;
+}
+.programs-slide .kids-slide .slick-next:before,.programs-slide .kids-slide .slick-prev:before{
+
+	color: #ffffff !important;
+	font-size: 48px;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+.programs-slide .kids-slide .slick-next:before{
+    content: "\f0a9";
+}
+.programs-slide .kids-slide .slick-prev:before{
+	content: "\f0a8";
+}
+.programs-slide .slick-slide a{
+	display: block;
+}
+.programs-slide .kids-slide .slick-slide img{
+    height: 150px;
+    width: 100%;
+
+    /*border-radius: 3px 3px 0 0 !important;*/
+}
+
+.programs-slide .kids-slide .programmcat{
+	display: inline-block;
+	width: 100%;
+	top: 0;
+	margin: 0;
+    padding: 15px 15px;
+
+    background: #ffffff;
+    color: #00283d;
+
+    font-family: 'merge_probold', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    font-size: 17px;
+    font-weight: bold;
+    line-height: 1;
+    text-transform: uppercase;
+    text-align: center;
+
+    /*border-radius: 0 0 3px 3px !important;*/
+}
+/* END Programms slide*/
+
+/* BEGIN REKLAMA sections*/
+
+.preklams {
+	position: relative;
+	z-index: 1;
+	padding: 60px 0px 60px;
+	background-color:#ff6a2e;
+    background-image: url('../images/channels/balastan/texture-leafs.png');
+}
+.adblock {
+	position: relative;
+	-webkit-transition: all 0.2s ease;
+	-o-transition: all 0.2s ease;
+	transition: all 0.2s ease;
+
+	text-align: center;
+}
+.adblock img{
+	/*border-radius: 3px !important;*/
+	/*-webkit-box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.75);
+	box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.75);*/
+
+	-webkit-transition: all 0.2s ease;
+	-o-transition: all 0.2s ease;
+	transition: all 0.2s ease;
+
+}
+.adblock .show-text{
+	position: absolute;
+	bottom: 15px;
+	right: 30px;
+
+	width: 300px;
+	padding: 20px;
+
+	background: #ffffff;
+}
+.adblock .show-text h2{
+	display: table-cell;
+	vertical-align: middle;
+	margin: 0;
+	padding: 0 10px;
+    width: 100%;
+	color: #00283d;
+    font-family: 'Open Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+	font-size:16px;
+    font-weight: bold;
+	text-transform: uppercase;
+}
+.adblock .soon-btn{
+	display: table-cell;
+	vertical-align: middle;
+	margin: 0;
+	padding: 0;
+}
+.adblock .soon-btn i{
+	width: 50px;
+	height: 50px;
+
+	font-size: 24px;
+	line-height: 50px;
+	text-align: center;
+
+	background: #ff6a2e;
+	color: #ffffff;
+
+	border-radius: 50% !important;
+
+	-webkit-transition: all 0.2s ease;
+	-o-transition: all 0.2s ease;
+	transition: all 0.2s ease;
+
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+.adblock .soon-btn i:hover{
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+}
+.adblock .fa-chevron-right:before{
+	padding-left: 3px;
+}
+/* END REKLAMA sections*/
+
+
+/* BEGIN New videos*/
+.newkidvideos {
+	position: relative;
+	padding: 60px 0 45px;
+}
+.newkidvideos .title h3{
+    margin-bottom: 5px;
+}
+.video-block{
+    position: relative;
+    margin: 15px 0;
+
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+
+
+}
+.video-block:hover{
+    -webkit-transform: scale(1.06);
+    -ms-transform: scale(1.06);
+    transform: scale(1.06);
+}
+.video-block a{
+    display: block;
+}
+.video-block.col-md-4 .video-img{
+    position: relative;
+    height: 190px;
+    overflow: hidden;
+
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.video-block.col-md-4 img{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    height: auto;
+    width: 100%;
+    opacity: 1;
+    -webkit-transform: translateY(-50%) translateX(-50%);
+    -moz-transform: translateY(-50%) translateX(-50%);
+    -ms-transform: translateY(-50%) translateX(-50%);
+    transform: translateY(-50%) translateX(-50%);
+}
+.video-block .video-overlay{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.25);
+}
+.video-block .video-info{
+    margin: 0;
+    width: 100%;
+}
+.video-info .media{
+    background: #ffffff;
+}
+.video-info .media-left,.video-info .media-body{
+    height: 80px;
+}
+.video-info .media-left{
+    padding: 0;
+}
+.video-name, .video-icon{
+    color: #00283d;
+    font-size: 16px;
+    font-weight: bold;
+    /*text-align: center;*/
+}
+.video-name{
+    padding-right: 15px;
+    font-family: 'Open Sans',Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+}
+.video-icon{
+    width: 70px;
+    font-size: 25px;
+    text-align: center;
+}
+.video-category{
+    position: absolute;
+    top: 0px;
+    left: 25px;
+    z-index: 3;
+    background: #fff;
+    padding: 5px;
+    font-family: 'merge_probold';
+}
+/* END New videos*/
+/* BEGIN Photo Gallery*/
+
+.kidsgallery{
+    position: relative;
+    z-index: 100;
+    padding: 60px 0;
+    background: #ffa643;
+    background-image: url('../images/channels/balastan/bg-bubbles.png');
+}
+.kidsgallery .video-icon{
+    font-size: 20px;
+}
+/* END Photo Gallery*/
+
+/*PANEL GALLERY*/
+.gallery{
+    border-left: 2px solid #F1F4F9;
+    border-top: 2px solid #F1F4F9;
+    border-right: none;
+    height: auto;
+
+    background: #ffffff;
+}
+.gallery .panel-heading h3{
+    color: #8493A3;
+}
+.gallery .panel-heading a.all{
+    float: right;
+
+    color: #237dac;
+    font-family: "Roboto", Helvetica , Arial, sans-serif;
+    font-size: 12px;
+    text-transform: none;
+}
+.gallery .panel-heading a.all:hover{
+    color: #2D3E4A;
+}
+.gallery .panel-heading i{
+    padding-left: 5px;
+}
+.gallery .slick-slider{
+    padding-bottom: 15px;
+}
+
+/*SHOWS-SLIDER*/
+.shows-slider{
+    z-index: 101;
+    overflow: hidden;
+}
+.shows-carousel{
+    margin: 0 auto;
+    padding: 0;
+}
+.shows-carousel .slick-list{
+    overflow: hidden;
+}
+.shows-carousel .slick-slide{
+    position: relative;
+    overflow: hidden;
+
+    height: 600px;
+    margin: 0;
+
+    background: none;
+
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.shows-carousel .slick-slide article{
+    height: 600px;
+    overflow: hidden;
+}
+.show-info,.show-img{
+    position: relative;
+    display: table-cell;
+    vertical-align: middle;
+    width: 49%;
+    height: 600px;
+    max-width: 50%;
+}
+.show-info{
+    width: 50%;
+    color: #ffffff;
+}
+.show-name{
+    margin: 0;
+    margin-bottom: 50px;
+    font-family: 'merge_probold', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    font-size: 72px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.show-info span{
+    display: block;
+    color: #ffffff;
+    font-family: 'Open Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    text-transform: uppercase;
+}
+.show-info .show-time{
+    margin-bottom: 50px;
+    font-size: 48px;
+    line-height: 1;
+}
+.show-info .show-day{
+    margin-bottom: 5px;
+    padding-left: 5px;
+    font-size: 20px;
+    line-height: 1;
+}
+.show-btn{
+    position: relative;
+    top: 0;
+
+    border: 0;
+    display: inline-block;
+    margin-bottom: 50px;
+    padding: 15px 25px;
+
+    background: #ffffff;
+    color: #00283d;
+    font-family: 'Open Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    box-shadow: 0 6px 0 0 #c6c9cd;
+    border-radius: 3px !important;
+    cursor: pointer;
+
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+.show-btn:hover{
+    top: 2px;
+    background: #ffffff;
+    box-shadow: 0 4px 0 0 #c6c9cd;
+}
+.show-btn:active{
+    top:6px;
+    box-shadow:0 1px 0 0 #c6c9cd;
+}
+.show-img{
+    vertical-align: bottom;
+}
+.show-img img{
+    width: 80%;
+}
+.shows-carousel .slick-dots{
+    bottom: 50px;
+    text-align: left;
+}
+.shows-carousel .slick-dots li button:before{
+    content: '\f111';
+    font-family: 'FontAwesome';
+    font-size: 10px;
+}
+
+/* BEGIN Balastan duinosundo*/
+.pages-header{
+    background-image: url('../images/channels/balastan/texture-leafs.png');
+}
+.pages-header .pages-title{
+    margin-top: 100px;
+}
+.pages-header .title h3:after{
+    background-image: none;
+}
+.shows{
+    padding: 60px 0;
+	background: #fff;
+}
+.shows .col-md-12{
+    margin-bottom: 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(0,0,0,.2);
+}
+.shows .col-md-12:last-child{
+    border: none;
+    margin: 0;
+}
+.shows .aboutshow h4{
+    margin: 0px 0px 10px 0px;
+	font-family: 'merge_probold', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+	font-size: 28px;
+}
+.shows .aboutshow p{
+	color: #666;
+	font-size: 14px;
+	line-height: 1.5em;
+	text-align: justify;
+}
+.shows .aboutshow .link{
+	font-size: 14px;
+    font-style: italic;
+    color: #184f76;
+}
+.shows .aboutshow .media-left img{
+    height: auto;
+    width: 280px;
+    margin: 0 auto
+}
+.shows .aboutshow .media-body{
+	padding-left: 15px;
+}
+/* END Balastan duinosundo*/
+
+/* BEGIN Allphotos and photos page*/
+.allphotos{
+	padding: 20px 0px;
+	background: #ffa643;
+    background-image: url('../images/channels/balastan/bg-bubbles.png');
+}
+.lightgallery{
+	padding: 20px 0px;
+	background: #F44336;
+    background-image: url('../images/channels/balastan/bg-bubbles.png');
+
+}
+/* END Allphotos page*/
+
+/* BEGIN About page*/
+
+.aboutbtn{
+    position: relative;
+    z-index: 100;
+    padding: 40px;
+    background: #ffffff;
+}
+.aboutbtn:before{
+display: block;
+    content: '';
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+    background: url('../images/channels/balastan/texture3.jpg');
+    opacity: .1;
+}
+.aboutbtn p{
+    font-size: 18px;
+    text-align: justify;
+    line-height: 1.5em;
+    color: #090E29;
+}
+
+/* END About page*/
+
+/* BEGIN Video page*/
+.relatedvideos{
+    position: relative;
+    z-index: 100;
+    padding: 60px 0;
+    background: #ffa643;
+    background-image: url('../images/channels/balastan/bg-bubbles.png');
+    background-size: cover;
+}
+.relatedvideos .video-block{
+    display: none;
+}
+.relatedvideos .show-btn{
+    width: 100%;
+    margin: 0;
+    text-align: center;
+}
+.fullvideo{
+    position: relative;
+    z-index: 100;
+    padding: 40px;
+    background: #ffffff;
+}
+.fullvideo::before{
+    display: block;
+    content: '';
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+
+    background: url('../images/channels/balastan/texture3.jpg');
+    opacity: .1;
+}
+.video-page .title h3, .video-page .title .fromcat{
+    display: table-cell;
+    vertical-align: middle;
+}
+.video-page .title{
+    margin-bottom: 20px;
+}
+.video-page .title h3{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    height: 70px;
+}
+.fromcat p{
+    margin: 0;
+    width: 200px;
+    color: #ffffff;
+
+    font-family: 'Open Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1;
+    text-align: right;
+}
+.fromcat p>a{
+	color: #FFC107;
+}
+/*.episode-info{*/
+    /*background: #ffffff;*/
+/*}*/
+.episode-desc{
+    margin-top: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid #d1d1d1;
+    font-size: 18px;
+}
+.episode-info em{
+    margin-right: 20px;
+    color: #76b3d4;
+    font-size: 20px;
+    font-weight: bold;
+}
+.episode-info span{
+    float: right;
+    padding: 5px 0;
+    color: #999999;
+    font-size: 16px;
+}
+/* END Video page*/
+
+/* BEGIN Allvideos*/
+
+.allvideos{
+    padding: 0 0 60px;
+    background: #ffa643;
+    background-image: url('../images/channels/balastan/bg-bubbles.png');
+    background-size: cover;
+}
+#allVideos{
+    padding-top: 40px;
+}
+#allVideos .video-block{
+    display: none;
+}
+.allvideos .show-btn{
+    width: 100%;
+    margin: 0;
+    text-align: center;
+}
+.allvideos .mainnav{
+    background: #fff;
+}
+.mainnav ul{
+    border-bottom: 1px solid #d1d1d1;
+    display: block;
+    padding: 15px 0;
+    text-align: center;
+}
+.mainnav ul li{
+    display: inline-block;
+    vertical-align: middle;
+    margin: 5px;
+    padding: 20px 15px;
+}
+.mainnav li a{
+    position: relative;
+    display: block;
+    outline: none;
+    color: #00283d;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.mainnav li a::before,.mainnav li a::after{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 70px;
+    height: 70px;
+    border: 2px solid rgba(0,40,61,0.3);
+    border-radius: 50%;
+    content: '';
+    opacity: 0;
+    -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+    -moz-transition: -moz-transform 0.3s, opacity 0.3s;
+    transition: transform 0.3s, opacity 0.3s;
+    -webkit-transform: translateX(-50%) translateY(-50%) scale(0.2);
+    -moz-transform: translateX(-50%) translateY(-50%) scale(0.2);
+    transform: translateX(-50%) translateY(-50%) scale(0.2);
+}
+.mainnav li a::after{
+    width: 60px;
+    height: 60px;
+    border-width: 6px;
+    -webkit-transform: translateX(-50%) translateY(-50%) scale(0.8);
+    -moz-transform: translateX(-50%) translateY(-50%) scale(0.8);
+    transform: translateX(-50%) translateY(-50%) scale(0.8);
+}
+.mainnav li a:hover::before,.mainnav li a:hover::after, 
+.mainnav li a:focus::before,.mainnav li a:focus::after, 
+.mainnav li a.active::before,.mainnav li a.active::after
+{
+    opacity: 1;
+    -webkit-transform: translateX(-50%) translateY(-50%) scale(1);
+    -moz-transform: translateX(-50%) translateY(-50%) scale(1);
+    transform: translateX(-50%) translateY(-50%) scale(1);
+}
+.allvideos .show-desc{
+    margin: 0;
+    padding: 20px;
+    padding-bottom: 30px;
+    color: #ffffff;
+    font-size: 16px;
+    text-align: justify;
+}
+.show-desc span{
+    display: block;
+    margin-bottom: 10px;
+    font-family: 'merge_probold', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    font-size: 28px;
+}
+
+
+
+/* END Allvideos*/
+
+/*Prefooter*/
+.prefooter{
+    position: relative;
+    z-index: 100;
+    border: none;
+    background: #ff3767;
+}
+.prefooter::before{
+    display: block;
+    content: '';
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+
+    background: url('../images/channels/balastan/texture3.jpg');
+    opacity: .1;
+}
+.prefooter .media{
+    padding: 30px 0;
+}
+.prefooter .media-left{
+    padding: 0;
+}
+.prefooter .media-left a{
+    display: block;
+    width: 300px;
+}
+.prefooter .media-left img{
+    height: 100px;
+    width: auto;
+    margin: 0 auto;
+}
+.prefooter .media-left h4{
+    color: #ffffff;
+}
+.prefooter .media-body,.prefooter .media-body li a{
+    color: #ffffff;
+    font-weight: normal;
+}
+.balastan .prefooter .media-body li a:hover{
+    color: #ffffff;
+}
+.prefooter .footer-menu ul{
+    border-top: 1px solid #ffffff;
+    border-bottom: 1px solid #ffffff;
+    padding: 10px 0;
+}
+.prefooter .copyright{
+    margin-top: 10px;
+}
+
+/* BEGIN Localization*/
+
+.langs{
+    position: absolute;
+    right: 0;
+    top: -25px;
+    z-index: 2;
+
+    -webkit-transition: bottom 0.3s;
+    -moz-transition: bottom 0.3s;
+    -ms-transition: bottom 0.3s;
+    -o-transition: bottom 0.3s;
+    transition: bottom 0.3s;
+
+}
+.langs ul{
+    text-align: center;
+}
+.langs li{
+    padding: 2px 6px;
+    float: left;
+}
+.langs li a{
+    position: relative;
+
+    color: #000;
+    font-weight: bold;
+
+    font-size: 14px;
+    text-transform: uppercase;
+}
+.langs li.active{
+    background: #FB327D;
+}
+.langs li.active a{
+    color: #000000;
+    font-weight: bold;
+}
+
+/* END Localization*/
