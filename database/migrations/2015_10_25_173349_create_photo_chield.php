@@ -16,12 +16,9 @@ class CreatePhotoChield extends Migration
             $table->increments('id');
             $table->string('parentId');
             $table->string('name');
-            $table->string('nameRu');
             $table->string('file');
             $table->string('author');
-            $table->string('authorRu');
             $table->text('description');
-            $table->text('descriptionRu');
             $table->timestamps();
         });
     }

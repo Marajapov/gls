@@ -37,11 +37,6 @@ class ModelName extends Model
         return $this->name;
     }
 
-    public function getNameRu()
-    {
-        return $this->nameRu;
-    }
-
     public function getFile()
     {
         return $this->file;

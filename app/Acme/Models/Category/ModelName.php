@@ -26,14 +26,9 @@ class ModelName extends Model
         return $this->id;
     }
 
-    public function getTitle()
+    public function getName()
     {
-        $lc = app()->getlocale();
-        if($lc == 'kg'){
-            return $this->title;
-        }else{
-            return $this->titleRu;
-        }
+        return $this->name;
     }
 
 }

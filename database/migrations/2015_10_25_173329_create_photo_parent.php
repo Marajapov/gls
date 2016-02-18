@@ -15,24 +15,9 @@ class CreatePhotoParent extends Migration
         Schema::create('photoParent', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('nameRu');
             $table->text('description');
-            $table->text('descriptionRu');
             $table->string('author');
-            $table->string('authorRu');
             $table->binary('images');
-
-            $table->string('director');
-            $table->string('ns');
-            $table->string('rs');
-            $table->string('muzkanal');
-            $table->string('kyrgyzradio');
-            $table->string('birinchi');
-            $table->string('balastan');
-            $table->string('madaniyat');
-            $table->string('minkiyal');
-            $table->string('dostuk');
-            $table->string('extracolumn');
             
             $table->boolean('published')->nullable()->default(false);;
             $table->string('status');
