@@ -1,15 +1,8 @@
 <?php
-
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
 class CreateMenuTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('menus', function (Blueprint $table) {
@@ -22,16 +15,9 @@ class CreateMenuTable extends Migration
             $table->smallInteger('order')->nullable()->unsigned()->default(0);
             $table->boolean('newtab')->nullable()->default(false);
             $table->timestamps();
-
             $table->foreign('parent_id')->references('id')->on('menus')->onUpdate('cascade')->onDelete('set null');
         });
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::drop('menus');

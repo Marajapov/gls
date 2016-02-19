@@ -1,4 +1,4 @@
-@extends('Admin::layouts.default')
+extends('Admin::layouts.default')
 @section('title', "Admin panel")
 
 @section('content')
