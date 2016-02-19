@@ -8,15 +8,27 @@ use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvi
 class RouteServiceProvider extends ServiceProvider
 {
     protected $namespace = '';
+
     public function boot(Router $router)
     {
+        //
+
         parent::boot($router);
 
         $router->model('user', \Model\User\ModelName::class);
+        $router->model('category', \Model\Category\ModelName::class);
+        $router->model('menu', \Model\Menu\ModelName::class);
 
         $this->app['view']->addNamespace('Front', app_path().'/Acme/Http/Front/Views/');
         $this->app['view']->addNamespace('Admin', app_path().'/Acme/Http/Admin/Views/');
     }
+
+    /**
+     * Define the routes for the application.
+     *
+     * @param  \Illuminate\Routing\Router  $router
+     * @return void
+     */
     public function map(Router $router)
     {
         $router->group(['namespace' => $this->namespace], function ($router) {

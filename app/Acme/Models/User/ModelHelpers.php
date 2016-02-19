@@ -13,4 +13,3 @@ trait ModelHelpers
     	return $this->role == 'manager';
     }
 }
-

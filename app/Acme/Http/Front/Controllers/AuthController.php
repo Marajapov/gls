@@ -6,11 +6,6 @@ class AuthController extends Controller
     public function __construct()
     {
     }
-    /**
-     * Show the application dashboard to the user.
-     *
-     * @return Response
-     */
     public function Login()
     {
         return view('Front::auth.login');

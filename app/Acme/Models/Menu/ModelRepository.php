@@ -28,21 +28,11 @@ class ModelRepository
         return true;
     }
 
-    /**
-     * Get a list of all menus.
-     *
-     * @return mixed
-     */
     public function getItems()
     {
         return ModelName::orderBy('order', 'asc')->get();
     }
 
-    /**
-     * Get a parent list of all menus.
-     *
-     * @return mixed
-     */
     public function getParents($type = '')
     {
         return ModelName::type($type)->where('parent_id', '=', null)->orderBy('order', 'asc')->get();

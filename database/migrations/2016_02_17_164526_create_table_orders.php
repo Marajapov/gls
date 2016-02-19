@@ -5,11 +5,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateTableOrders extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('orders', function (Blueprint $table) {
@@ -28,12 +23,6 @@ class CreateTableOrders extends Migration
             $table->foreign('owner_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('set null');
         });
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::drop('orders');

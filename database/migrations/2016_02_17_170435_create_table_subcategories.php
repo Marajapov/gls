@@ -5,11 +5,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateTableSubcategories extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('subcategories', function (Blueprint $table) {
@@ -22,12 +17,6 @@ class CreateTableSubcategories extends Migration
             $table->foreign('category_id')->references('id')->on('categories')->onUpdate('cascade')->onDelete('set null');
         });
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::drop('subcategories');

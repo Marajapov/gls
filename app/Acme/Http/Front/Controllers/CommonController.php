@@ -1,6 +1,5 @@
 <?php
 namespace Front\Controllers;
-//use Illuminate\Http\Request;
 use Illuminate\Http\Request;
 
 class CommonController extends Controller
