@@ -36,7 +36,8 @@ class AjaxController extends Controller
                     "parent"=>2
                 ]
             );
-            $result = '<option value="0" selected class="hidden">-- Выберите тип --</option>';
+//            $result = '<option value="0" selected class="hidden">-- Выберите тип --</option>';
+            $result = "";
             foreach($types as $type){
                 if($type['parent'] == $data['id']){
                     $result .= '<option value="'.$type["id"].'">'.$type["name"].'</option>';

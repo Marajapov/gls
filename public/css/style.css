@@ -250,6 +250,38 @@ body{
 .form-control{
     background: #ffffff;
 }
+.form-control.error{
+    background-color: #FFC0A4;
+    color: #EB5E28;
+}
+.form-control.valid{
+    background-color: #ABF3CB;
+    color: #009a61;
+}
+.form-control.error::-moz-placeholder {
+    color: #EB5E28;
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+
+.form-control.error:-moz-placeholder {
+    color: #EB5E28;
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+
+.form-control.error::-webkit-input-placeholder {
+    color: #EB5E28;
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+
+.form-control.error:-ms-input-placeholder {
+    color: #EB5E28;
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+
 .btn-group.select{
     padding: 0;
 }
@@ -271,8 +303,20 @@ body{
 .btn.active .caret, .open > .btn.dropdown-toggle .caret {
     border-top-color: #66615B;
 }
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus{
+    background: #ffffff;
+    color: #66615B;
+}
+.dropdown-menu > li:last-child > a{
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
 .section-form .dropdown-menu{
     background: #ffffff;
+    -webkit-border-radius: 0 0 4px 4px;
+    -moz-border-radius: 0 0 4px 4px;
+    border-radius: 0 0 4px 4px;
 }
 textarea{
     resize: vertical;
@@ -304,6 +348,47 @@ textarea{
 
     opacity: 1;
 }
+.newTask label{
+    position: relative;
+}
+.newTask label.error{
+    display: none !important;
+}
+.newTask .form-group label.required-label::after{
+    position: absolute;
+    content: "*";
+    right: -12px;
+    top: -5px;
+    width: 10px;
+    height: 10px;
+    color: #fc4c7a;
+    font-size: 14px;
+}
+.fileinput-new.input-group .btn-file, .fileinput-new .input-group .btn-file{
+    background: #e6e6e6;
+}
+.attention{
+    margin: 15px 0;
+    padding-left: 30px;
+    color: #a1b1c2;
+    font-size: 12px;
+}
+.attention span{
+    position: relative;
+}
+.attention span::after{
+    position: absolute;
+    content: "*";
+    right: 5px;
+    top: 0px;
+    width: 10px;
+    height: 10px;
+    color: #fc4c7a;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
 /*FOOTER*/
 .footer-demo{
     background-attachment: fixed;
