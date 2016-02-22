@@ -129,71 +129,6 @@
                 }
             };
 
-            $scope.task = {category: ''};
-
-            $scope.categories = [
-                {
-                    id: 1,
-                    name: "Курьерские услуги",
-                    types: [
-                        { id: 101, name: 'Курьерские услуги 1' },
-                        { id: 102, name: 'Курьерские услуги 2' },
-                        { id: 103, name: 'Курьерские услуги 3' }
-                    ]
-                },
-                {
-                    id: 2,
-                    name: "Бытовой ремонт",
-                    types: [
-                        { id: 201, name: 'Бытовой ремонт 1' },
-                        { id: 202, name: 'Бытовой ремонт 2' },
-                        { id: 203, name: 'Бытовой ремонт 3' }
-                    ]
-                },
-                {
-                    id: 3,
-                    name: "Грузоперевозки",
-                    types: [
-                        { id: 301, name: 'Грузоперевозки 1' },
-                        { id: 302, name: 'Грузоперевозки 2' },
-                        { id: 303, name: 'Грузоперевозки 3' }
-                    ]
-                }
-            ];
-
-            $scope.getTypes = function(selectedCategory) {
-                var filteredCategory = $filter('filter')($scope.categories, selectedCategory);
-                return filteredCategory[0].types;
-            };
-
-            $scope.banks = [{
-                "name": "Bank A",
-                branches: [{
-                    "name": "Branch 1",
-                    "code": "1"
-                }, {
-                    "name": "Branch 2",
-                    "code": "2"
-                }]
-            }, {
-                "name": "Bank B",
-                branches: [{
-                    "name": "Branch 3",
-                    "code": "3"
-                }, {
-                    "name": "Branch 4",
-                    "code": "4"
-                }, {
-                    "name": "Branch 5",
-                    "code": "5"
-                }]
-            }];
-
-            $scope.getBranches = function(selectedBank) {
-                var filteredBank = $filter('filter')($scope.banks, selectedBank);
-                return filteredBank[0].branches;
-            };
-
         });
     </script>
 
@@ -225,7 +160,8 @@
 
             });
 
-            $("#taskType .btn").click(function () {
+            $("#taskType .btn").click(function (e) {
+                e.preventDefault()
                 $("#tooltipCategory").addClass("in");
                 setTimeout(function() {
                     $('#tooltipCategory').removeClass('in');
