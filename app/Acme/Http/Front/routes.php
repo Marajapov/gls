@@ -13,6 +13,9 @@ Route::group(['prefix' => '/', 'namespace' => 'Front\Controllers'], function() {
 
     Route::get('locale/{locale?}',   ['as' => 'locale',   'uses' => 'CommonController@setLocale']);
 
+    Route::get('tasks/new',['as'=>'front.tasks.new', 'uses'=>'TaskController@newTask']);
+    Route::post('tasks/new', 'AjaxController@selectChange');
+
 });
 
 
