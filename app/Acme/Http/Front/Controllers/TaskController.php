@@ -11,6 +11,14 @@ class TaskController extends Controller
     public function __construct()
     {
     }
+    public function index()
+    {
+        $lc = app()->getlocale();
+
+        return view('Front::tasks.index', [
+            'lc' =>$lc,
+        ]);
+    }
     public function newTask()
     {
         $lc = app()->getlocale();

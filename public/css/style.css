@@ -243,6 +243,10 @@ body{
 /*SECTION FORM*/
 .section-form h2{
     color: #66615b;
+    font-size: 24px;
+}
+.newTask{
+    padding: 15px 0;
 }
 .form-group{
     position: relative;
@@ -387,7 +391,9 @@ textarea{
     font-size: 14px;
     font-weight: bold;
 }
-
+.help-block{
+    font-size: 14px;
+}
 
 /*FOOTER*/
 .footer-demo{
