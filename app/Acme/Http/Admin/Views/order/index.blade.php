@@ -1,5 +1,5 @@
 @extends('Admin::layouts.default')
-@section('title', "Admin panel")
+@section('title', "Posts")
 
 @section('content')
 <div class="wrapper">
@@ -184,8 +184,6 @@
     </div>
 </div>
 
-
 <!-- include footer -->
     @include('Admin::layouts.footer')
 <!-- end include footer -->
-
