@@ -1235,9 +1235,9 @@ body > .navbar-collapse[data-color="purple"]:after {
   -o-user-select: none;
   user-select: none;
   /*   this code is for fixing safari bug with hidden overflow for border-radius   */
-  -webkit-mask: url("../img/mask.png") 0 0 no-repeat;
+  -webkit-mask: url("../../images/admin/img/mask.png") 0 0 no-repeat;
   -webkit-mask-size: 60px 24px;
-  mask: url("../img/mask.png") 0 0 no-repeat;
+  mask: url("../../images/admin/img/mask.png") 0 0 no-repeat;
 }
 
 .has-switch.deactivate {
@@ -1416,7 +1416,7 @@ body > .navbar-collapse[data-color="purple"]:after {
   font-size: 16px;
 }
 .navbar.fixed {
-  width: calc(100% - $sidebar-width);
+  width: 100%0;
   right: 0;
   left: auto;
   border-radius: 0;
@@ -3061,7 +3061,7 @@ body > .navbar-collapse[data-color="purple"]:after {
     }
     100% {
       top: 0px;
-      transform: rotate(0);
+      transform: rotate(0deg);
     }
   }
   @-webkit-keyframes topbar-back {
@@ -3077,7 +3077,7 @@ body > .navbar-collapse[data-color="purple"]:after {
     }
     100% {
       top: 0px;
-      -webkit-transform: rotate(0);
+      -webkit-transform: rotate(0deg);
     }
   }
   @-moz-keyframes topbar-back {
@@ -3093,7 +3093,7 @@ body > .navbar-collapse[data-color="purple"]:after {
     }
     100% {
       top: 0px;
-      -moz-transform: rotate(0);
+      -moz-transform: rotate(0deg);
     }
   }
   @keyframes bottombar-x {
@@ -3157,7 +3157,7 @@ body > .navbar-collapse[data-color="purple"]:after {
     }
     100% {
       bottom: 0px;
-      transform: rotate(0);
+      transform: rotate(0deg);
     }
   }
   @-webkit-keyframes bottombar-back {
@@ -3173,7 +3173,7 @@ body > .navbar-collapse[data-color="purple"]:after {
     }
     100% {
       bottom: 0px;
-      -webkit-transform: rotate(0);
+      -webkit-transform: rotate(0deg);
     }
   }
   @-moz-keyframes bottombar-back {
@@ -3189,7 +3189,7 @@ body > .navbar-collapse[data-color="purple"]:after {
     }
     100% {
       bottom: 0px;
-      -moz-transform: rotate(0);
+      -moz-transform: rotate(0deg);
     }
   }
   @-webkit-keyframes fadeIn {

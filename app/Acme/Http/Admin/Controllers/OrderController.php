@@ -3,6 +3,7 @@ namespace Admin\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
+use \Model\Order\ModelName as Order;
 
 class OrderController extends Controller
 {
@@ -27,7 +28,9 @@ class OrderController extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin::order.create', [
+            'order'  => new Order,
+        ]);
     }
 
     /**
@@ -49,7 +52,9 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        //
+        dd($id);
+        return view('Admin::order.show', [
+        ]);
     }
 
     /**

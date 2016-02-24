@@ -1,0 +1,64 @@
+/*NAV*/
+.navbar .navbar-nav > li > a.btn{
+    position: relative;
+    margin: 10px 3px;
+    padding-left: 34px;
+    color: #87CB16;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+.navbar .navbar-nav > li > a.btn:hover,
+.navbar .navbar-nav > li > a.btn:focus,
+.navbar .navbar-nav > li > a.btn:active{
+    color: #049F0C;
+}
+.navbar .navbar-nav > li > a.btn i{
+    position: absolute;
+    top: 7px;
+    left: 12px;
+    font-size: 18px;
+    line-height: 20px;
+}
+.card td ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.card td li{
+    display: inline-block;
+    vertical-align: middle;
+}
+.card td li a{
+    padding: 0 8px;
+    font-size: 20px;
+    font-weight: bold;
+
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+.card td li i{
+    font-weight: bold;
+}
+.card .view{
+    font-size: 22px;
+}
+.card .edit{
+    color: #87CB16;
+}
+.card .edit:hover,
+.card .edit:focus,
+.card .edit:active{
+    color: #049F0C;
+}
+.card .delete{
+    color: #FF4A55;
+    font-size: 24px;
+}
+.card .delete:hover,
+.card .delete:focus,
+.card .delete:active{
+    color: #EE2D20;
+}

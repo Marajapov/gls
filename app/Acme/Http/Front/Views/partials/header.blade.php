@@ -22,6 +22,5 @@
 
     @yield('styles')
 
-
 </head>
 <body>

@@ -3,36 +3,46 @@
 
 @section('content')
 
-<div class="loginform">
+    <div class="overlay"></div>
 
-    <div class="logintitle clearfix">
-      <img src="{{ asset('images/ktrk_last.svg') }}" alt=""/>
+    <div class="card">
 
-      <h4>Авторизация</h4>
-    </div>
+        <div class="header">
+            <h4 class="title">Авторизация</h4>
+        </div>
 
-    <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12 buttonscry">
-
+        <div class="content">
             {!! Form::open(['route' => 'front.login', 'role' => 'form', 'method' => 'POST']) !!}
 
-            <div class="input-group bottom-padding">
-                <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                {!! Form::email('email', old('email'), ['class' => 'form-control', 'required' => true, 'maxlength' => 100, 'title' => "Email", 'placeholder' => "Email"]) !!}
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Логин</label>
+                        {!! Form::text('email', old('email'), ['class' => 'form-control', 'required' => true]) !!}
+                    </div>
+                </div>
             </div>
 
-            <div class="input-group">
-                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                {!! Form::password('password', ['class' => 'form-control', 'required' => true, 'maxlength' => 100, 'placeholder'=>'Сырсөз']) !!}
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>Пароль</label>
+                        {!! Form::password('password', ['class' => 'form-control', 'required' => true]) !!}
+                    </div>
+                </div>
             </div>
 
-            <button class="btn loginbutton" type="submit">Кирүү</button>
+            <div class="row">
+                <div class="col-md-12">
+                    <button class="btn btn-primary btn-fill" type="submit">Вход</button>
+                </div>
+            </div>
+
             {!! Form::close() !!}
+        </div>
 
-            @include('Front::messages.flash')
-            @stop
-
-        </div><!-- end row-->
     </div>
 
-</div>
+    @include('Front::messages.flash')
+
+@endsection

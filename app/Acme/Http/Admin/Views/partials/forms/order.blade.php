@@ -1,31 +1,46 @@
-@include('Front::messages.flash')
-
-<div class="panel panel-success">
-  <div class="panel-body">
-
-    <div class="form-group">
-      <label for="channel_id" class="col-sm-2 control-label">{{ trans('site.AdminUserName') }}</label>
-      <div class="col-sm-10">
-        {!! Form::text('name', null, ["class" => "form-control", "required" => true, "title" => ""]) !!}
-      </div>
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <label>Имя клиента</label>
+            <input type="text" class="form-control" placeholder="Имя">
+        </div>
     </div>
-
-    <div class="form-group">
-      <label for="channel_id" class="col-sm-2 control-label">E-mail</label>
-      <div class="col-sm-10">
-        {!! Form::email('email', null, ["class" => "form-control", "required" => true, "title" => ""]) !!}
-      </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Телефон клиента</label>
+            <input type="email" class="form-control" placeholder="Телефон">
+        </div>
     </div>
-
-    <div class="form-group">
-      <label for="channel_id" class="col-sm-2 control-label">Роль</label>
-      <div class="col-sm-10" style="padding-top: 7px;">
-        {!! Form::select('role', ['ADMIN' => 'admin', 'MANAGER' => 'manager', 'NS'=>'ns','BIRINCHI'=> 'birinchi', 'MUZKANAL'=> 'muzkanal'], null, ["class" => "selectpicker","data-live-search"=>"true", "title" => "-- Выберите --"]) !!}
-      </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Адрес клиента</label>
+            <input type="email" class="form-control" placeholder="Адрес">
+        </div>
     </div>
-
-  </div>
 </div>
 
-<button type="submit" class="btn btn-primary">{{ trans('site.Save') }}</button>
-<a href="{{ route('admin.user.index') }}" class="btn btn-default">{{ trans('site.Back') }}</a>
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group">
+            <label>Описание заказа</label>
+            <textarea rows="5" class="form-control" placeholder="Текст описания"></textarea>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <label>Категория</label>
+            <select name="" id="" class="form-control">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+<button type="submit" class="btn btn-primary">Сохранить</button>
+<button onclick="history.go(-1);" class="btn btn-default">Назад</button>
