@@ -2,6 +2,9 @@
 @section('title', $user->getName())
 
 @section('content')
+    <!-- include bottom nav -->
+    @include('Admin::partials.usernav')
+    <!-- end bottom nav -->
 
 <div class="row modals">
   <div class="col-md-12 col-sm-12 col-xs-12">

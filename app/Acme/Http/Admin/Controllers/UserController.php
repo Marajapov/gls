@@ -15,7 +15,11 @@ class UserController extends Controller
     }
     public function create()
     {
-        return view('Admin::user.create', ['user' => new User()]);
+        $categoryList = \Model\Category\ModelName::lists('name', 'id')->toArray();
+        return view('Admin::user.create', [
+            'user' => new User(),
+            'categoryList' => $categoryList,
+            ]);
     }
     public function store(Request $request)
     {

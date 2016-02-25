@@ -5,6 +5,10 @@
   <link rel="stylesheet" href="{{ asset('css/bootstrap-select.css') }}"/>
 @endsection
 
+	<!-- include bottom nav -->
+    @include('Admin::partials.usernav')
+    <!-- end bottom nav -->
+
 @section('content')
 <div class="row modals">
 	<div class="col-md-12 col-sm-12 col-xs-12">

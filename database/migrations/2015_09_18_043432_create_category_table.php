@@ -11,6 +11,7 @@ class CreateCategoryTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('description');
+            $table->string('status');
 
             $table->boolean('published')->nullable()->default(false);
             $table->timestamps();

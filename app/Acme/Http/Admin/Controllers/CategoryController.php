@@ -41,7 +41,9 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Category::create($request->except('q'));
+
+        return redirect()->route('admin.category.index');
     }
 
     /**
@@ -50,9 +52,10 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($category)
     {
         return view('Admin::category.show', [
+            'category' => $category,
         ]);
     }
 
@@ -62,9 +65,11 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Category $category)
     {
-        //
+        return view('Admin::category.edit', [
+            'category' => $category,
+        ]);        
     }
 
     /**
@@ -74,9 +79,10 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $category)
     {
-        //
+        $category->update($request->except('q'));
+        return redirect()->route('admin.category.index');
     }
 
     /**
@@ -85,8 +91,10 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Category $category)
     {
-        //
+        $category->delete();
+
+        return redirect()->route('admin.category.index');
     }
 }

@@ -22,12 +22,7 @@
             <div class="col-md-3">
                 <div class="form-group">
                     <label for="category1">Категория</label>
-                    <select id="category1" name="category1" class="form-control selectpicker" title="-- Выберите категорию --">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                    </select>
+                    {!! Form::select('category_id', ['0'=>'-- Выберите --']+$categoryList, null, ["class" => "form-control selectpicker", "data-live-search"=>"true", "title" => "-- Выберите --"]) !!}
                 </div>
             </div>
             <div class="col-md-3">

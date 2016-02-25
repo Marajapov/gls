@@ -7,23 +7,41 @@ class ModelName extends Model
 {
     use ModelHelpers, ModelScopes, ModelRelationships;
 
-    protected $table = 'categories';
+    protected $table = 'subcategories';
 
     protected $guarded = ['id'];
 
-    public function id()
+    public function getId()
     {
         return $this->id;
     }
 
-    public function getTitle()
+    public function getName()
     {
-        $lc = app()->getlocale();
-        if($lc == 'kg'){
-            return $this->title;
-        }else{
-            return $this->titleRu;
-        }
+        return $this->name;
+    }
+    public function getPrice()
+    {
+        return $this->price;
     }
 
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    public function getPublished()
+    {
+        if($this->published == 1)
+            return 'Опубликован';
+        else
+            return 'Не опубликован';
+    }
+
+    public function getDate()
+    {
+        $fullDate = $this->created_at;
+        $date = date('d/m/Y', strtotime($fullDate));
+        return $date;
+    }
 }

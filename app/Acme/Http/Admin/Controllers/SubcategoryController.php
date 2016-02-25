@@ -14,10 +14,10 @@ class SubcategoryController extends Controller
      */
     public function index()
     {
-        $categories = Subcategory::orderBy('id', 'desc')->get();
+        $subcategories = Subcategory::orderBy('id', 'desc')->get();
 
         return view('Admin::subcategory.index', [
-            'categories' => $categories,
+            'subcategories' => $subcategories,
         ]);
     }
 
@@ -28,8 +28,10 @@ class SubcategoryController extends Controller
      */
     public function create()
     {
+        $categoryList = \Model\Category\ModelName::lists('name', 'id')->toArray();
         return view('Admin::subcategory.create', [
             'subcategory'  => new Subcategory,
+            'categoryList' => $categoryList,
         ]);
     }
 
@@ -41,7 +43,9 @@ class SubcategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Subcategory::create($request->except('q'));
+
+        return redirect()->route('admin.subcategory.index');
     }
 
     /**
@@ -50,9 +54,11 @@ class SubcategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($subcategory)
     {
+        
         return view('Admin::subcategory.show', [
+            'subcategory' => $subcategory,
         ]);
     }
 
@@ -62,9 +68,13 @@ class SubcategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Subcategory $subcategory)
     {
-        //
+        $categoryList = \Model\Category\ModelName::lists('name', 'id')->toArray();
+        return view('Admin::subcategory.edit', [
+            'subcategory' => $subcategory,
+            'categoryList' => $categoryList,
+        ]);
     }
 
     /**
@@ -74,9 +84,10 @@ class SubcategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $subcategory)
     {
-        //
+        $subcategory->update($request->except('q'));
+        return redirect()->route('admin.subcategory.index');
     }
 
     /**
@@ -85,8 +96,10 @@ class SubcategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Subcategory $subcategory)
     {
-        //
+        $subcategory->delete();
+
+        return redirect()->route('admin.subcategory.index');
     }
 }
