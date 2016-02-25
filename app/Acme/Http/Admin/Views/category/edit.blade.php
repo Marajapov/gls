@@ -1,14 +1,14 @@
 @extends('Admin::layouts.default')
-@section('title', "Добавить подкатегорию")
+@section('title', "Posts")
 
 @section('styles')
     <link rel="stylesheet" href="{{ asset('css/admin/build.css') }}"/>
 @stop
 
 @section('content')
-    
+
     <!-- include bottom nav -->
-    @include('Admin::partials.subcategoryNav')
+    @include('Admin::partials.bottomnav')
     <!-- end bottom nav -->
 
     <div class="content">
@@ -19,11 +19,11 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="header">
-                            <h4 class="title">Новая подкатегория</h4>
+                            <h4 class="title">Редактировать</h4>
                         </div>
                         <div class="content">
-                            {!! Form::model($subcategory, ['route' => 'admin.subcategory.store']) !!}
-                            @include('Admin::partials.forms.subcategory', [$subcategory])
+                            {!! Form::model($category, ['route' => ['admin.category.update', $category], 'method' => 'PUT']) !!}
+                            @include('Admin::partials.forms.category', [$category])
                             {!! Form::close() !!}
                         </div>
                     </div>

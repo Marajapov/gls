@@ -3,44 +3,9 @@
 
 @section('content')
 
-    <nav class="navbar navbar-default navbar-fixed">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <div class="collapse navbar-collapse">
-                <ul class="nav navbar-nav navbar-left">
-                    <li>
-                        <a href="{{ route('admin.subcategory.create') }}" class="btn btn-success btn-block">
-                            Добавить подкатегорию
-                            <i class="pe-7s-network"></i>
-                        </a>
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            Азамат
-                            <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Личный кабинет</a></li>
-
-                            <li class="divider"></li>
-                            <li><a href="#">Выйти</a></li>
-                        </ul>
-                    </li>
-
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <!-- include bottom nav -->
+    @include('Admin::partials.subcategoryNav')
+    <!-- end bottom nav -->
 
     <div class="content">
         <div class="container-fluid">
@@ -51,7 +16,7 @@
                     <div class="card">
                         <div class="header">
                             <h4 class="title">
-                                Все категории
+                                Все подкатегории
                             </h4>
                         </div>
                         <div class="content table-responsive table-full-width">
@@ -59,36 +24,43 @@
                                 <thead>
                                 <th>ID</th>
                                 <th>Название</th>
+                                <th>Категогия</th>
                                 <th>Статус</th>
                                 <th>Дата</th>
                                 <th>Действия</th>
                                 </thead>
                                 <tbody>
+                                @foreach($subcategories as $subcategory)
                                 <tr>
-                                    <td>1</td>
-                                    <td>Нужен курьер</td>
-                                    <td>Новый</td>
-                                    <td>22/02/2016</td>
+                                    <td>{{ $subcategory->getId() }}</td>
+                                    <td>{{ $subcategory->getName() }}</td>
+
+                                    <td>@if(($subcategory->category()->first()) != null) {{ $subcategory->category()->first()->getName()}} @endif</td>
+                                    <td>{{ $subcategory->getPublished() }}</td>
+                                    <td>{{ $subcategory->getDate() }}</td>
                                     <td>
                                         <ul>
                                             <li>
-                                                <a class="view" href="{{ route('admin.order.show') }}" title="Посмотреть">
+                                                <a class="view" href="{{ route('admin.subcategory.show', $subcategory) }}" title="Посмотреть">
                                                     <i class="pe-7s-exapnd2"></i>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="edit" href="#" title="Редактировать">
+                                                <a class="edit" href="{{ route('admin.subcategory.edit', $subcategory) }}" title="Редактировать">
                                                     <i class="pe-7s-note"></i>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="delete" href="#" title="Удалить">
-                                                    <i class="pe-7s-close"></i>
-                                                </a>
+                                                 {!! Form::open(['route' => ['admin.subcategory.destroy', $subcategory], 'method' => 'DELETE', 'onsubmit' => "return confirm('Вы уверены ?')"]) !!}
+                                                <button type="submit" class="delete">
+                                                <i class="pe-7s-close-circle"></i>
+                                                </button>
+                                            {!! Form::close() !!}
                                             </li>
                                         </ul>
                                     </td>
                                 </tr>
+                                @endforeach
                                 </tbody>
                             </table>
 
