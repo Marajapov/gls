@@ -18,7 +18,7 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>Логин</label>
-                        {!! Form::text('email', old('email'), ['class' => 'form-control', 'required' => true]) !!}
+                        {!! Form::text('phone', old('phone'), ['class' => 'form-control', 'required' => true]) !!}
                     </div>
                 </div>
             </div>

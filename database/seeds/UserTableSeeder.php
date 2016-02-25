@@ -11,18 +11,21 @@ class UserTableSeeder extends Seeder
             'email'      => 'nurchin@gmail.com',
             'password'   => bcrypt('123123'),
             'role'       => 'admin',
+            'phone'       => '+996550123456',
         ]);
         \Model\User\ModelName::create([
             'name'       => 'Abakan',
             'email'      => 'abakano21@gmail.com',
             'password'   => bcrypt('123123'),
             'role'       => 'admin',
+            'phone'       => '0558210420',
         ]);
         \Model\User\ModelName::create([
             'name'       => 'Aibek',
             'email'      => 'aibek@gmail.com',
             'password'   => bcrypt('123123'),
             'role'       => 'admin',
+            'phone'       => '0700381838',
         ]);
 
           

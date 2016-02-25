@@ -14,7 +14,7 @@ class AuthController extends Controller
     public function postLogin(Request $request)
     {
 
-        if(auth()->attempt(['email' => $request->input('email'), 'password' => $request->input('password')]))
+        if(auth()->attempt(['phone' => $request->input('phone'), 'password' => $request->input('password')]))
         {
             if(auth()->user()->isAdmin()){
                 return redirect()->route('admin.home');
