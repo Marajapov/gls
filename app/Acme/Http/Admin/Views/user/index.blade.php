@@ -1,112 +1,108 @@
 @extends('Admin::layouts.default')
-@section('title', trans('site.AdminUserAlls') )
+@section('title', trans('Пользователи') )
 
 @section('styles')
-  <link rel="stylesheet" href="{{ asset('css/admin/dataTables.bootstrap.css') }}"/>
 @endsection
 
 @section('content')
 
-  <div class="row modals">
-    <div class="col-md-12 col-sm-12 col-xs-12">
-      <div class="x_panel">
+    <nav class="navbar navbar-default navbar-fixed">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-left">
+                    <li>
+                        <a href="{{ route('admin.user.create') }}" class="btn btn-success btn-block">
+                            Добавить пользователя
+                            <i class="pe-7s-add-user"></i>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
 
-        <div class="x_title clearfix">
-          <h4>{{ trans('site.AdminUserAlls') }}</h4>
-          <a href="{{ route('admin.user.create') }}" class="btn btn-success pull-right">
-            <i class="fa fa-plus"></i>
-            {{ trans('site.AdminUserNew') }}
-          </a>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Азамат
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Личный кабинет</a></li>
+
+                            <li class="divider"></li>
+                            <li><a href="#">Выйти</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
         </div>
+    </nav>
 
-        <div class="x_content">
+    <div class="content">
+        <div class="container-fluid">
 
-          <table id="example" class="table table-bordered table-striped" data-order='[[ 0, "asc" ]]' data-page-length='10'>
+            <div class="row">
 
-            <thead>
-            <tr>
-              <th>{{ trans('site.AdminUserName') }}</th>
-              <th>E-mail</th>
-              <th>Канал</th>
-              <th>Роль</th>
-              <th>Действия</th>
-            </tr>
-            </thead>
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title">
+                                Последние заказы
+                            </h4>
+                        </div>
+                        <div class="content table-responsive table-full-width">
+                            <table class="table table-hover table-striped">
+                                <thead>
+                                <th>ID</th>
+                                <th>Название</th>
+                                <th>Статус</th>
+                                <th>Дата</th>
+                                <th>Действия</th>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Нужен курьер</td>
+                                    <td>Новый</td>
+                                    <td>22/02/2016</td>
+                                    <td>
+                                        <ul>
+                                            <li>
+                                                <a class="view" href="{{ route('admin.order.show') }}" title="Посмотреть">
+                                                    <i class="pe-7s-next-2"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="edit" href="#" title="Редактировать">
+                                                    <i class="pe-7s-pen"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="delete" href="#" title="Удалить">
+                                                    <i class="pe-7s-close-circle"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
 
-            <tbody>
-            @foreach($users as $user)
-              <tr>
-                <td class="table-title">
-                  <a href="{{ route('admin.user.show', $user) }}">
-                    {{ $user->name }}
-                  </a>
-                </td>
-                <td>
-                  {{ $user->email }}
-                </td>
-                <td>
-                  {{ $user->channel()->first()->display }}
-                </td>
-                <td>
-                  {{ $user->role }}
-                </td>
-                <td>
-                  <a class="btn btn-default" href="{{ route('admin.user.show', $user) }}">
-                    {{--<span class="glyphicon glyphicon-eye-open"></span>--}}
-                    <i class="fa fa-eye"></i>
-                  </a>
-                  <a class="btn btn-default" href="{{ route('admin.user.edit', $user) }}">
-                    {{--<span class="glyphicon glyphicon-pencil"></span>--}}
-                    <i class="fa fa-pencil"></i>
-                  </a>
-                  {!! Form::open(['route' => ['admin.user.destroy', $user], 'method' => 'DELETE', 'onsubmit' => "return confirm('Вы уверены ?')"]) !!}
-                  <button type="submit" class="btn btn-default">
-                    {{--<span class="glyphicon glyphicon-trash"></span>--}}
-                    <i class="fa fa-trash"></i>
-                  </button>
-                  {!! Form::close() !!}
-                </td>
-              </tr>
-            @endforeach
-            </tbody>
-
-          </table>
-
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
-      </div>
     </div>
-  </div>
+
 @stop
 
 @section('scripts')
-  <script src="{{ asset('js/admin/jquery.dataTables.js') }}"></script>
-  <script src="{{ asset('js/admin/dataTables.bootstrap.js') }}"></script>
-
-  <script>
-    $(document).ready(function() {
-      $('#example').DataTable({
-        "language": {
-          "info": "_START_ - _END_ : {{ trans('site.DataTableTotal') }} _TOTAL_ ",
-          "lengthMenu" : "_MENU_ ",
-          "search" : "{{ trans('site.DataTableSearch') }} ",
-          "zeroRecords" : "{{ trans('site.DataTableNoResult') }}",
-          "infoEmpty" : "0-0: {{ trans('site.DataTableTotal') }} 0",
-          "infoFiltered" : "",
-
-          "paginate": {
-            "first": "{{ trans('site.DataTableFirstPage') }}",
-            "last": "{{ trans('site.DataTableLastPage') }}",
-            "next": "{{ trans('site.DataTableNextPage') }}",
-            "previous": "{{ trans('site.DataTablePreviousPage') }}"
-          }
-        },
-        "columnDefs": [
-          { "orderable": false, "targets": 1 },
-          { "orderable": false, "targets": 3 },
-          { "orderable": false, "targets": 4 }
-        ]
-      });
-    } );
-  </script>
 @endsection

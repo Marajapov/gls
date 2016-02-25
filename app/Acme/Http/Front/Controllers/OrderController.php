@@ -5,7 +5,7 @@ use Input;
 use Intervention\Image\ImageManagerStatic as Image;
 use Illuminate\Support\Facades\Validator;
 
-class TaskController extends Controller
+class OrderController extends Controller
 {
 
     public function __construct()
@@ -19,11 +19,11 @@ class TaskController extends Controller
             'lc' =>$lc,
         ]);
     }
-    public function newTask()
+    public function newOrder()
     {
         $lc = app()->getlocale();
 
-        return view('Front::tasks.new', [
+        return view('Front::order.new', [
             'lc' =>$lc,
         ]);
     }

@@ -33,12 +33,6 @@
 
 <script src="{{ asset('js/bootstrap.js') }}" type="text/javascript"></script>
 
-<!--  Plugins -->
-<script src="{{ asset('js/ct-paper-checkbox.js') }}"></script>
-<script src="{{ asset('js/ct-paper-radio.js') }}"></script>
-<script src="{{ asset('js/bootstrap-select.js') }}"></script>
-<script src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
-
 <script src="{{ asset('js/ct-paper.js') }}"></script>
 
 @yield('scripts')

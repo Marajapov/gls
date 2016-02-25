@@ -1,20 +1,20 @@
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-3">
         <div class="form-group">
             <label>Имя клиента</label>
-            <input type="text" class="form-control" placeholder="Имя">
+            <input name="name" type="text" class="form-control" placeholder="Имя">
         </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
         <div class="form-group">
             <label for="exampleInputEmail1">Телефон клиента</label>
-            <input type="email" class="form-control" placeholder="Телефон">
+            <input name="phone" type="text" class="form-control" placeholder="Телефон">
         </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-6">
         <div class="form-group">
             <label for="exampleInputEmail1">Адрес клиента</label>
-            <input type="email" class="form-control" placeholder="Адрес">
+            <input name="address" type="text" class="form-control" placeholder="Адрес">
         </div>
     </div>
 </div>
@@ -23,24 +23,60 @@
     <div class="col-md-12">
         <div class="form-group">
             <label>Описание заказа</label>
-            <textarea rows="5" class="form-control" placeholder="Текст описания"></textarea>
+            <textarea name="description" rows="5" class="form-control" placeholder="Текст описания"></textarea>
         </div>
     </div>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <div class="form-group">
-            <label>Категория</label>
-            <select name="" id="" class="form-control">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-            </select>
+<h5 class="subtitle">Исполнители</h5>
+
+<div class="doers">
+
+    <div class="inner">
+        <div id="doer1" class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="category1">Категория</label>
+                    <select id="category1" name="category1" class="form-control selectpicker" title="-- Выберите категорию --">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="subCategory1">Подкатегория</label>
+                    <select id="subCategory1" name="subCategory1" class="form-control selectpicker" title="-- Выберите категорию --">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="count1">Количество</label>
+                    <input id="count1" name="count1" type="text" class="form-control">
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="cost1">Цена</label>
+                    <input id="cost1" name="cost1" type="text" class="form-control">
+                </div>
+            </div>
+
         </div>
     </div>
+    <a id="addDoer" class="btn btn-success btn-morphing" href="#">Еще</a>
 </div>
 
-<button type="submit" class="btn btn-primary">Сохранить</button>
-<button onclick="history.go(-1);" class="btn btn-default">Назад</button>
+<div class="action">
+    <button type="submit" class="btn btn-primary">Сохранить</button>
+    <button onclick="history.go(-1);" class="btn btn-default">Назад</button>
+</div>

@@ -3,9 +3,9 @@ namespace Admin\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
-use \Model\Category\ModelName as Category;
+use \Model\Subcategory\ModelName as Subcategory;
 
-class CategoryController extends Controller
+class SubcategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::orderBy('id', 'desc')->get();
+        $categories = Subcategory::orderBy('id', 'desc')->get();
 
-        return view('Admin::category.index', [
+        return view('Admin::subcategory.index', [
             'categories' => $categories,
         ]);
     }
@@ -28,8 +28,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('Admin::category.create', [
-            'category'  => new Category,
+        return view('Admin::subcategory.create', [
+            'subcategory'  => new Subcategory,
         ]);
     }
 

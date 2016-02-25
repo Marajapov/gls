@@ -6,4 +6,5 @@ Route::group(['prefix' => 'admin', 'middleware' => 'access:admin', 'namespace' =
     Route::resource('user', 'UserController');
     Route::resource('order', 'OrderController');
     Route::resource('category', 'CategoryController');
+    Route::resource('subcategory', 'SubcategoryController');
 });

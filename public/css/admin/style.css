@@ -62,3 +62,46 @@
 .card .delete:active{
     color: #EE2D20;
 }
+
+/*FORM*/
+textarea{
+    resize: vertical;
+}
+.form-group{
+    margin-bottom: 10px;
+}
+.doers{
+    margin-bottom: 15px;
+}
+.doers .form-group{
+    margin-bottom: 0;
+}
+.bootstrap-select > .dropdown-toggle{
+    background-color: #FFF;
+    border: 1px solid #E3E3E3;
+}
+.bootstrap-select .dropdown-toggle:focus{
+    outline: none !important;
+}
+.card .subtitle{
+    margin: 10px 0 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.action{
+    padding: 15px 0;
+}
+
+/*TABLE*/
+.card table .name{
+    display: inline-block;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.table .td-actions a{
+}
+.btn-xs{
+    font-size: 20px;
+    line-height: 1;
+}
