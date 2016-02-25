@@ -289,23 +289,19 @@ body{
 .btn-group.select{
     padding: 0;
 }
-.btn-group.select .btn{
-    border-color: #ffffff;
-    width: 100%;
-}
-.btn-group.select .btn:hover,
-.btn-group.select .btn:focus,
-.btn-group.select .btn:active{
+.bootstrap-select > .dropdown-toggle{
     background: none;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    border-color: #ffffff;
 }
-.navbar .navbar-nav > li > a.btn:hover .caret,
-.navbar .navbar-nav > li > a.btn:focus .caret,
-.navbar .navbar-nav > li > a.btn:active .caret,
-.navbar .navbar-nav > li > a.btn.active .caret,
-.open > .navbar .navbar-nav > li > a.btn.dropdown-toggle .caret,
-.btn:hover .caret, .btn:focus .caret, .btn:active .caret,
-.btn.active .caret, .open > .btn.dropdown-toggle .caret {
-    border-top-color: #66615B;
+.btn-default:hover, .btn-default:focus, .btn-default.focus, .btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default {
+    border-color: #e6e6e6;
+    background: #e6e6e6;
+}
+.bootstrap-select .dropdown-toggle:focus{
+    outline: none !important;
 }
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus{
     background: #ffffff;
@@ -317,6 +313,7 @@ body{
     border-radius: 4px;
 }
 .section-form .dropdown-menu{
+    margin: 0;
     background: #ffffff;
     -webkit-border-radius: 0 0 4px 4px;
     -moz-border-radius: 0 0 4px 4px;

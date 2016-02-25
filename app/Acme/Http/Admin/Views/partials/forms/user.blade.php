@@ -1,31 +1,66 @@
-@include('Front::messages.flash')
-
-<div class="panel panel-success">
-  <div class="panel-body">
-
-    <div class="form-group">
-      <label for="channel_id" class="col-sm-2 control-label">{{ trans('site.AdminUserName') }}</label>
-      <div class="col-sm-10">
-        {!! Form::text('name', null, ["class" => "form-control", "required" => true, "title" => ""]) !!}
-      </div>
+<div class="row">
+    <div class="col-md-3">
+        <div class="form-group">
+            <label>Ф.И.О.</label>
+            <input name="name" type="text" class="form-control" placeholder="Имя">
+        </div>
     </div>
-
-    <div class="form-group">
-      <label for="channel_id" class="col-sm-2 control-label">E-mail</label>
-      <div class="col-sm-10">
-        {!! Form::email('email', null, ["class" => "form-control", "required" => true, "title" => ""]) !!}
-      </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Телефон</label>
+            <input name="phone" type="text" class="form-control" placeholder="Телефон">
+        </div>
     </div>
-
-    <div class="form-group">
-      <label for="channel_id" class="col-sm-2 control-label">Роль</label>
-      <div class="col-sm-10" style="padding-top: 7px;">
-        {!! Form::select('role', ['ADMIN' => 'admin', 'MANAGER' => 'manager', 'NS'=>'ns','BIRINCHI'=> 'birinchi', 'MUZKANAL'=> 'muzkanal'], null, ["class" => "selectpicker","data-live-search"=>"true", "title" => "-- Выберите --"]) !!}
-      </div>
-    </div>
-
-  </div>
 </div>
 
-<button type="submit" class="btn btn-primary">{{ trans('site.Save') }}</button>
-<a href="{{ route('admin.user.index') }}" class="btn btn-default">{{ trans('site.Back') }}</a>
+<h5 class="subtitle">Специальности</h5>
+
+<div class="doers">
+
+    <div class="inner">
+        <div id="doer1" class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="category1">Категория</label>
+                    <select id="category1" name="category1" class="form-control selectpicker" title="-- Выберите категорию --">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="subCategory1">Подкатегория</label>
+                    <select id="subCategory1" name="subCategory1" class="form-control selectpicker" title="-- Выберите категорию --">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <a id="addDoer" class="btn btn-success btn-morphing" href="#">Еще</a>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <div class="checkbox checkbox-primary">
+                <input id="checkbox3" class="styled" type="checkbox">
+                <label for="checkbox3">
+                    админ
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="action">
+    <button type="submit" class="btn btn-primary">Сохранить</button>
+    <button onclick="history.go(-1);" class="btn btn-default">Назад</button>
+</div>

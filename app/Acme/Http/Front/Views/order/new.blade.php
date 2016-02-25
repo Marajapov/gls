@@ -5,7 +5,6 @@
     <meta name="_token" content="{!! csrf_token() !!}"/>
 
     <link rel="stylesheet" type="text/css" href="{{ asset('css/jasny-bootstrap.css') }}"/>
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap-select.css') }}"/>
 @stop
 
 @section('content')
@@ -28,7 +27,6 @@
                                     <div class="form-group col-md-6">
                                         <label for="taskName" class="required-label">Категория</label>
                                         <select name="taskCategory" id="category" class="form-control selectpicker required" title="-- Выберите категорию --" required>
-                                            <option value="0" selected class="hidden">-- Выберите категорию --</option>
                                             <option value="1">test1</option>
                                             <option value="2">test2</option>
                                         </select>
@@ -72,15 +70,15 @@
                                         <div class="row">
                                             <div class="form-group col-md-4">
                                                 <label for="author" class="required-label">Имя</label>
-                                                <input name="author" id="author" type="text" class="form-control" placeholder="Имя" required/>
+                                                <input name="author" id="author" type="text" class="form-control" placeholder="Укажите имя" required/>
                                             </div>
                                             <div class="form-group col-md-4">
-                                                <label for="email" class="required-label">Эл.адрес</label>
-                                                <input name="email" id="email" type="text" class="form-control" placeholder="E-mail" required/>
+                                                <label for="email" class="required-label">Адрес</label>
+                                                <input name="email" id="email" type="text" class="form-control" placeholder="Уточните адрес" required/>
                                             </div>
                                             <div class="form-group col-md-4">
-                                                <label for="phone" class="required-label">Ваш телефон</label>
-                                                <input name="phone" id="phone" type="text" class="form-control" placeholder="Телефон" required/>
+                                                <label for="phone" class="required-label">Телефон</label>
+                                                <input name="phone" id="phone" type="text" class="form-control" placeholder="Контактный телефон" required/>
                                             </div>
                                         </div>
                                     </div>
@@ -109,8 +107,13 @@
 @stop
 
 @section('scripts')
+    <!--  Plugins -->
+    <script src="{{ asset('js/ct-paper-checkbox.js') }}"></script>
+    <script src="{{ asset('js/ct-paper-radio.js') }}"></script>
+    <script src="{{ asset('js/bootstrap-select.js') }}"></script>
+    <script src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
+
     <script type="text/javascript" src="{{ asset('js/jasny-bootstrap.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/bootstrap-select.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/jquery.validate.min.js') }}"></script>
 
     <script>
@@ -151,6 +154,7 @@
                     success: function(data)
                     {
                         $("#type").html(data).parent().addClass('no-ajax');
+                        $('.selectpicker').selectpicker('refresh');
                     }
                 });
 

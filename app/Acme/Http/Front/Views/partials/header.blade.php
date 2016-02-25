@@ -11,6 +11,7 @@
     </title>
 
     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap-select.css') }}"/>
     <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/ct-paper.css') }}" rel="stylesheet"/>
 

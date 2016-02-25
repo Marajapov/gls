@@ -17,6 +17,7 @@ class RouteServiceProvider extends ServiceProvider
 
         $router->model('user', \Model\User\ModelName::class);
         $router->model('category', \Model\Category\ModelName::class);
+        $router->model('subcategory', \Model\Subcategory\ModelName::class);
         $router->model('menu', \Model\Menu\ModelName::class);
         $router->model('order', \Model\Order\ModelName::class);
 

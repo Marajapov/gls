@@ -1,6 +1,10 @@
 @extends('Admin::layouts.default')
 @section('title', "Posts")
 
+@section('styles')
+    <link rel="stylesheet" href="{{ asset('css/admin/build.css') }}"/>
+@stop
+
 @section('content')
 
     <nav class="navbar navbar-default navbar-fixed">
@@ -51,10 +55,14 @@
                     <div class="card">
                         <div class="header">
                             <h4 class="title">
-                                Все категории
+                                Категория
                             </h4>
+                            <p class="category">task-category</p>
                         </div>
                         <div class="content table-responsive table-full-width">
+                            <div class="col-md-12">
+                                <p class="subtitle">Подкатегории</p>
+                            </div>
                             <table class="table table-hover table-striped">
                                 <thead>
                                 <th>ID</th>
@@ -66,23 +74,27 @@
                                 <tbody>
                                 <tr>
                                     <td>1</td>
-                                    <td>Нужен курьер</td>
-                                    <td>Новый</td>
+                                    <td>
+                                        <a class="name" href="#">
+                                            Нужен курьер
+                                        </a>
+                                    </td>
+                                    <td>активный</td>
                                     <td>22/02/2016</td>
                                     <td>
                                         <ul>
                                             <li>
-                                                <a class="view" href="{{ route('admin.order.show') }}" title="Посмотреть">
+                                                <a rel="tooltip" class="view" href="{{ route('admin.order.show') }}" title="Посмотреть">
                                                     <i class="pe-7s-next-2"></i>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="edit" href="#" title="Редактировать">
+                                                <a rel="tooltip" class="edit" href="#" title="Редактировать">
                                                     <i class="pe-7s-pen"></i>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="delete" href="#" title="Удалить">
+                                                <a rel="tooltip" class="delete" href="#" title="Удалить">
                                                     <i class="pe-7s-close-circle"></i>
                                                 </a>
                                             </li>

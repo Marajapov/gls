@@ -16,9 +16,9 @@
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-left">
                     <li>
-                        <a href="{{ route('admin.category.create') }}" class="btn btn-success btn-block">
-                            Добавить категорию
-                            <i class="pe-7s-keypad"></i>
+                        <a href="{{ route('admin.subcategory.create') }}" class="btn btn-success btn-block">
+                            Добавить подкатегорию
+                            <i class="pe-7s-network"></i>
                         </a>
                     </li>
                 </ul>
@@ -73,17 +73,17 @@
                                         <ul>
                                             <li>
                                                 <a class="view" href="{{ route('admin.order.show') }}" title="Посмотреть">
-                                                    <i class="pe-7s-next-2"></i>
+                                                    <i class="pe-7s-exapnd2"></i>
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="edit" href="#" title="Редактировать">
-                                                    <i class="pe-7s-pen"></i>
+                                                    <i class="pe-7s-note"></i>
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="delete" href="#" title="Удалить">
-                                                    <i class="pe-7s-close-circle"></i>
+                                                    <i class="pe-7s-close"></i>
                                                 </a>
                                             </li>
                                         </ul>

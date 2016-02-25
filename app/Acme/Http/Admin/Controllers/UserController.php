@@ -10,14 +10,8 @@ class UserController extends Controller
 {
     public function index()
     {
-        $perPage = 15;
-
-        $users = User::paginate($perPage);
-
         return view('Admin::user.index', [
-            'users' => $users,
-            'perPage' => $perPage,
-            ]);
+        ]);
     }
     public function create()
     {

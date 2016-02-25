@@ -8,6 +8,7 @@
     <title>@yield('title')</title>
     <!-- Bootstrap core CSS     -->
     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/bootstrap-select.css') }}" rel="stylesheet" />
 
     <!-- Animation library for notifications   -->
     <link href="{{ asset('css/admin/animate.min.css') }}" rel="stylesheet"/>
