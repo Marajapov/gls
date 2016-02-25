@@ -72,18 +72,18 @@
                                     <td>
                                         <ul>
                                             <li>
-                                                <a class="view" href="{{ route('admin.order.show') }}" title="Посмотреть">
-                                                    <i class="pe-7s-exapnd2"></i>
+                                                <a rel="tooltip" class="view" href="{{ route('admin.subcategory.show') }}" title="Посмотреть">
+                                                    <i class="pe-7s-next-2"></i>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="edit" href="#" title="Редактировать">
-                                                    <i class="pe-7s-note"></i>
+                                                <a rel="tooltip" class="edit" href="{{ route('admin.subcategory.edit') }}" title="Редактировать">
+                                                    <i class="pe-7s-pen"></i>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="delete" href="#" title="Удалить">
-                                                    <i class="pe-7s-close"></i>
+                                                <a rel="tooltip" class="delete" href="{{ route('admin.subcategory.destroy') }}" title="Удалить">
+                                                    <i class="pe-7s-close-circle"></i>
                                                 </a>
                                             </li>
                                         </ul>

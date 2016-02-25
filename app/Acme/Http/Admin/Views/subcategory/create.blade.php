@@ -22,7 +22,7 @@
                     <li>
                         <a href="{{ route('admin.subcategory.create') }}" class="btn btn-success btn-block">
                             Добавить подкатегорию
-                            <i class="pe-7s-keypad"></i>
+                            <i class="pe-7s-network"></i>
                         </a>
                     </li>
                 </ul>

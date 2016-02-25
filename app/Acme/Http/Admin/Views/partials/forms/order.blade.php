@@ -28,6 +28,21 @@
     </div>
 </div>
 
+<div class="row">
+    <div class="col-md-3">
+        <div class="form-group">
+            <label for="cost1">Дата</label>
+            <input id="date" name="date" type="text" class="form-control">
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            <label for="cost1">Дата</label>
+            <input id="time" name="time" type="text" class="form-control">
+        </div>
+    </div>
+</div>
+
 <h5 class="subtitle">Исполнители</h5>
 
 <div class="doers">
@@ -37,7 +52,7 @@
             <div class="col-md-3">
                 <div class="form-group">
                     <label for="category1">Категория</label>
-                    <select id="category1" name="category1" class="form-control selectpicker" title="-- Выберите категорию --">
+                    <select onchange="selectChange($('#category1'), $('#subCategory1'));" id="category1" name="category1" class="form-control selectpicker orderCategory" title="-- Выберите категорию --">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -48,11 +63,7 @@
             <div class="col-md-3">
                 <div class="form-group">
                     <label for="subCategory1">Подкатегория</label>
-                    <select id="subCategory1" name="subCategory1" class="form-control selectpicker" title="-- Выберите категорию --">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
+                    <select id="subCategory1" name="subCategory1" class="form-control selectpicker orderSubcategory" title="-- Выберите подкатегорию --">
                     </select>
                 </div>
             </div>

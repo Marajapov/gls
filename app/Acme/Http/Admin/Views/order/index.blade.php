@@ -66,23 +66,25 @@
                             <tbody>
                                 <tr>
                                     <td>1</td>
-                                    <td>Нужен курьер</td>
+                                    <td>
+                                        <a href="{{ route('admin.order.show') }}">Нужен курьер</a>
+                                    </td>
                                     <td>Новый</td>
                                     <td>22/02/2016</td>
                                     <td>
                                         <ul>
                                             <li>
-                                                <a class="view" href="{{ route('admin.order.show') }}" title="Посмотреть">
+                                                <a rel="tooltip" class="view" href="{{ route('admin.order.show') }}" title="Посмотреть">
                                                     <i class="pe-7s-next-2"></i>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="edit" href="#" title="Редактировать">
+                                                <a rel="tooltip" class="edit" href="{{ route('admin.order.edit') }}" title="Редактировать">
                                                     <i class="pe-7s-pen"></i>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="delete" href="#" title="Удалить">
+                                                <a rel="tooltip" class="delete" href="{{ route('admin.order.destroy') }}" title="Удалить">
                                                     <i class="pe-7s-close-circle"></i>
                                                 </a>
                                             </li>

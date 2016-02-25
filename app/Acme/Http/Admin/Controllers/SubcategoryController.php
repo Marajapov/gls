@@ -52,7 +52,7 @@ class SubcategoryController extends Controller
      */
     public function show($id)
     {
-        return view('Admin::category.show', [
+        return view('Admin::subcategory.show', [
         ]);
     }
 
