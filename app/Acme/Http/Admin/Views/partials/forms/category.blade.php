@@ -5,6 +5,12 @@
             {!! Form::text('name', null, ["class" => "form-control", "required" => true, "placeholder" => "Имя"]) !!}
         </div>
     </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label>Префикс</label>
+            {!! Form::text('prefix', null, ["class" => "form-control", "required" => true, "placeholder" => "Префикс на английском"]) !!}
+        </div>
+    </div>
 </div>
 
 <div class="row">

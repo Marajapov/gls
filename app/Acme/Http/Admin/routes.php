@@ -9,4 +9,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'access:admin', 'namespace' =
     Route::resource('subcategory', 'SubcategoryController');
 
     Route::post('order/create', 'AjaxController@selectChange');
+    Route::post('user/create', 'AjaxController@selectChange');
+    Route::post('user/create/newSelect', 'AjaxController@newSelect');
 });

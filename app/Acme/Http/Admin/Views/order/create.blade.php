@@ -100,7 +100,6 @@
 
         $(document).ready(function () {
             var i = 1;
-            var j = 1;
             $('#addDoer').click(function () {
                 i++;
                 var target = '<div id="doer'+i+'" class="row"><div class="col-md-3"><div class="form-group"><label>Категория</label><select onchange="selectChange($(\'#category'+i+'\'), $(\'#subCategory'+i+'\'));" id="category'+i+'" name="category'+i+'" class="form-control selectpicker orderCategory" title="-- Выберите категорию --"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></div></div><div class="col-md-3"><div class="form-group"><label>Подкатегория</label><select id="subCategory'+i+'" name="subCategory'+i+'" class="form-control selectpicker" title="-- Выберите подкатегорию --"></select></div></div><div class="col-md-3"><div class="form-group"><label>Количество</label><input  id="count'+i+'" name="count'+i+'" type="text" class="form-control"></div></div><div class="col-md-3"><div class="form-group"><label>Цена</label><input id="cost'+i+'" name="cost'+i+'" type="text" class="form-control"></div></div></div>';

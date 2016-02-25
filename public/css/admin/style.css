@@ -259,7 +259,9 @@
 .bootstrap-datetimepicker-widget table td.today > div:before {
     content: '';
     display: inline-block;
-    border: 0 0 7px 7px solid transparent;
+    border-width: 0 0 7px 7px;
+    border-style: solid;
+    border-color: transparent;
     border-bottom-color: #23CCEF;
     border-top-color: rgba(0, 0, 0, 0.2);
     position: absolute;
@@ -387,9 +389,11 @@ textarea{
     display: inline-block;
     vertical-align: middle;
 }
-.card td li a{
+.card td li a,
+.card td li button{
     padding: 0 8px;
     font-size: 20px;
+    line-height: 1;
     font-weight: bold;
 
     -webkit-transition: all 0.2s ease;
@@ -407,12 +411,13 @@ textarea{
     text-transform: uppercase;
     font-weight: bold;
 }
-.table .td-actions a{
-}
 .card-info td:first-child{
     color: #9A9A9A;
     text-transform: uppercase;
     font-size: 12px;
+}
+.card .content{
+    padding: 15px;
 }
 
 /*BUTTONS*/
@@ -428,6 +433,8 @@ textarea{
     color: #049F0C;
 }
 .card .delete{
+    border: none;
+    background: none;
     color: #FF4A55;
     font-size: 24px;
 }

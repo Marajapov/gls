@@ -1,5 +1,5 @@
 @extends('Admin::layouts.default')
-@section('title', trans('Пользователи') )
+@section('title', 'Все пользователи' )
 
 @section('styles')
 @endsection
@@ -19,16 +19,16 @@
                     <div class="card">
                         <div class="header">
                             <h4 class="title">
-                                Последние заказы
+                                Все пользователи
                             </h4>
                         </div>
                         <div class="content table-responsive table-full-width">
                             <table class="table table-hover table-striped">
                                 <thead>
                                 <th>ID</th>
-                                <th>Название</th>
-                                <th>Статус</th>
-                                <th>Дата</th>
+                                <th>Имя</th>
+                                <th>Телефон</th>
+                                <th>Специальности</th>
                                 <th>Действия</th>
                                 </thead>
                                 <tbody>

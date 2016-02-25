@@ -72,7 +72,7 @@
                                         <a href="#" class="btn btn-danger">
                                             Удалить
                                         </a>
-                                        <a href="#" onclick="history.go(-1);" class="btn btn-default"></a>
+                                        <a href="#" onclick="history.go(-1);" class="btn btn-default">Назад</a>
                                     </div>
 
                                 </div>

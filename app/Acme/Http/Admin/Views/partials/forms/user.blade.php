@@ -11,6 +11,12 @@
             <input name="phone" type="text" class="form-control" placeholder="Телефон">
         </div>
     </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Пароль</label>
+            <input name="password" type="password" class="form-control" placeholder="Пароль">
+        </div>
+    </div>
 </div>
 
 <h5 class="subtitle">Специальности</h5>
@@ -22,17 +28,18 @@
             <div class="col-md-3">
                 <div class="form-group">
                     <label for="category1">Категория</label>
-                    {!! Form::select('category_id', ['0'=>'-- Выберите --']+$categoryList, null, ["class" => "form-control selectpicker", "data-live-search"=>"true", "title" => "-- Выберите --"]) !!}
+                    <select id="category1" name="category_id[]" onchange="selectChange($('#category1'), $('#subCategory1'))" class="form-control selectpicker" title = "-- Выберите категорию --">
+                        @foreach($categories as $category)
+                            <option value="{{ $category->getId() }}">{{ $category->getName() }}</option>
+                        @endforeach
+                    </select>
+
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="form-group">
                     <label for="subCategory1">Подкатегория</label>
-                    <select id="subCategory1" name="subCategory1" class="form-control selectpicker" title="-- Выберите категорию --">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
+                    <select id="subCategory1" name="subcategory_id[]" class="form-control selectpicker" title="-- Выберите категорию --">
                     </select>
                 </div>
             </div>

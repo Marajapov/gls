@@ -20,6 +20,7 @@ class RouteServiceProvider extends ServiceProvider
         $router->model('subcategory', \Model\Subcategory\ModelName::class);
         $router->model('menu', \Model\Menu\ModelName::class);
         $router->model('order', \Model\Order\ModelName::class);
+        $router->model('userSubcategoryTie', \Model\UserSubcategoryTie\ModelName::class);
 
         $this->app['view']->addNamespace('Front', app_path().'/Acme/Http/Front/Views/');
         $this->app['view']->addNamespace('Admin', app_path().'/Acme/Http/Admin/Views/');

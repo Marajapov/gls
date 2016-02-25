@@ -1,7 +1,8 @@
 @extends('Admin::layouts.default')
-@section('title', trans('site.AdminUserAddNew'))
+@section('title', 'Добавить пользователя')
 
 @section('styles')
+    <meta name="_token" content="{!! csrf_token() !!}"/>
     <link rel="stylesheet" href="{{ asset('css/admin/build.css') }}"/>
 @endsection
 
@@ -36,45 +37,51 @@
 @section('scripts')
 
     <script>
+
+        function selectChange(source, target) {
+            var id = source.val();
+            var dataString = 'id=' + id;
+            var url = "";
+
+            $.ajaxSetup({
+                headers: {'X-CSRF-Token': $('meta[name=_token]').attr('content')}
+            });
+
+            $.ajax
+            ({
+                type: "POST",
+                url: url,
+                data: dataString,
+                cache: false,
+                success: function (data) {
+                    target.html(data);
+                    $('.selectpicker').selectpicker('refresh');
+                }
+            });
+        }
+
         $(document).ready(function () {
+
             var i = 1;
             $('#addDoer').click(function () {
                 i++;
-                var target = '<div id="doer'+i+'" class="row"><div class="col-md-3"><div class="form-group"><label>Категория</label><select id="category'+i+'" name="category'+i+'" class="form-control selectpicker" title="-- Выберите категорию --"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></div></div><div class="col-md-3"><div class="form-group"><label>Подкатегория</label><select id="subCategory'+i+'" name="subCategory'+i+'" class="form-control selectpicker" title="-- Выберите категорию --"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></div></div></div>';
-                $('.doers .inner').append(target);
-                $('.selectpicker').selectpicker('refresh');
-            });
-
-            $.ajaxSetup({
-                headers: { 'X-CSRF-Token' : $('meta[name=_token]').attr('content') }
-            });
-
-            $("#doer1").change(function()
-            {
-                var id=$(this).val();
-                var dataString = 'id='+ id;
-                var url = "new";
-
-                $("#taskType.no-ajax .btn").click(function () {
-                    $("#tooltipCategory").removeClass("in");
-                    setTimeout(function() {
-                        $('#tooltipCategory').removeClass('in');
-                    }, 2000);
+                $.ajaxSetup({
+                    headers: {'X-CSRF-Token': $('meta[name=_token]').attr('content')}
                 });
+                var url = "create/newSelect";
+                var dataString = 'i='+i;
 
                 $.ajax
                 ({
                     type: "POST",
-                    url: 'new',
+                    url: url,
                     data: dataString,
                     cache: false,
-                    success: function(data)
-                    {
-                        $("#type").html(data).parent().addClass('no-ajax');
+                    success: function (data) {
+                        $('.doers .inner').append(data);
                         $('.selectpicker').selectpicker('refresh');
                     }
                 });
-
             });
         });
     </script>

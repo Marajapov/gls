@@ -4,6 +4,7 @@ namespace Admin\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use \Model\Category\ModelName as Category;
+use \Model\Subcategory\ModelName as Subcategory;
 
 class CategoryController extends Controller
 {
@@ -54,8 +55,11 @@ class CategoryController extends Controller
      */
     public function show($category)
     {
+        $subcategories = Subcategory::where('category_id','=',$category->id)->orderBy('id','desc')->get();
+
         return view('Admin::category.show', [
             'category' => $category,
+            'subcategories' => $subcategories,
         ]);
     }
 

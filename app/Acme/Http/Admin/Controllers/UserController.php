@@ -5,6 +5,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use Model\User\ModelName as User;
+use Model\Category\ModelName as Category;
+use Model\UserSubcategoryTie\ModelName as UserSubcategoryTie;
 
 class UserController extends Controller
 {
@@ -15,15 +17,27 @@ class UserController extends Controller
     }
     public function create()
     {
-        $categoryList = \Model\Category\ModelName::lists('name', 'id')->toArray();
+        $categories = Category::where('published','=','1')->get();
         return view('Admin::user.create', [
             'user' => new User(),
-            'categoryList' => $categoryList,
+            'categories' => $categories,
             ]);
     }
     public function store(Request $request)
     {
-        User::create($request->except('q'));
+        $user = User::create($request->except('password','category_id','subcategory_id','q'));
+
+        $categories = $request->input('category_id');
+        $subcategories = $request->input('subcategory_id');
+        foreach($subcategories as $subcategory){
+            UserSubcategoryTie::create([
+                'user_id' => $user->id,
+                'subcategory_id' => $subcategory
+            ]);
+        }
+
+        $user->password = bcrypt($request->input('password'));
+        $user->save();
 
         return redirect()->route('admin.user.index');
     }

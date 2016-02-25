@@ -3,14 +3,13 @@
     <div class="col-md-4">
         <div class="form-group">
             <label for="category1">Категория</label>
-
-            {!! Form::select('category_id', ['0'=>'-- Выберите --']+$categoryList, null, ["class" => "form-control selectpicker", "data-live-search"=>"true", "title" => "-- Выберите --"]) !!}
+            {!! Form::select('category_id', ['0'=>'-- Выберите категорию --']+$categoryList, null, ["class" => "form-control selectpicker", "title" => "-- Выберите категорию --"]) !!}
         </div>
     </div>
     <div class="col-md-4">
         <div class="form-group">
             <label>Название</label>
-            {!! Form::text('name', null, ["class" => "form-control", "required" => true, "placeholder" => "Имя"]) !!}
+            {!! Form::text('name', null, ["class" => "form-control", "required" => true, "placeholder" => "Название"]) !!}
         </div>
     </div>
     <div class="col-md-4">

@@ -29,9 +29,9 @@ class ModelName extends Model
     public function getPublished()
     {
         if($this->published == 1)
-            return 'Опубликован';
+            return 'активный';
         else
-            return 'Не опубликован';
+            return 'неактивный';
     }
 
     public function getDate()

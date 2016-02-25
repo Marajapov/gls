@@ -32,7 +32,9 @@
                                 @foreach($categories as $category)
                                 <tr>
                                     <td>{{ $category->getId() }}</td>
-                                    <td>{{ $category->getName() }}</td>
+                                    <td>
+                                        <a href="{{ route('admin.category.show', $category) }}">{{ $category->getName() }}</a>
+                                    </td>
                                     <td>{{ $category->getPublished() }}</td>
                                     <td>{{ $category->getDate() }}</td>
                                     <td>

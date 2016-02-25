@@ -33,7 +33,11 @@
                                 @foreach($subcategories as $subcategory)
                                 <tr>
                                     <td>{{ $subcategory->getId() }}</td>
-                                    <td>{{ $subcategory->getName() }}</td>
+                                    <td>
+                                        <a href="{{ route('admin.subcategory.show',$subcategory) }}">
+                                            {{ $subcategory->getName() }}
+                                        </a>
+                                    </td>
 
                                     <td>@if(($subcategory->category()->first()) != null) {{ $subcategory->category()->first()->getName()}} @endif</td>
                                     <td>{{ $subcategory->getPublished() }}</td>
@@ -42,12 +46,12 @@
                                         <ul>
                                             <li>
                                                 <a rel="tooltip" class="view" href="{{ route('admin.subcategory.show', $subcategory) }}" title="Посмотреть">
-                                                    <i class="pe-7s-exapnd2"></i>
+                                                    <i class="pe-7s-next-2"></i>
                                                 </a>
                                             </li>
                                             <li>
                                                 <a rel="tooltip" class="edit" href="{{ route('admin.subcategory.edit', $subcategory) }}" title="Редактировать">
-                                                    <i class="pe-7s-note"></i>
+                                                    <i class="pe-7s-pen"></i>
                                                 </a>
                                             </li>
                                             <li>
