@@ -6,12 +6,8 @@ use Nicolaslopezj\Searchable\SearchableTrait;
 
 class ModelName extends Model
 {
-    //use ModelHelpers;
-    /**
-     * The database table used by the model.
-     *
-     * @var string
-     */
+    use ModelHelpers, ModelRelationships;
+
     protected $table = 'orders';
     /**
      * The attributes excluded from the model's JSON form.

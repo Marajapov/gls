@@ -12,7 +12,9 @@ class UserController extends Controller
 {
     public function index()
     {
+        $users = User::all();
         return view('Admin::user.index', [
+            'users' => $users,
         ]);
     }
     public function create()
@@ -25,10 +27,10 @@ class UserController extends Controller
     }
     public function store(Request $request)
     {
-        $user = User::create($request->except('password','category_id','subcategory_id','q'));
+        $user = User::create($request->except('password','categories','subcategories','q'));
 
-        $categories = $request->input('category_id');
-        $subcategories = $request->input('subcategory_id');
+        $categories = $request->input('categories');
+        $subcategories = $request->input('subcategories');
         foreach($subcategories as $subcategory){
             UserSubcategoryTie::create([
                 'user_id' => $user->id,

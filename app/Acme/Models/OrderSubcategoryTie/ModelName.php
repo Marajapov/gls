@@ -1,5 +1,5 @@
 <?php
-namespace Model\UserSubcategoryTie;
+namespace Model\OrderSubcategoryTie;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -7,7 +7,7 @@ class ModelName extends Model
 {
     use ModelHelpers, ModelScopes, ModelRelationships;
 
-    protected $table = 'user_subcategory_ties';
+    protected $table = 'order_subcategory_ties';
 
     protected $guarded = ['id'];
 

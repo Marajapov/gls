@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserSubcategoryTieTable extends Migration
+class CreateTableOrderSubcategoryTies extends Migration
 {
     /**
      * Run the migrations.
@@ -12,10 +12,13 @@ class CreateUserSubcategoryTieTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_subcategory_tie', function (Blueprint $table) {
+        Schema::create('order_subcategory_ties', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
+            $table->integer('order_id');
+            $table->integer('category_id');
             $table->integer('subcategory_id');
+            $table->integer('count');
+            $table->integer('price');
             $table->timestamps();
         });
     }
@@ -27,6 +30,6 @@ class CreateUserSubcategoryTieTable extends Migration
      */
     public function down()
     {
-        Schema::drop('user_subcategory_tie');
+        Schema::drop('order_subcategory_ties');
     }
 }

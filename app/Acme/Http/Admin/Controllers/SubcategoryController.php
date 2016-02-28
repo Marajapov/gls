@@ -7,25 +7,16 @@ use \Model\Subcategory\ModelName as Subcategory;
 
 class SubcategoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        $subcategories = Subcategory::orderBy('id', 'desc')->get();
+        $subcategories = Subcategory::all();
 
         return view('Admin::subcategory.index', [
             'subcategories' => $subcategories,
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $categoryList = \Model\Category\ModelName::lists('name', 'id')->toArray();
@@ -35,12 +26,6 @@ class SubcategoryController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         Subcategory::create($request->except('q'));
@@ -48,12 +33,6 @@ class SubcategoryController extends Controller
         return redirect()->route('admin.subcategory.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($subcategory)
     {
         
@@ -62,12 +41,6 @@ class SubcategoryController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Subcategory $subcategory)
     {
         $categoryList = \Model\Category\ModelName::lists('name', 'id')->toArray();
@@ -77,25 +50,12 @@ class SubcategoryController extends Controller
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $subcategory)
     {
         $subcategory->update($request->except('q'));
         return redirect()->route('admin.subcategory.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Subcategory $subcategory)
     {
         $subcategory->delete();

@@ -3,6 +3,7 @@
 
 @section('content')
 
+    @include('Admin::order.nav')
 
     <div class="content">
         <div class="container-fluid">

@@ -419,6 +419,9 @@ textarea{
 .card .content{
     padding: 15px;
 }
+.spec{
+    display: block;
+}
 
 /*BUTTONS*/
 .card .view{

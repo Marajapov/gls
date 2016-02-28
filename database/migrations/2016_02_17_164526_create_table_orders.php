@@ -9,13 +9,12 @@ class CreateTableOrders extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
             $table->string('client_name');
             $table->string('client_phone');
             $table->string('client_adres');
             $table->string('description');
             $table->enum('status', ['new', 'sent','complete','canceled','closed'])->nullable()->default('new');
-
-            $table->integer('subcategory_id')->nullable()->unsigned()->default(null);
             $table->integer('owner_id')->nullable()->unsigned()->default(null);
 
             $table->timestamps();

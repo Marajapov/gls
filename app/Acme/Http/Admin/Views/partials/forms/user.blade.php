@@ -28,7 +28,7 @@
             <div class="col-md-3">
                 <div class="form-group">
                     <label for="category1">Категория</label>
-                    <select id="category1" name="category_id[]" onchange="selectChange($('#category1'), $('#subCategory1'))" class="form-control selectpicker" title = "-- Выберите категорию --">
+                    <select id="category1" name="categories[]" onchange="categoryChange($('#category1'), $('#subCategory1'))" class="form-control selectpicker" title = "-- Выберите категорию --">
                         @foreach($categories as $category)
                             <option value="{{ $category->getId() }}">{{ $category->getName() }}</option>
                         @endforeach
@@ -39,7 +39,7 @@
             <div class="col-md-3">
                 <div class="form-group">
                     <label for="subCategory1">Подкатегория</label>
-                    <select id="subCategory1" name="subcategory_id[]" class="form-control selectpicker" title="-- Выберите категорию --">
+                    <select id="subCategory1" name="subcategories[]" class="form-control selectpicker" title="-- Выберите категорию --">
                     </select>
                 </div>
             </div>

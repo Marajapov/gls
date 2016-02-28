@@ -12,7 +12,7 @@ class AjaxController extends Controller
 {
 
     // AJAX CALL
-    public function selectChange()
+    public function categoryChange()
     {
         if(Request::ajax()) {
             $data = Input::all();
@@ -25,28 +25,83 @@ class AjaxController extends Controller
             return $result;
         }
     }
+    public function orderCategoryChange()
+    {
+        if(Request::ajax()) {
+            $data = Input::all();
+
+            $subcategories = Subcategory::where('category_id','=',$data['id'])->get();
+            $subcategoriesResult = "";
+            foreach($subcategories as $subcategory){
+                $subcategoriesResult .= '<option value="'.$subcategory->id.'">'.$subcategory->name.'</option>';
+            }
+            return $result = array([
+                'subcategories' => $subcategoriesResult,
+                'price' => ''
+            ]);
+        }
+    }
+    public function subcategoryChange()
+    {
+        if(Request::ajax()) {
+            $data = Input::all();
+
+            $subcategory = Subcategory::where('id','=',$data['id'])->first();
+            return $subcategory->getPrice();
+        }
+    }
     public function newSelect()
     {
         if(Request::ajax()) {
             $data = Input::all();
             $categories = Category::where('published','=','1')->get();
             $result = '<div id="doer'.$data["i"].'" class="row"><div class="col-md-3"><div class="form-group"><label>Категория</label>';
-            $result .= '<select onchange="selectChange($(\'#category'.$data["i"].'\'), $(\'#subCategory'.$data["i"].'\'));" id="category'.$data["i"].'" name="category_id[]" class="form-control selectpicker orderCategory" title="-- Выберите категорию --">';
+            $result .= '<select onchange="categoryChange($(\'#category'.$data["i"].'\'), $(\'#subCategory'.$data["i"].'\'));" id="category'.$data["i"].'" name="categories[]" class="form-control selectpicker orderCategory" title="-- Выберите категорию --">';
             foreach($categories as $category){
                 $result .= '<option value="'.$category->id.'">'.$category->name.'</option>';
             }
             $result .= '</select></div></div>';
             $result .= '<div class="col-md-3"><div class="form-group"><label>Подкатегория</label>';
-            $result .= '<select  id="subCategory'.$data["i"].'" name="subcategory_id[]" class="form-control selectpicker" title="-- Выберите категорию --">';
+            $result .= '<select  id="subCategory'.$data["i"].'" name="subcategories[]" class="form-control selectpicker" title="-- Выберите категорию --">';
             $result .= '</div></div></div>';
 
-//            $subcategories = Subcategory::where('category_id','=',$data['id'])->get();
-
-//            foreach($subcategories as $subcategory){
-//                $result .= '<option value="'.$subcategory->id.'">'.$subcategory->name.'</option>';
-//            }
-
-//            <div id="doer'+i+'" class="row"><div class="col-md-3"><div class="form-group"><label>Категория</label></div></div><div class="col-md-3"><div class="form-group"><label>Подкатегория</label><select id="subCategory'+i+'" name="subCategory'+i+'" class="form-control selectpicker" title="-- Выберите категорию --"></select></div></div></div>
+            return $result;
+        }
+    }
+    public function orderNewSelect()
+    {
+        if(Request::ajax()) {
+            $data = Input::all();
+            $categories = Category::where('published','=','1')->get();
+            $result = '<div id="doer'.$data["i"].'" class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>Категория</label>
+                                <select onchange="categoryChange($(\'#category'.$data["i"].'\'), $(\'#subCategory'.$data["i"].'\'), $(\'#price'.$data["i"].'\'));" id="category'.$data["i"].'" name="categories[]" class="form-control selectpicker orderCategory" title="-- Выберите категорию --">';
+            foreach($categories as $category){
+                $result .= '<option value="'.$category->id.'">'.$category->name.'</option>';
+            }
+            $result .= '</select></div></div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="subCategory'.$data["i"].'">Подкатегория</label>
+                                <select onchange="subcategoryChange($(\'#subCategory'.$data["i"].'\'), $(\'#price'.$data["i"].'\'));" id="subCategory'.$data["i"].'" name="subcategories[]" class="form-control selectpicker" title="-- Выберите категорию --">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="count'.$data["i"].'">Количество</label>
+                                <input id="count'.$data["i"].'" name="counts[]" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="cost'.$data["i"].'">Цена</label>
+                                <input id="price'.$data["i"].'" name="prices[]" type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>';
 
             return $result;
         }

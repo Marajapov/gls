@@ -11,7 +11,7 @@ class UserTableSeeder extends Seeder
             'email'      => 'nurchin@gmail.com',
             'password'   => bcrypt('123123'),
             'role'       => 'admin',
-            'phone'       => '+996550123456',
+            'phone'       => '0550123456',
         ]);
         \Model\User\ModelName::create([
             'name'       => 'Abakan',

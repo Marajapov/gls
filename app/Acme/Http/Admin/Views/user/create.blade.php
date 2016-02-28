@@ -38,7 +38,7 @@
 
     <script>
 
-        function selectChange(source, target) {
+        function categoryChange(source, target) {
             var id = source.val();
             var dataString = 'id=' + id;
             var url = "";

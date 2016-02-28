@@ -24,46 +24,52 @@
                                 <thead>
                                 <th>ID</th>
                                 <th>Название</th>
-                                <th>Категогия</th>
+                                <th>Категория</th>
+                                <th>Пользователи</th>
                                 <th>Статус</th>
                                 <th>Дата</th>
                                 <th>Действия</th>
                                 </thead>
                                 <tbody>
                                 @foreach($subcategories as $subcategory)
-                                <tr>
-                                    <td>{{ $subcategory->getId() }}</td>
-                                    <td>
-                                        <a href="{{ route('admin.subcategory.show',$subcategory) }}">
-                                            {{ $subcategory->getName() }}
-                                        </a>
-                                    </td>
+                                    <tr>
+                                        <td>{{ $subcategory->getId() }}</td>
+                                        <td>
+                                            <a href="{{ route('admin.subcategory.show',$subcategory) }}">
+                                                {{ $subcategory->getName() }}
+                                            </a>
+                                        </td>
 
-                                    <td>@if(($subcategory->category()->first()) != null) {{ $subcategory->category()->first()->getName()}} @endif</td>
-                                    <td>{{ $subcategory->getPublished() }}</td>
-                                    <td>{{ $subcategory->getDate() }}</td>
-                                    <td>
-                                        <ul>
-                                            <li>
-                                                <a rel="tooltip" class="view" href="{{ route('admin.subcategory.show', $subcategory) }}" title="Посмотреть">
-                                                    <i class="pe-7s-next-2"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a rel="tooltip" class="edit" href="{{ route('admin.subcategory.edit', $subcategory) }}" title="Редактировать">
-                                                    <i class="pe-7s-pen"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                 {!! Form::open(['route' => ['admin.subcategory.destroy', $subcategory], 'method' => 'DELETE', 'onsubmit' => "return confirm('Вы уверены ?')"]) !!}
-                                                    <button rel="tooltip" type="submit" class="delete" title="Удалить">
-                                                        <i class="pe-7s-close-circle"></i>
-                                                    </button>
-                                                {!! Form::close() !!}
-                                            </li>
-                                        </ul>
-                                    </td>
-                                </tr>
+                                        <td>@if(($subcategory->category()->first()) != null) {{ $subcategory->category()->first()->getName()}} @endif</td>
+                                        <td>
+                                            @foreach($subcategory->users as $user)
+                                                <span class="spec">{{ $user->getName() }}</span>
+                                            @endforeach
+                                        </td>
+                                        <td>{{ $subcategory->getPublished() }}</td>
+                                        <td>{{ $subcategory->getDate() }}</td>
+                                        <td>
+                                            <ul>
+                                                <li>
+                                                    <a rel="tooltip" class="view" href="{{ route('admin.subcategory.show', $subcategory) }}" title="Посмотреть">
+                                                        <i class="pe-7s-next-2"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a rel="tooltip" class="edit" href="{{ route('admin.subcategory.edit', $subcategory) }}" title="Редактировать">
+                                                        <i class="pe-7s-pen"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                     {!! Form::open(['route' => ['admin.subcategory.destroy', $subcategory], 'method' => 'DELETE', 'onsubmit' => "return confirm('Вы уверены ?')"]) !!}
+                                                        <button rel="tooltip" type="submit" class="delete" title="Удалить">
+                                                            <i class="pe-7s-close-circle"></i>
+                                                        </button>
+                                                    {!! Form::close() !!}
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
                                 @endforeach
                                 </tbody>
                             </table>

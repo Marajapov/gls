@@ -1,12 +1,12 @@
 <?php
-namespace Model\UserSubcategoryTie;
+namespace Model\OrderSubcategoryTie;
 
 trait ModelRelationships
 {
     public function subcategories(){
         return $this->belongsTo(\Model\Subcategory\ModelName::class, 'subcategory_id');
     }
-    public function users(){
-        return $this->belongsTo(\Model\User\ModelName::class, 'user_id');
+    public function orders(){
+        return $this->belongsTo(\Model\Order\ModelName::class, 'order_id');
     }
 }
