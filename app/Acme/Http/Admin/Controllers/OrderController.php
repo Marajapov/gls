@@ -50,15 +50,23 @@ class OrderController extends Controller
 
     }
 
-    public function show($id)
+    public function show($order)
     {
         return view('Admin::order.show', [
+            'order' => $order,
         ]);
     }
 
-    public function edit($id)
+    public function edit(Order $order)
     {
-        //
+        $categories = Category::where('published','=','1')->get();
+        $order_id = $order->id;
+        $order_ties = OrderSubcategoryTie::where('order_id','=',$order_id)->get();
+        return view('Admin::order.edit', [
+            'order' => $order,
+            'categories'  => $categories,
+            'order_ties' => $order_ties,
+        ]);
     }
 
     public function update(Request $request, $id)

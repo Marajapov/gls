@@ -2,19 +2,19 @@
     <div class="col-md-3">
         <div class="form-group">
             <label>Имя клиента</label>
-            <input name="client_name" type="text" class="form-control" placeholder="Имя">
+            {!! Form::text('client_name', null, ["class" => "form-control", "required" => true, "placeholder" => "Имя"]) !!}
         </div>
     </div>
     <div class="col-md-3">
         <div class="form-group">
             <label for="exampleInputEmail1">Телефон клиента</label>
-            <input name="client_phone" type="text" class="form-control" placeholder="Телефон">
+            {!! Form::text('client_phone', null, ["class" => "form-control", "required" => true, "placeholder" => "Телефон"]) !!}
         </div>
     </div>
     <div class="col-md-6">
         <div class="form-group">
             <label for="exampleInputEmail1">Адрес клиента</label>
-            <input name="client_adres" type="text" class="form-control" placeholder="Адрес">
+            {!! Form::text('client_adres', null, ["class" => "form-control", "required" => true, "placeholder" => "Адрес"]) !!}
         </div>
     </div>
 </div>
@@ -23,7 +23,7 @@
     <div class="col-md-6">
         <div class="form-group">
             <label>Короткое название</label>
-            <input name="name" type="text" class="form-control" placeholder="Коротко опишите заказ">
+            {!! Form::text('name', null, ["class" => "form-control", "required" => true, "placeholder" => "Коротко опишите заказ"]) !!}
         </div>
     </div>
 </div>
@@ -32,7 +32,7 @@
     <div class="col-md-12">
         <div class="form-group">
             <label>Описание заказа</label>
-            <textarea name="description" rows="5" class="form-control" placeholder="Текст описания"></textarea>
+{!! Form::textarea('description', null, ["class" => "form-control", "rows"=>5, "required" => true, "placeholder" => "Текст описания"]) !!}
         </div>
     </div>
 </div>

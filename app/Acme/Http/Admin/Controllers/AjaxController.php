@@ -50,6 +50,7 @@ class AjaxController extends Controller
             return $subcategory->getPrice();
         }
     }
+
     public function newSelect()
     {
         if(Request::ajax()) {

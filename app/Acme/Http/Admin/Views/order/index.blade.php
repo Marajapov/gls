@@ -42,23 +42,29 @@
                                             @endforeach
                                         </td>
                                         <td>
-                                            {{ $order->status }}
+                                            {{ $order->getStatus() }}
                                         </td>
-                                        <td>22/02/2016</td>
+                                        <td>{{ $order->getDate() }}</td>
                                         <td>
                                             <ul>
                                                 <li>
-                                                    <a rel="tooltip" class="view" href="{{ route('admin.order.show') }}" title="Посмотреть">
+                                                    <a rel="tooltip" class="view" href="{{ route('admin.order.show', $order) }}" title="Посмотреть">
                                                         <i class="pe-7s-next-2"></i>
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a rel="tooltip" class="edit" href="{{ route('admin.order.edit') }}" title="Редактировать">
+                                                    <a rel="tooltip" class="edit" href="{{ route('admin.order.edit', $order) }}" title="Редактировать">
                                                         <i class="pe-7s-pen"></i>
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a rel="tooltip" class="delete" href="{{ route('admin.order.destroy') }}" title="Удалить">
+                                                        <i class="pe-7s-close-circle"></i>
+                                                    </a>
+                                                </li>
+
+                                                <li>
+                                                    <a rel="tooltip" class="delete" href="{{ route('admin.order.destroy') }}" title="Утвердить">
                                                         <i class="pe-7s-close-circle"></i>
                                                     </a>
                                                 </li>

@@ -1,5 +1,5 @@
 @extends('Admin::layouts.default')
-@section('title', "Posts")
+@section('title', "Заказы")
 
 @section('styles')
     <meta name="_token" content="{!! csrf_token() !!}"/>

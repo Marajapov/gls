@@ -33,4 +33,42 @@ class ModelName extends Model
     {
         return $this->id;
     }
+
+    public function getName() 
+    {
+        return $this->name;
+    }
+
+    public function getClient() 
+    {
+        return $this->client_name;
+    }
+
+    public function getStatus() 
+    {
+        return $this->status;
+    }
+
+    public function getPhone() 
+    {
+        return $this->client_phone;
+    }
+
+    public function getAdres() 
+    {
+        return $this->client_adres;
+    }
+
+    public function getDescription() 
+    {
+        return $this->description;
+    }
+
+    public function getDate() 
+    {
+        $fullDate = $this->created_at;
+        $date = date('d/m/Y', strtotime($fullDate));
+        return $date;
+    }
+
 }

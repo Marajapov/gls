@@ -1,12 +1,11 @@
 @extends('Admin::layouts.default')
-@section('title', "Подкатегория")
+@section('title', "Заказ")
 
 @section('styles')
     <link rel="stylesheet" href="{{ asset('css/admin/build.css') }}"/>
 @stop
 
 @section('content')
-
     <!-- include subcategory nav -->
     @include('Admin::partials.subcategoryNav')
     <!-- end subcategory nav -->
@@ -22,8 +21,8 @@
                             <h4 class="title">Редактировать</h4>
                         </div>
                         <div class="content">
-                            {!! Form::model($subcategory, ['route' => ['admin.subcategory.update', $subcategory], 'method' => 'PUT']) !!}
-                            @include('Admin::partials.forms.subcategory', [$subcategory])
+                            {!! Form::model($order, ['route' => ['admin.order.update', $order], 'method' => 'PUT']) !!}
+                            @include('Admin::order.form', [$order])
                             {!! Form::close() !!}
                         </div>
                     </div>
