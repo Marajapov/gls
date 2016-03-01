@@ -87,7 +87,7 @@
                                         </table>
                                     </div>
 
-                                    <div class="btn-group actions">
+                                    <div class="actions">
                                         <a href="{{ route('admin.order.edit', $order)}}" class="btn btn-primary">
                                             Редактировать
                                         </a>

@@ -441,14 +441,13 @@ textarea{
     color: #FF4A55;
     font-size: 24px;
 }
+.card .share{
+    color: #FF9500;
+}
 .card .delete:hover,
 .card .delete:focus,
 .card .delete:active{
     color: #EE2D20;
-}
-
-.btn-group.actions > .btn:first-child{
-    border-right: 0;
 }
 .btn-xs{
     font-size: 20px;
