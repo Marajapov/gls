@@ -18,6 +18,9 @@ Route::group(['prefix' => '/', 'namespace' => 'Front\Controllers'], function() {
     Route::get('order/all',['as'=>'front.order.all', 'uses'=>'OrderController@index']);
     Route::post('order/new', 'AjaxController@selectChange');
 
+    // new order store
+    Route::get('order/store/{id}',['as' => 'front.order.store', 'uses' => 'OrderController@store']);
+
 });
 
 

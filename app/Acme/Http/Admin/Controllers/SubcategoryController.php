@@ -59,7 +59,13 @@ class SubcategoryController extends Controller
     public function destroy(Subcategory $subcategory)
     {
         $subcategory->delete();
-
         return redirect()->route('admin.subcategory.index');
+    }
+
+    public function deleteItem(Request $request)
+    {
+        $subcategory = Subcategory::where('id','=',$request->id)->first();
+        $subcategory->delete();
+        return redirect()->route('admin.order.index');
     }
 }

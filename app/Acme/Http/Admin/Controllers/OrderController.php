@@ -74,8 +74,24 @@ class OrderController extends Controller
         //
     }
 
+    public function softDelete(Request $request, $id)
+    {
+        $order = Order::where('id','=',$id)->first();
+        $order->status = 'softDelete';
+        $order->save();
+        return redirect()->route('admin.order.index');
+    }
+
     public function destroy($id)
     {
-        //
+        dd($id);
+    }
+
+    public function share(Request $request, $id)
+    {
+        $order = Order::where('id','=',$id)->first();
+        $order->status = 'share';
+        $order->save();
+        return redirect()->route('admin.order.index');
     }
 }

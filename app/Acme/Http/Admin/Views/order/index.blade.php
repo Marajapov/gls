@@ -47,6 +47,12 @@
                                         <td>{{ $order->getDate() }}</td>
                                         <td>
                                             <ul>
+
+                                                <li>
+                                                    <a rel="tooltip" class="share" href="{{ route('admin.order.share', $order) }}" title="Разослать">
+                                                        <i class="pe-7s-share"></i>
+                                                    </a>
+                                                </li>
                                                 <li>
                                                     <a rel="tooltip" class="view" href="{{ route('admin.order.show', $order) }}" title="Посмотреть">
                                                         <i class="pe-7s-next-2"></i>
@@ -58,13 +64,7 @@
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a rel="tooltip" class="delete" href="{{ route('admin.order.destroy') }}" title="Удалить">
-                                                        <i class="pe-7s-close-circle"></i>
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a rel="tooltip" class="delete" href="{{ route('admin.order.destroy') }}" title="Утвердить">
+                                                    <a rel="tooltip" class="delete" href="{{ route('admin.order.softDelete', $order) }}" title="Удалить">
                                                         <i class="pe-7s-close-circle"></i>
                                                     </a>
                                                 </li>

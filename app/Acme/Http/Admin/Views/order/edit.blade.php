@@ -2,12 +2,12 @@
 @section('title', "Заказ")
 
 @section('styles')
-    <link rel="stylesheet" href="{{ asset('css/admin/build.css') }}"/>
+    <meta name="_token" content="{!! csrf_token() !!}"/>
 @stop
 
 @section('content')
     <!-- include subcategory nav -->
-    @include('Admin::partials.subcategoryNav')
+    @include('Admin::order.nav')
     <!-- end subcategory nav -->
 
     <div class="content">
@@ -32,3 +32,104 @@
     </div>
 
 @endsection
+
+
+
+@section('scripts')
+    <script>
+        function categoryChange(source, subcategory, price) {
+            var id = source.val();
+            var dataString = 'id=' + id;
+            var url = "http://gls.dev/admin/categoryChange";
+
+            $.ajaxSetup({
+                headers: {'X-CSRF-Token': $('meta[name=_token]').attr('content')}
+            });
+
+            $.ajax
+            ({
+                type: "POST",
+                url: url,
+                data: dataString,
+                cache: false,
+                success: function (data) {
+                    subcategory.html(data[0].subcategories);
+                    price.val(data[0].price);
+                    $('.selectpicker').selectpicker('refresh');
+                }
+            });
+        }
+
+        function subcategoryChange(source, price) {
+            var id = source.val();
+            var dataString = 'id=' + id;
+            var url = "http://gls.dev/admin/subcategoryChange";
+
+            $.ajaxSetup({
+                headers: {'X-CSRF-Token': $('meta[name=_token]').attr('content')}
+            });
+
+            $.ajax
+            ({
+                type: "POST",
+                url: url,
+                data: dataString,
+                cache: false,
+                success: function (data) {
+                    price.val(data);
+                    $('.selectpicker').selectpicker('refresh');
+                }
+            });
+        }
+
+        $(document).ready(function () {
+
+            var i = 1;
+            $('#addDoer').click(function () {
+                i++;
+                $.ajaxSetup({
+                    headers: {'X-CSRF-Token': $('meta[name=_token]').attr('content')}
+                });
+                var url = "http://gls.dev/admin/newSelect";
+                var dataString = 'i='+i;
+
+                $.ajax
+                ({
+                    type: "POST",
+                    url: url,
+                    data: dataString,
+                    cache: false,
+                    success: function (data) {
+                        $('.doers .inner').append(data);
+                        $('.selectpicker').selectpicker('refresh');
+                    }
+                });
+            });
+
+//            $('#date').datetimepicker({
+//                icons: {
+//                    previous: 'fa fa-chevron-left',
+//                    next: 'fa fa-chevron-right'
+//                },
+//                tooltips:{
+//                    selectMonth: 'Выберите месяц',
+//                    prevMonth: 'Предыдущий месяц',
+//                    nextMonth: 'Следующий месяц'
+//                },
+//                format: "DD-MM-YYYY"
+//            });
+//
+//            $('#time').datetimepicker({
+//                format: 'H:mm',
+//                tooltips:{
+//                    pickHour: "Выберите часы",
+//                    incrementHour: 'Увеличить часы',
+//                    decrementHour: 'Уменшить часы',
+//                    pickMinute: "Выберите минуты",
+//                    incrementMinute: 'Увеличить минуты',
+//                    decrementMinute: 'Уменшить минуты'
+//                }
+//            });
+        });
+    </script>
+@stop
