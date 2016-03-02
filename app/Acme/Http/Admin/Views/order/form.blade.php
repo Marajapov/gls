@@ -42,24 +42,28 @@
 @if($order->client_name)
     @foreach($order_ties as $order_tie)
         <div class="row">
+
             <div class="col-md-2">
                 <div class="form-group">
                     <label>Категория</label>
                     <input class="form-control" type="text" value="{{ $order_tie->category->name }}" disabled/>
                 </div>
             </div>
+
             <div class="col-md-2">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Подкатегория</label>
                     <input class="form-control" type="text" value="{{ $order_tie->subcategory->name }}" disabled/>
                 </div>
             </div>
+
             <div class="col-md-2">
                 <div class="form-group">
                     <label>Количество</label>
                     <input class="form-control" type="text" value="{{ $order_tie->count }}" disabled/>
                 </div>
             </div>
+
             <div class="col-md-2">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Цена</label>
