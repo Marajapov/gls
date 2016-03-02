@@ -15,7 +15,7 @@ class OrderController extends Controller
     {
         $lc = app()->getlocale();
 
-        return view('Front::tasks.index', [
+        return view('Front::order.index', [
             'lc' =>$lc,
         ]);
     }
