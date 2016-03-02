@@ -49,7 +49,8 @@
                                             <ul>
 
                                                 <li>
-                                                    <a rel="tooltip" class="share" href="{{ route('admin.order.destroy') }}" title="Разослать">
+
+                                                    <a rel="tooltip" class="share" href="{{ route('admin.order.share', $order) }}" title="Разослать">
                                                         <i class="pe-7s-share"></i>
                                                     </a>
                                                 </li>
@@ -64,7 +65,9 @@
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a rel="tooltip" class="delete" href="{{ route('admin.order.destroy') }}" title="Удалить">
+
+                                                    <a rel="tooltip" class="delete" href="{{ route('admin.order.softDelete', $order) }}" title="Удалить">
+
                                                         <i class="pe-7s-close-circle"></i>
                                                     </a>
                                                 </li>

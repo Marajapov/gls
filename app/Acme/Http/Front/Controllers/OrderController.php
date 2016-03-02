@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Input;
 use Intervention\Image\ImageManagerStatic as Image;
 use Illuminate\Support\Facades\Validator;
+use \Model\Order\ModelName as Order;
+use \Model\Category\ModelName as Category;
 
 class OrderController extends Controller
 {
@@ -21,11 +23,17 @@ class OrderController extends Controller
     }
     public function newOrder()
     {
-        $lc = app()->getlocale();
+        $categories = Category::where('published','=','1')->get();
 
         return view('Front::order.new', [
-            'lc' =>$lc,
+            'order' => new Order,
+            'categories' => $categories,
         ]);
+    }
+
+    public function store()
+    {
+
     }
 
 }

@@ -22,14 +22,16 @@
                         <div class="container">
                             <div class="row">
 
-                                <form id="newTask" class="newTask clearfix" name="newTask">
+                                {!! Form::model($order, ['route' => 'front.order.store', 'enctype' => 'multipart/form-data', 'class'=>'newTask clearfix', 'id'=>'newTask']) !!}
 
                                     <div class="form-group col-md-6">
                                         <label for="taskName" class="required-label">Категория</label>
+                                        
                                         <select name="taskCategory" id="category" class="form-control selectpicker required" title="-- Выберите категорию --" required>
                                             <option value="1">test1</option>
                                             <option value="2">test2</option>
                                         </select>
+                                        
                                         <div class="tooltip top" role="tooltip" id="tooltipCategory"><div class="tooltip-arrow" style="left: 50%;"></div><div class="tooltip-inner">Выберите категорию</div></div>
                                     </div>
 
@@ -41,12 +43,12 @@
 
                                     <div class="form-group col-md-12">
                                         <label for="taskName" class="required-label">Мне нужно</label>
-                                        <input id="taskName" name="taskName" type="text" class="form-control" placeholder="Коротко сформулируйте Вашу задачу" required>
+                                        {!! Form::text('name', null, ["class" => "form-control", "id"=>"taskName", "required" => true, "placeholder" => "Коротко сформулируйте Вашу задачу"]) !!}
                                     </div>
 
                                     <div class="form-group col-md-12">
                                         <label for="taskDesc" class="required-label">Описание задачи</label>
-                                        <textarea id="taskDesc" name="taskDesc" class="form-control" rows="4" placeholder="Опишите пожелания и детали, чтобы исполнители лучше оценили вашу задачу" required></textarea>
+                                        {!! Form::textarea('description', null, ["class" => "form-control", "id"=>"taskDesc", "rows"=>4, "required" => true, "placeholder" => "Опишите пожелания и детали, чтобы исполнители лучше оценили вашу задачу"]) !!}
                                     </div>
 
                                     <div class="form-group col-md-6">
@@ -70,15 +72,15 @@
                                         <div class="row">
                                             <div class="form-group col-md-4">
                                                 <label for="author" class="required-label">Имя</label>
-                                                <input name="author" id="author" type="text" class="form-control" placeholder="Укажите имя" required/>
+                                                {!! Form::text('client_name', null, ["class" => "form-control", "required" => true, "id"=>"author", "placeholder" => "Укажите имя"]) !!}
                                             </div>
                                             <div class="form-group col-md-4">
                                                 <label for="email" class="required-label">Адрес</label>
-                                                <input name="email" id="email" type="text" class="form-control" placeholder="Уточните адрес" required/>
+                                                {!! Form::text('client_adres', null, ["class" => "form-control", "id"=>"email", "required" => true, "placeholder" => "Уточните адрес"]) !!}
                                             </div>
                                             <div class="form-group col-md-4">
                                                 <label for="phone" class="required-label">Телефон</label>
-                                                <input name="phone" id="phone" type="text" class="form-control" placeholder="Контактный телефон" required/>
+                                                {!! Form::text('client_phone', null, ["class" => "form-control", "id"=>"phone", "required" => true, "placeholder" => "Контактный телефон"]) !!}
                                             </div>
                                         </div>
                                     </div>
@@ -92,7 +94,7 @@
                                         <button type="submit" class="btn btn-danger btn-fill btn-submit">Опубликовать</button>
                                     </div>
 
-                                </form>
+                                {!! Form::close() !!}
 
                             </div>
                         </div>
