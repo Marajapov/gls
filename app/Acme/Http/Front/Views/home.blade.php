@@ -21,7 +21,7 @@
                         </h4>
                     </div>
 
-                    <a href="#" class="btn btn-danger">Оформить заявку</a>
+                    <a href="{{ route('front.order.new')}}" class="btn btn-danger">Оформить заявку</a>
                 </article>
             </div>
 

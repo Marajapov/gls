@@ -17,7 +17,7 @@ class OrderController extends Controller
     {
         $lc = app()->getlocale();
 
-        return view('Front::tasks.index', [
+        return view('Front::order.index', [
             'lc' =>$lc,
         ]);
     }
@@ -31,9 +31,27 @@ class OrderController extends Controller
         ]);
     }
 
-    public function store()
+    public function store(Request $request)
     {
+        $order = Order::create($request->except('attachment','q'));
 
+        if($request->hasFile('attachment')){
+            $file = $request->file('attachment');
+            $dir  = 'images/attachments';
+            $btw = time();
+
+            $name = $order->id().$btw.'.'.$file->getClientOriginalExtension();
+
+            $storage = \Storage::disk('public');
+            $storage->makeDirectory($dir);
+
+            Image::make($_FILES['attachment']['tmp_name'])->heighten(600)->save($dir.'/'.$name);
+
+            $order->attachment = $dir.'/'.$name;
+            $order->save();
+        }
+
+        return redirect()->route('front.order.new')->with('status','success');
     }
 
 }

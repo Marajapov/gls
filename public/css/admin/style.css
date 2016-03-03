@@ -389,6 +389,10 @@ textarea{
     display: inline-block;
     vertical-align: middle;
 }
+.card td a{
+    color: #333333;
+    font-weight: bold;
+}
 .card td li a,
 .card td li button{
     padding: 0 8px;
@@ -426,6 +430,7 @@ textarea{
 /*BUTTONS*/
 .card .view{
     font-size: 22px;
+    color: #23CCEF;
 }
 .card .edit{
     color: #87CB16;

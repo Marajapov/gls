@@ -15,9 +15,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'access:admin', 'namespace' =
     Route::post('subcategoryChange', 'AjaxController@subcategoryChange');
     Route::post('newSelect', 'AjaxController@orderNewSelect');
 
-
     Route::get('deleteItem/{id}',['as' => 'deleteItem', 'uses' => 'SubcategoryController@deleteItem']);
     Route::get('order/softDelete/{id}',['as' => 'admin.order.softDelete', 'uses' => 'OrderController@softDelete']);
+    Route::get('order/cancel/{id}',['as' => 'admin.order.cancel', 'uses' => 'OrderController@softDelete']);
+    Route::get('order/close/{id}',['as' => 'admin.order.close', 'uses' => 'OrderController@softDelete']);
 
     // share order
     Route::get('order/share/{id}',['as' => 'admin.order.share', 'uses' => 'OrderController@share']);
