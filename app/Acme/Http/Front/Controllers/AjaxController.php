@@ -5,6 +5,7 @@ namespace Front\Controllers;
 use Request;
 use Input;
 use App\Http\Requests;
+use \Model\Subcategory\ModelName as Subcategory;
 
 class AjaxController extends Controller
 {
@@ -14,34 +15,10 @@ class AjaxController extends Controller
     {
         if(Request::ajax()) {
             $data = Input::all();
-            $types = array(
-                [
-                    "id"=>1,
-                    "name"=>"test101",
-                    "parent"=>1
-                ],
-                [
-                    "id"=>2,
-                    "name"=>"test102",
-                    "parent"=>1
-                ],
-                [
-                    "id"=>3,
-                    "name"=>"test201",
-                    "parent"=>2
-                ],
-                [
-                    "id"=>4,
-                    "name"=>"test202",
-                    "parent"=>2
-                ]
-            );
-//            $result = '<option value="0" selected class="hidden">-- Выберите тип --</option>';
+            $subcategories = Subcategory::where('category_id','=',$data['id'])->get();
             $result = "";
-            foreach($types as $type){
-                if($type['parent'] == $data['id']){
-                    $result .= '<option value="'.$type["id"].'">'.$type["name"].'</option>';
-                }
+            foreach($subcategories as $subcategory){
+                $result .= '<option value="'.$subcategory["id"].'">'.$subcategory["name"].'</option>';
             }
             return $result;
         }

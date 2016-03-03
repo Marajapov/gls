@@ -59,7 +59,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        Описания
+                                                        Описание
                                                     </td>
                                                     <td>
                                                         {{ $order->getDescription() }}
@@ -70,7 +70,12 @@
                                                         Статус
                                                     </td>
                                                     <td>
-                                                        {{ $order->getStatus() }}
+                                                        @if($order->getStatus() == "new") новый
+                                                        @elseif($order->getStatus() == "share") разослан
+                                                        @elseif($order->getStatus() == "complete") комплектован
+                                                        @elseif($order->getStatus() == "canceled") отменен
+                                                        @elseif($order->getStatus() == "closed") закрыт
+                                                        @endif
                                                     </td>
                                                 </tr>
                                                 <tr>

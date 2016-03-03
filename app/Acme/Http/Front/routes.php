@@ -16,11 +16,12 @@ Route::group(['prefix' => '/', 'namespace' => 'Front\Controllers'], function() {
     Route::get('order/new',['as'=>'front.order.new', 'uses'=>'OrderController@newOrder']);
     Route::get('order/',['as'=>'front.order', 'uses'=>'OrderController@index']);
     Route::get('order/all',['as'=>'front.order.all', 'uses'=>'OrderController@index']);
-    Route::post('order/new', 'AjaxController@selectChange');
+    Route::post('order/new/categoryChange', 'AjaxController@selectChange');
 
     // new order store
-    Route::get('order/store/{id}',['as' => 'front.order.store', 'uses' => 'OrderController@store']);
+    Route::post('order/store',['as' => 'front.order.store', 'uses' => 'OrderController@store']);
 
 });
 
+?>
 

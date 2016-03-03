@@ -18,18 +18,19 @@
                         </h4>
                     </div>
                     <div class="content table-responsive table-full-width">
-                        <table class="table table-hover table-striped">
+                        <table class="table table-hover">
                             <thead>
                                 <th>ID</th>
                                 <th>Название</th>
                                 <th>Подкатегории</th>
                                 <th>Статус</th>
                                 <th>Дата</th>
+                                <th>Изменить статус</th>
                                 <th>Действия</th>
                             </thead>
                             <tbody>
                                 @foreach($orders as $order)
-                                    <tr>
+                                    <tr class="@if($order->status == "new") success @elseif($order->status == "share") info @endif">
                                         <td>1</td>
                                         <td>
                                             <a href="{{ route('admin.order.show', $order) }}">
@@ -42,18 +43,36 @@
                                             @endforeach
                                         </td>
                                         <td>
-                                            {{ $order->getStatus() }}
+                                            @if($order->getStatus() == "new") новый
+                                            @elseif($order->getStatus() == "share") разослан
+                                            @elseif($order->getStatus() == "complete") комплектован
+                                            @elseif($order->getStatus() == "canceled") отменен
+                                            @elseif($order->getStatus() == "closed") закрыт
+                                            @endif
                                         </td>
                                         <td>{{ $order->getDate() }}</td>
                                         <td>
                                             <ul>
 
                                                 <li>
-
-                                                    <a rel="tooltip" class="share" href="{{ route('admin.order.share', $order) }}" title="Разослать">
+                                                    <a rel="tooltip" class="" href="{{ route('admin.order.share', $order) }}" title="Разослать">
                                                         <i class="pe-7s-share"></i>
                                                     </a>
                                                 </li>
+                                                <li>
+                                                    <a rel="tooltip" class="" href="{{ route('admin.order.cancel', $order) }}" title="Отменить">
+                                                        <i class="pe-7s-close-circle"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a rel="tooltip" class="" href="{{ route('admin.order.close', $order) }}" title="Закрыть">
+                                                        <i class="pe-7s-close"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <ul>
                                                 <li>
                                                     <a rel="tooltip" class="view" href="{{ route('admin.order.show', $order) }}" title="Посмотреть">
                                                         <i class="pe-7s-next-2"></i>
@@ -65,10 +84,8 @@
                                                     </a>
                                                 </li>
                                                 <li>
-
                                                     <a rel="tooltip" class="delete" href="{{ route('admin.order.softDelete', $order) }}" title="Удалить">
-
-                                                        <i class="pe-7s-close-circle"></i>
+                                                        <i class="pe-7s-trash"></i>
                                                     </a>
                                                 </li>
                                             </ul>

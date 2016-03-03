@@ -12,7 +12,7 @@ class OrderController extends Controller
 
     public function index()
     {
-        $orders = \Model\Order\ModelName::orderBy('id', 'desc')->get();
+        $orders = \Model\Order\ModelName::where('status','<>','softDelete')->orderBy('id', 'desc')->get();
         
         return view('Admin::order.index', [
             'orders' => $orders,
