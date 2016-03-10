@@ -451,6 +451,30 @@ body > .navbar-collapse[data-color="purple"]:after {
   background: linear-gradient(to bottom, #9368E9 0%, #943bea 100%);
   background-size: 150% 150%;
 }
+.sidebar .nav a,
+.table > tbody > tr .td-actions .btn,
+.caret {
+    -webkit-transition: all 150ms ease-in;
+    -moz-transition: all 150ms ease-in;
+    -o-transition: all 150ms ease-in;
+    -ms-transition: all 150ms ease-in;
+    transition: all 150ms ease-in;
+}
+a[data-toggle="collapse"][aria-expanded="true"] .caret,
+.btn[data-toggle="collapse"][aria-expanded="true"] .caret,
+a.dropdown-toggle[aria-expanded="true"] .caret {
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+.sidebar .nav [data-toggle="collapse"] ~ div > ul > li > a {
+    padding-left: 60px;
+}
+.sidebar .nav p .caret {
+    float: right;
+    margin-top: 12px;
+}
 
 .main-panel {
   background: rgba(203, 203, 210, 0.15);

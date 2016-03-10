@@ -11,33 +11,43 @@
                 </a>
             </div>
 
-            <ul class="nav">
+            <ul id="mainNav" class="nav">
                 <li>
-                    <a href="{{ route('admin.home') }}">
+                    <a href="{{ route('admin.home') }}" data-href="{{ route('admin.home') }}">
                         <i class="pe-7s-graph"></i>
                         <p>Главная</p>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('admin.order.index') }}">
+                    <a data-toggle="collapse" aria-expanded="false" href="#componentsExamples" data-href="{{ route('admin.order.index') }}">
                         <i class="pe-7s-note2"></i>
-                        <p>Заказы</p>
+                        <p>Заказы<b class="caret"></b></p>
                     </a>
+                    <div class="collapse" id="componentsExamples" aria-expanded="true">
+                        <ul class="nav">
+                            <li><a href="{{ route('admin.order.index') }}">Все</a></li>
+                            <li><a href="{{ route('admin.order.client') }}">Заявки</a></li>
+                            <li><a href="{{ route('admin.order.new') }}">Новые</a></li>
+                            <li><a href="{{ route('admin.order.shared') }}">Разосланные</a></li>
+                            <li><a href="{{ route('admin.order.canceled') }}">Отмененные</a></li>
+                            <li><a href="{{ route('admin.order.closed') }}">Закрытые</a></li>
+                        </ul>
+                    </div>
                 </li>
                 <li>
-                    <a href="{{ route('admin.category.index') }}">
+                    <a href="{{ route('admin.category.index') }}" data-href="{{ route('admin.category.index') }}">
                         <i class="pe-7s-keypad"></i>
                         <p>Категории</p>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('admin.subcategory.index') }}">
+                    <a href="{{ route('admin.subcategory.index') }}" data-href="{{ route('admin.subcategory.index') }}">
                         <i class="pe-7s-network"></i>
                         <p>Подкатегории</p>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('admin.user.index') }}">
+                    <a href="{{ route('admin.user.index') }}" data-href="{{ route('admin.user.index') }}">
                         <i class="pe-7s-users"></i>
                         <p>Пользователи</p>
                     </a>

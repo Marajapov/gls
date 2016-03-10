@@ -13,7 +13,6 @@ body{
 .navbar{
     margin: 0;
 }
-
 /*CAROUSEL*/
 .carousel-inner > .item:first-of-type{
     background-image: url('../images/carousel/bg-1.jpg');

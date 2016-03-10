@@ -349,6 +349,10 @@
     font-size: 18px;
     line-height: 20px;
 }
+.sidebar .nav .nav{
+    margin-top: 0;
+}
+
 
 /*FORM*/
 textarea{
@@ -415,7 +419,7 @@ textarea{
     text-transform: uppercase;
     font-weight: bold;
 }
-.card-info td:first-child{
+.card-info td.heading{
     color: #9A9A9A;
     text-transform: uppercase;
     font-size: 12px;

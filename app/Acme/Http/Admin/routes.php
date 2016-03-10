@@ -3,11 +3,12 @@
 Route::group(['prefix' => 'admin', 'middleware' => 'access:admin', 'namespace' => 'Admin\Controllers'], function(){
     Route::get('/',     ['as' => 'admin.home', 'uses' => 'HomeController@Home']);
 
-    Route::resource('user', 'UserController');
-    Route::resource('order', 'OrderController');
-    Route::resource('category', 'CategoryController');
-    Route::resource('subcategory', 'SubcategoryController');
-
+//    Order Types
+    Route::get('order/client',['as'=>'admin.order.client', 'uses'=>'OrderController@clientOrders']);
+    Route::get('order/new',['as'=>'admin.order.new', 'uses'=>'OrderController@index']);
+    Route::get('order/shared',['as'=>'admin.order.shared', 'uses'=>'OrderController@index']);
+    Route::get('order/canceled',['as'=>'admin.order.canceled', 'uses'=>'OrderController@index']);
+    Route::get('order/closed',['as'=>'admin.order.closed', 'uses'=>'OrderController@index']);
     Route::post('user/create', 'AjaxController@categoryChange');
     Route::post('user/create/newSelect', 'AjaxController@newSelect');
 
@@ -22,5 +23,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'access:admin', 'namespace' =
 
     // share order
     Route::get('order/share/{id}',['as' => 'admin.order.share', 'uses' => 'OrderController@share']);
+
+//    Resource routes
+    Route::resource('user', 'UserController');
+    Route::resource('order', 'OrderController');
+    Route::resource('category', 'CategoryController');
+    Route::resource('subcategory', 'SubcategoryController');
 
 });
