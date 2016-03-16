@@ -1,5 +1,5 @@
 @extends('Admin::layouts.default')
-@section('title', "Posts")
+@section('title', "Категории")
 
 @section('content')
 

@@ -63,300 +63,138 @@
 
                 <div class="container services">
                     <div class="row">
-                        <div class="col-md-3 col-sm-4 col-xs-6 column">
-                            <div class="icon-wrap task-courier">
-                                <i></i>
+
+                        @foreach($categories1 as $key=>$category1)
+                            <div class="col-md-3 col-xs-6 column @if($key==2 || $key==3) hidden-sm hidden-xs @endif">
+                                <div class="icon-wrap task-{{$category1->class}}">
+                                    <i></i>
+                                </div>
+                                <h4>{{$category1->name}}</h4>
+                                <ul class="list-group">
+                                    @foreach($category1->subcategories as $subcategory)
+                                        <li class="list-group-item">
+                                            <a href="#">{{ $subcategory->name }}</a>
+                                        </li>
+                                    @endforeach
+                                </ul>
                             </div>
-                            <h4>Курьерские услуги</h4>
-                            <ul class="list-group">
-                                <li class="list-group-item">
-                                    <a href="#">Услуги пешего курьера</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Услуги курьера на авто</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Купить и доставить</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Срочная доставка</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Доставка продуктов</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Доставка еды из ресторанов</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Курьер на день</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Другая посылка</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3 col-sm-4 col-xs-6 column">
-                            <div class="icon-wrap task-home">
-                                <i></i>
-                            </div>
-                            <h4>Домашний мастер</h4>
-                            <ul class="list-group">
-                                <li class="list-group-item">
-                                    <a href="#">Мастер на час</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Отделочные работы</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Ремонт под ключ</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Строительные услуги</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Электромонтажные работы</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Сантехнические работы</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Сборка и ремонт мебели</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Установка и ремонт дверей, замков</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Плиточные работы</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Что-то другое</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3 col-sm-4 col-xs-6 column hidden-xs">
-                            <div class="icon-wrap task-cargo">
-                                <i></i>
-                            </div>
-                            <h4>Грузоперевозки</h4>
-                            <ul class="list-group">
-                                <li class="list-group-item">
-                                    <a href="#">Переезды</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Вывоз мусора</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Услуги грузчиков</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Негабаритный груз</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Мебель и бытовая техника</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Пассажирские перевозки</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Строительные грузы и оборудование</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Транспортные средства</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Междугородные перевозки</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Другой груз</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3 col-xs-6 column hidden-sm hidden-xs">
-                            <div class="icon-wrap task-clean">
-                                <i></i>
-                            </div>
-                            <h4>Клининговые услуги</h4>
-                            <ul class="list-group">
-                                <li class="list-group-item">
-                                    <a href="#">Мытье окон</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Вынос мусора</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Помощь при переезде</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Поддерживающая уборка квартиры</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Генеральная уборка квартиры</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Ремонт и пошив одежды</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Приготовление еды</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Глажение белья</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Чистка ковров, мебели</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Что-то другое</a>
-                                </li>
-                            </ul>
-                        </div>
+                        @endforeach
+
                     </div>
                 </div>
 
-                <div class="container services">
+                <div class="container services visible-sm visible-xs">
                     <div class="row">
-                        <div class="col-md-3 col-sm-4 col-xs-6 column">
-                            <div class="icon-wrap task-computer">
-                                <i></i>
+
+                        @foreach($categories1 as $key=>$category1)
+                            <div class="col-md-3 col-xs-6 column @if($key==0 || $key==1) hidden-sm hidden-xs @endif">
+                                <div class="icon-wrap task-{{$category1->class}}">
+                                    <i></i>
+                                </div>
+                                <h4>{{$category1->name}}</h4>
+                                <ul class="list-group">
+                                    @foreach($category1->subcategories as $subcategory)
+                                        <li class="list-group-item">
+                                            <a href="#">{{ $subcategory->name }}</a>
+                                        </li>
+                                    @endforeach
+                                </ul>
                             </div>
-                            <h4>Компьютерная помощь</h4>
-                            <ul class="list-group">
-                                <li class="list-group-item">
-                                    <a href="#">Ремонт компьютеров и ноутбуков</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Восстановление данных</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Удаление вирусов</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Установка и настройка ОС, программ</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Настройка интернета и Wi-Fi</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Ремонт и замена комплектующих</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Настройка и ремонт оргтехники</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Консультация и обучение</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Ремонт мониторов</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Что-то другое</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3 col-sm-4 col-xs-6 column">
-                            <div class="icon-wrap task-photo">
-                                <i></i>
-                            </div>
-                            <h4>Фото- и видео-услуги</h4>
-                            <ul class="list-group">
-                                <li class="list-group-item">
-                                    <a href="#">Фотосъемка</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Видеосъемка</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Ретушь фотографий</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Создание видеороликов под ключ</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Монтаж и цветокоррекция видео</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Видеопрезентации, заставки, слайд-шоу</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Оцифровка</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Что-то другое</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3 col-sm-4 col-xs-6 column hidden-xs">
-                            <div class="icon-wrap task-web">
-                                <i></i>
-                            </div>
-                            <h4>Web-разработка</h4>
-                            <ul class="list-group">
-                                <li class="list-group-item">
-                                    <a href="#">Сайт под ключ</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Поддержка и помощь по сайту</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Программирование</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Верстка</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Разработка приложений и программ</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Что-то другое</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3 col-xs-6 column hidden-sm hidden-xs">
-                            <div class="icon-wrap task-tech">
-                                <i></i>
-                            </div>
-                            <h4>Установка и ремонт техники</h4>
-                            <ul class="list-group">
-                                <li class="list-group-item">
-                                    <a href="#">Стиральные машины</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Холодильники и морозильные камеры</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Посудомоечные машины</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Электрические плиты и панели</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Кондиционеры и сплит-системы</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Водонагреватели, бойлеры, котлы, колонки</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Вытяжки</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Газовые плиты</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Духовые шкафы</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Швейные машины</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Мелкая бытовая техника</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">Что-то другое</a>
-                                </li>
-                            </ul>
-                        </div>
+                        @endforeach
+
                     </div>
                 </div>
+
+
+                <div class="container services">
+                    <div class="row">
+
+                        @foreach($categories2 as $key=>$category2)
+                            <div class="col-md-3 col-xs-6 column @if($key==2 || $key==3) hidden-sm hidden-xs @endif">
+                                <div class="icon-wrap task-{{$category2->class}}">
+                                    <i></i>
+                                </div>
+                                <h4>{{$category2->name}}</h4>
+                                <ul class="list-group">
+                                    @foreach($category2->subcategories as $subcategory)
+                                        <li class="list-group-item">
+                                            <a href="#">{{ $subcategory->name }}</a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endforeach
+
+                    </div>
+                </div>
+
+
+                <div class="container services visible-sm visible-xs">
+                    <div class="row">
+
+                        @foreach($categories2 as $key=>$category2)
+                            <div class="col-md-3 col-xs-6 column @if($key==0 || $key==1) hidden-sm hidden-xs @endif">
+                                <div class="icon-wrap task-{{$category2->class}}">
+                                    <i></i>
+                                </div>
+                                <h4>{{$category2->name}}</h4>
+                                <ul class="list-group">
+                                    @foreach($category2->subcategories as $subcategory)
+                                        <li class="list-group-item">
+                                            <a href="#">{{ $subcategory->name }}</a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endforeach
+
+                    </div>
+                </div>
+
                 <a href="#" class="btn btn-fill btn-danger btn-all">Все категории</a>
+            </div>
+
+            <div class="section section-gray section-with-space landing-section section-advantages">
+                <div class="container">
+                    <h2 class="text-center">Основные преимущества TezTap</h2>
+
+                    <div class="media advantage-2">
+                        <div class="media-left media-middle">
+                            <span class="media-icon"></span>
+                        </div>
+                        <div class="media-body media-middle">
+                            <h4 class="media-heading">Проверенные исполнители</h4>
+                            <p>
+                                Наши исполнители проходят процедуру верификации, мы проверяем отзывы, разбираемся с жалобами и контролируем качество их работы. Наш сервис безопасен для заказчиков.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="media advantage-1">
+                        <div class="media-left media-middle">
+                            <span class="media-icon"></span>
+                        </div>
+                        <div class="media-body media-middle">
+                            <h4 class="media-heading">Выгодные цены</h4>
+                            <p>
+                                У наших исполнителей нет расходов на офис и другие затраты, которые сервисные компании обычно включают в стоимость своих услуг.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="media advantage-3">
+                        <div class="media-left media-middle">
+                            <span class="media-icon"></span>
+                        </div>
+                        <div class="media-body media-middle">
+                            <h4 class="media-heading">Экономия времени</h4>
+                            <p>
+                                На сайте TezTap.kg, или по телефону, вы можете заказать необходимых исполнителей за несколько минут. Многие из них готовы приступить к работе в тот же день, а иногда в тот же час.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
             </div>
 
             <div class="section section-dark-blue section-with-space text-center landing-section section-tasks">

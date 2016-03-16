@@ -17,7 +17,7 @@
         <div class="collapse navbar-collapse" id="navigation-example-2">
             <ul class="nav navbar-nav navbar-right">
                 <a href="{{ route('front.order.new') }}" class="btn btn-fill btn-info"><i class="fa fa-plus"></i>Новое задание</a>
-                <a href="{{ route('front.order.all') }}" class="btn btn-simple">Все задания</a>
+                <a href="{{ route('front.order.all') }}" class="btn btn-simple">Задания</a>
                 <a href="#" class="btn btn-simple">Услуги</a>
             </ul>
         </div><!-- /.navbar-collapse -->

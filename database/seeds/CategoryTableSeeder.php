@@ -15,19 +15,71 @@ class CategoryTableSeeder extends Seeder
 
         \Model\Category\ModelName::create([
             'id'        => 1,
-            'name'     => 'Курьерские услуги',
+            'name'     => 'Уборка и помощь по хозяйству',
+            'class'     => 'clean',
             'published' => true,
         ]);
 
         \Model\Category\ModelName::create([
             'id'        => 2,
-            'name'     => 'Бытовой ремонт',
+            'name'     => 'Грузоперевозки',
+            'class'     => 'cargo',
             'published' => true,
         ]);
 
         \Model\Category\ModelName::create([
             'id'        => 3,
-            'name'     => 'Грузоперевозки',
+            'name'     => 'Бытовой ремонт',
+            'class'     => 'home',
+            'published' => true,
+        ]);
+
+        \Model\Category\ModelName::create([
+            'id'        => 4,
+            'name'     => 'Аварийное вскрытие замков',
+            'class'     => 'opening',
+            'published' => true,
+        ]);
+
+        \Model\Category\ModelName::create([
+            'id'        => 5,
+            'name'     => 'Услуги спецтехники',
+            'class'     => 'spectech',
+            'published' => true,
+        ]);
+
+        \Model\Category\ModelName::create([
+            'id'        => 6,
+            'name'     => 'Доставка сыпучих стройматериалов',
+            'class'     => 'bulk',
+            'published' => true,
+        ]);
+
+        \Model\Category\ModelName::create([
+            'id'        => 7,
+            'name'     => 'Прокат строительного инструмента',
+            'class'     => 'tool',
+            'published' => true,
+        ]);
+
+        \Model\Category\ModelName::create([
+            'id'        => 8,
+            'name'     => 'Посуточная аренда жилья',
+            'class'     => 'rent',
+            'published' => true,
+        ]);
+
+        \Model\Category\ModelName::create([
+            'id'        => 9,
+            'name'     => 'Вывоз мусора',
+            'class'     => 'trash',
+            'published' => true,
+        ]);
+
+        \Model\Category\ModelName::create([
+            'id'        => 10,
+            'name'     => 'Продажа б/у стройматериалов',
+            'class'     => 'old',
             'published' => true,
         ]);
 

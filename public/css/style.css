@@ -102,6 +102,21 @@ body{
 .task-tech.icon-wrap i{
     background-position: -384px -128px;
 }
+.task-opening.icon-wrap i{
+    background-position: -128px -256px;
+}
+.task-spectech.icon-wrap i{
+    background-position: -256px -256px;
+}
+.task-bulk.icon-wrap i{
+    background-position: -384px -256px;
+}
+.task-tool.icon-wrap i{
+    background-position: 0px -384px;
+}
+.task-rent.icon-wrap i{
+    background-position: -128px -384px;
+}
 /*.services:first-of-type .column:first-of-type i{*/
     /*background-position: 0 0;*/
 /*}*/
@@ -173,6 +188,38 @@ body{
     width: auto;
     font-size: 10px;
 }
+
+/*ADVANTAGES*/
+.section-advantages h2{
+    color: #4f5f6f;
+}
+.section-advantages .media-left{
+    padding-right: 50px;
+}
+.section-advantages .media-heading{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.media-icon{
+    display: block;
+    height: 128px;
+    width: 128px;
+
+    background-image: url("img/advantages128.png");
+    background-repeat: no-repeat;
+    -webkit-background-size: auto;
+    background-size: auto;
+}
+.advantage-1 .media-icon{
+    background-position: 0 0;
+}
+.advantage-2 .media-icon{
+    background-position: -128px 0;
+}
+.advantage-3 .media-icon{
+    background-position: -256px 0;
+}
+
 
 /*TASKS*/
 .slick-slider.tasks{
@@ -437,6 +484,11 @@ textarea{
 
 
 /*MEDIA QUERIES*/
+@media (max-width: 992px){
+    .column h4{
+        width: 400px;
+    }
+}
 @media (max-width: 767px){
     .navbar-header .navbar-toggle{
         margin-top: 15px;
@@ -499,12 +551,16 @@ textarea{
     }
     .column h4{
         font-size: 16px;
+        width: 400px;
+        max-width: 100%;
     }
     .services .list-group-item{
         padding: 5px 10px;
+        text-align: center;
     }
     .services .moreLink, .services .lessLink{
         padding: 10px;
+        text-align: center;
     }
     .services .moreLink i,.services .lessLink i{
         display: none;
@@ -543,15 +599,5 @@ textarea{
         margin-bottom: 0;
     }
 }
-@media (min-width: 768px){
-    .column h4{
-        width: 400px;
-        max-width: 100%;
-    }
-    .services .list-group-item{
-        text-align: center;
-    }
-    .services .moreLink, .services .lessLink{
-        text-align: center;
-    }
+@media (max-width: 768px){
 }

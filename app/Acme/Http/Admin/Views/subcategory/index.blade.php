@@ -25,6 +25,7 @@
                                 <th>ID</th>
                                 <th>Название</th>
                                 <th>Категория</th>
+                                <th>Цена</th>
                                 <th>Пользователи</th>
                                 <th>Статус</th>
                                 <th>Дата</th>
@@ -41,6 +42,9 @@
                                         </td>
 
                                         <td>@if(($subcategory->category()->first()) != null) {{ $subcategory->category()->first()->getName()}} @endif</td>
+                                        <td>
+                                            {{ $subcategory->price }}
+                                        </td>
                                         <td>
                                             @foreach($subcategory->users as $user)
                                                 <span class="spec">{{ $user->getName() }}</span>
