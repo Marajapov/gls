@@ -1,8 +1,13 @@
-@extends('Front::layouts.default') @section('title', 'GLS' ) @section('styles')
+@extends('Front::layouts.default') @section('title', 'GLS' ) 
+@section('styles')
+
 <meta name="_token" content="{!! csrf_token() !!}" />
 
 <link rel="stylesheet" type="text/css" href="{{ asset('css/jasny-bootstrap.css') }}" />
-<link rel="stylesheet" type="text/css" href="{{ asset('css/sweetalert.css') }}" /> @stop @section('content')
+<link rel="stylesheet" type="text/css" href="{{ asset('css/sweetalert.css') }}" /> 
+@stop 
+
+@section('content')
 <div class="wrapper">
 
     <div class="main">
@@ -23,10 +28,11 @@
                                 <label for="taskName" class="required-label">Категория</label>
                                 <select name="taskCategory" id="category" class="form-control selectpicker required" title="-- Выберите категорию --" required>
                                     @foreach($categories as $category)
-                                        <option value="{{$category->id}}">{{$category->name}}</option>
+                                    <option value="{{$category->id}}">{{$category->name}}</option>
                                     @endforeach
                                 </select>
-                                <div class="tooltip top" role="tooltip" id="tooltipCategory"><div class="tooltip-arrow" style="left: 50%;"></div>
+                                <div class="tooltip top" role="tooltip" id="tooltipCategory">
+                                    <div class="tooltip-arrow" style="left: 50%;"></div>
                                     <div class="tooltip-inner">Выберите категорию</div>
                                 </div>
                             </div>
@@ -101,7 +107,9 @@
 
     </div>
 </div>
-@stop @section('scripts')
+@stop 
+
+@section('scripts')
 <!--  Plugins -->
 <script src="{{ asset('js/ct-paper-checkbox.js') }}"></script>
 <script src="{{ asset('js/ct-paper-radio.js') }}"></script>
@@ -117,7 +125,7 @@
     @if (session('status') == 'success')
         swal("Спасибо!", "Ваш заказ принят!", "success");
     @elseif(session('status') == 'error')
-        swal("", "Где то произошла ошибка!", "error");
+    swal("", "Где то произошла ошибка!", "error");
     @endif
 </script>
 
@@ -151,7 +159,7 @@
 
             $.ajax({
                 type: "POST",
-                url: 'new',
+                url: url,
                 data: dataString,
                 cache: false,
                 success: function (data) {
