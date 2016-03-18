@@ -53,6 +53,7 @@
                                 {!! Form::textarea('description', null, ["class" => "form-control", "id"=>"description", "rows"=>4, "required" => true, "placeholder" => "Опишите пожелания и детали, чтобы исполнители лучше оценили вашу задачу"]) !!}
                             </div>
 
+<!--
                             <div class="form-group col-md-6">
                                 <label for="attachment">Добавить фото</label>
                                 <div class="fileinput fileinput-new input-group" data-provides="fileinput">
@@ -69,6 +70,7 @@
                                 </div>
                                 <p class="help-block">Фото помогает исполнителям лучше понять ваше задание и оценить объем работы</p>
                             </div>
+-->
 
                             <div class="col-md-12">
                                 <div class="row">
