@@ -24,6 +24,7 @@
                                 <thead>
                                 <th>ID</th>
                                 <th>Название</th>
+                                <th>Префикс</th>
                                 <th>Статус</th>
                                 <th>Дата</th>
                                 <th>Действия</th>
@@ -34,6 +35,9 @@
                                     <td>{{ $category->getId() }}</td>
                                     <td>
                                         <a href="{{ route('admin.category.show', $category) }}">{{ $category->getName() }}</a>
+                                    </td>
+                                    <td>
+                                        {{ $category->class }}
                                     </td>
                                     <td>{{ $category->getPublished() }}</td>
                                     <td>{{ $category->getDate() }}</td>

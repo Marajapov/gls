@@ -1,15 +1,19 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto+Slab);
 
-
 html, body{
     height: 100%;
     overflow-x: hidden;
 }
 body{
+    position: relative;
+    min-height: 100%;
     background-color: #f4f3ef;
     background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(112, 112, 112, 0) 60%, rgba(186, 186, 186, 0.15) 100%);
 }
-
+#wrapper{
+    min-height: 100%;
+    background: #EEEEEE;
+}
 .navbar{
     margin: 0;
 }
@@ -22,6 +26,15 @@ body{
 }
 .carousel-inner > .item:nth-of-type(3){
     background-image: url('../images/carousel/bg-3.jpg');
+}
+.carousel-inner > .item:nth-of-type(4){
+    background-image: url('../images/carousel/bg-4.jpg');
+}
+.carousel-inner > .item:nth-of-type(5){
+    background-image: url('../images/carousel/bg-5.jpg');
+}
+.carousel-inner > .item:nth-of-type(6){
+    background-image: url('../images/carousel/bg-6.jpg');
 }
 .carousel article{
     position: absolute;
@@ -51,11 +64,18 @@ body{
     padding: 0;
     font-size: 36px;
 }
+.carousel .btn{
+    padding: 15px 25px;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
 /*SERVICES*/
 .section-services{
     text-align: center;
 }
-.section-services h2{
+.section-services h2,
+.section-verify h2{
     color: #4f5f6f;
 }
 .column .icon-wrap{
@@ -117,6 +137,12 @@ body{
 .task-rent.icon-wrap i{
     background-position: -128px -384px;
 }
+.task-trash.icon-wrap i{
+    background-position: -256px -384px;
+}
+.task-old.icon-wrap i{
+    background-position: -384px -384px;
+}
 /*.services:first-of-type .column:first-of-type i{*/
     /*background-position: 0 0;*/
 /*}*/
@@ -151,6 +177,11 @@ body{
     color: #4f5f6f;
     font-size: 18px;
     text-align: center;
+}
+.column a{
+    display: block;
+    font-size: 14px;
+    text-transform: uppercase;
 }
 .services .list-group,
 .services .list-group-item{
@@ -207,7 +238,6 @@ body{
 
     background-image: url("img/advantages128.png");
     background-repeat: no-repeat;
-    -webkit-background-size: auto;
     background-size: auto;
 }
 .advantage-1 .media-icon{
@@ -244,7 +274,6 @@ body{
     height: 64px;
 
     background: url("img/sprite64.png") no-repeat;
-    -webkit-background-size: auto;
     background-size: auto;
 }
 .task.task-courier .media-left i{
@@ -290,6 +319,14 @@ body{
     width: 64px;
     color: #EB5E28;
     font-weight: bold;
+}
+
+/*VERIFY*/
+.section-verify{
+    background: none;
+}
+.section-verify h4{
+    font-size: 20px;
 }
 
 /*SECTION FORM*/
@@ -343,8 +380,6 @@ body{
 }
 .bootstrap-select > .dropdown-toggle{
     background: none;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
     border-radius: 4px;
     border-color: #ffffff;
 }
@@ -360,15 +395,11 @@ body{
     color: #66615B;
 }
 .dropdown-menu > li:last-child > a{
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
     border-radius: 4px;
 }
 .section-form .dropdown-menu{
     margin: 0;
     background: #ffffff;
-    -webkit-border-radius: 0 0 4px 4px;
-    -moz-border-radius: 0 0 4px 4px;
     border-radius: 0 0 4px 4px;
 }
 textarea{
@@ -379,24 +410,13 @@ textarea{
     left: 15px;
 
     -webkit-transform: translateY(-100%);
-    -moz-transform: translateY(-100%);
-    -ms-transform: translateY(-100%);
-    -o-transform: translateY(-100%);
     transform: translateY(-100%);
 
     opacity: 0;
-
-    -webkit-transition: all 0.6s ease;
-    -moz-transition: all 0.6s ease;
-    -ms-transition: all 0.6s ease;
-    -o-transition: all 0.6s ease;
     transition: all 0.6s ease;
 }
 .tooltip.top.in{
     -webkit-transform: translateY(0);
-    -moz-transform: translateY(0);
-    -ms-transform: translateY(0);
-    -o-transform: translateY(0);
     transform: translateY(0);
 
     opacity: 1;
@@ -446,6 +466,7 @@ textarea{
 
 /*FOOTER*/
 .footer-demo{
+    width: 100%;
     background-attachment: fixed;
     line-height: 20px;
 }
@@ -516,7 +537,6 @@ textarea{
     }
     .carousel-inner > .item{
         height: 200px;
-        -webkit-background-size: auto 100%;
         background-size: auto 100%;
     }
     .carousel article{
@@ -552,6 +572,7 @@ textarea{
     .column h4{
         font-size: 16px;
         width: 400px;
+        height: 60px;
         max-width: 100%;
     }
     .services .list-group-item{
@@ -575,6 +596,21 @@ textarea{
     }
     .task .media-heading{
         font-size: 12px;
+    }
+    .section-advantages .media-left{
+        padding-right: 10px;
+    }
+    .media-icon{
+        width: 64px;
+        height: 64px;
+
+        background-image: url('img/advantages64.png');
+    }
+    .advantage-2 .media-icon{
+        background-position: -64px 0;
+    }
+    .advantage-3 .media-icon{
+        background-position: -128px 0;
     }
 }
 @media (max-width: 480px){

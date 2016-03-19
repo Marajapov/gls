@@ -1,4 +1,4 @@
-@extends('Front::layouts.default') @section('title', 'GLS' ) 
+@extends('Front::layouts.default') @section('title', 'GLS' )
 @section('styles')
 
 <meta name="_token" content="{!! csrf_token() !!}" />
@@ -12,8 +12,7 @@
 
     <div class="main">
 
-
-        <div class="section landing-section section-with-space section-gray-gradient section-form">
+        <div class="section-form">
 
             <h2 class="text-center">Добавить задание</h2>
 
@@ -28,7 +27,7 @@
                                 <label for="taskName" class="required-label">Категория</label>
                                 <select name="taskCategory" id="category" class="form-control selectpicker required" title="-- Выберите категорию --" required>
                                     @foreach($categories as $category)
-                                    <option value="{{$category->id}}">{{$category->name}}</option>
+                                        <option value="{{$category->id}}">{{$category->name}}</option>
                                     @endforeach
                                 </select>
                                 <div class="tooltip top" role="tooltip" id="tooltipCategory">
@@ -37,16 +36,17 @@
                                 </div>
                             </div>
                             <div id="taskType" class="form-group col-md-6 no-ajax">
-                                <label for="taskName" class="required-label">Тип услуги</label>
+                                <label for="taskName" class="required-label">Подкатегория</label>
                                 <select name="taskType" id="type" class="form-control selectpicker required" title="-- Выберите тип --" required>
-
                                 </select>
                             </div>
 
+<!--
                             <div class="form-group col-md-12">
                                 <label for="name" class="required-label">Мне нужно</label>
                                 {!! Form::text('name', null, ["class" => "form-control", "id"=>"name", "required" => true, "placeholder" => "Коротко сформулируйте Вашу задачу"]) !!}
                             </div>
+-->
 
                             <div class="form-group col-md-12">
                                 <label for="description" class="required-label">Описание задачи</label>
@@ -78,10 +78,12 @@
                                         <label for="author" class="required-label">Имя</label>
                                         {!! Form::text('client_name', null, ["class" => "form-control", "required" => true, "id"=>"author", "placeholder" => "Укажите имя"]) !!}
                                     </div>
+<!--
                                     <div class="form-group col-md-4">
                                         <label for="email" class="required-label">Адрес</label>
                                         {!! Form::text('client_adres', null, ["class" => "form-control", "id"=>"email", "required" => true, "placeholder" => "Уточните адрес"]) !!}
                                     </div>
+-->
                                     <div class="form-group col-md-4">
                                         <label for="phone" class="required-label">Телефон</label>
                                         {!! Form::text('client_phone', null, ["class" => "form-control", "id"=>"phone", "required" => true, "placeholder" => "Контактный телефон"]) !!}

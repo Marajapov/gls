@@ -21,7 +21,7 @@
                         </h4>
                     </div>
 
-                    <a href="{{ route('front.order.new')}}" class="btn btn-danger">Оформить заявку</a>
+                    <a href="{{ route('front.order.new')}}" class="btn btn-danger btn-fill">Оформить заявку</a>
                 </article>
             </div>
 
@@ -32,11 +32,20 @@
                     <li data-target="#carousel" data-slide-to="0" class="active"></li>
                     <li data-target="#carousel" data-slide-to="1"></li>
                     <li data-target="#carousel" data-slide-to="2"></li>
+                    <li data-target="#carousel" data-slide-to="3"></li>
+                    <li data-target="#carousel" data-slide-to="4"></li>
+                    <li data-target="#carousel" data-slide-to="5"></li>
                 </ol>
 
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner">
                     <div class="item active">
+                    </div>
+                    <div class="item">
+                    </div>
+                    <div class="item">
+                    </div>
+                    <div class="item">
                     </div>
                     <div class="item">
                     </div>
@@ -61,97 +70,28 @@
 
                 <h2 class="text-center">Услуги</h2>
 
-                <div class="container services">
+                <div id="services" class="container services">
                     <div class="row">
 
-                        @foreach($categories1 as $key=>$category1)
-                            <div class="col-md-3 col-xs-6 column @if($key==2 || $key==3) hidden-sm hidden-xs @endif">
-                                <div class="icon-wrap task-{{$category1->class}}">
-                                    <i></i>
+                        @foreach($categories as $key=>$category)
+
+                                <div class="col-md-3 col-xs-6 column" @if($key>7) style="display: none;" @endif>
+                                    <div class="icon-wrap task-{{$category->class}}">
+                                        <i></i>
+                                    </div>
+                                    <h4>
+                                        <a href="{{ route('front.order.new.category',$category) }}">
+                                            {{$category->name}}
+                                        </a>
+                                    </h4>
                                 </div>
-                                <h4>{{$category1->name}}</h4>
-                                <ul class="list-group">
-                                    @foreach($category1->subcategories as $subcategory)
-                                        <li class="list-group-item">
-                                            <a href="#">{{ $subcategory->name }}</a>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endforeach
-
-                    </div>
-                </div>
-
-                <div class="container services visible-sm visible-xs">
-                    <div class="row">
-
-                        @foreach($categories1 as $key=>$category1)
-                            <div class="col-md-3 col-xs-6 column @if($key==0 || $key==1) hidden-sm hidden-xs @endif">
-                                <div class="icon-wrap task-{{$category1->class}}">
-                                    <i></i>
-                                </div>
-                                <h4>{{$category1->name}}</h4>
-                                <ul class="list-group">
-                                    @foreach($category1->subcategories as $subcategory)
-                                        <li class="list-group-item">
-                                            <a href="#">{{ $subcategory->name }}</a>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            </div>
                         @endforeach
 
                     </div>
                 </div>
 
 
-                <div class="container services">
-                    <div class="row">
-
-                        @foreach($categories2 as $key=>$category2)
-                            <div class="col-md-3 col-xs-6 column @if($key==2 || $key==3) hidden-sm hidden-xs @endif">
-                                <div class="icon-wrap task-{{$category2->class}}">
-                                    <i></i>
-                                </div>
-                                <h4>{{$category2->name}}</h4>
-                                <ul class="list-group">
-                                    @foreach($category2->subcategories as $subcategory)
-                                        <li class="list-group-item">
-                                            <a href="#">{{ $subcategory->name }}</a>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endforeach
-
-                    </div>
-                </div>
-
-
-                <div class="container services visible-sm visible-xs">
-                    <div class="row">
-
-                        @foreach($categories2 as $key=>$category2)
-                            <div class="col-md-3 col-xs-6 column @if($key==0 || $key==1) hidden-sm hidden-xs @endif">
-                                <div class="icon-wrap task-{{$category2->class}}">
-                                    <i></i>
-                                </div>
-                                <h4>{{$category2->name}}</h4>
-                                <ul class="list-group">
-                                    @foreach($category2->subcategories as $subcategory)
-                                        <li class="list-group-item">
-                                            <a href="#">{{ $subcategory->name }}</a>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endforeach
-
-                    </div>
-                </div>
-
-                <a href="#" class="btn btn-fill btn-danger btn-all">Все категории</a>
+                <a href="#" class="btn btn-fill btn-danger btn-all">Все услуги</a>
             </div>
 
             <div class="section section-gray section-with-space landing-section section-advantages">
@@ -214,9 +154,6 @@
                                         Ежедневно довозить туда-обратно ребенка и взрослого
                                     </a>
                                 </div>
-                                <div class="media-right">
-                                    <span>500c.</span>
-                                </div>
                             </div>
                         </div>
                         <div class="task task-home">
@@ -230,9 +167,6 @@
                                     <a href="#" class="media-heading">
                                         Купить в ИКЕА и доставить детский столик и стульчик
                                     </a>
-                                </div>
-                                <div class="media-right">
-                                    <span>500c.</span>
                                 </div>
                             </div>
                         </div>
@@ -248,9 +182,6 @@
                                         Купить в ИКЕА и доставить детский столик и стульчик
                                     </a>
                                 </div>
-                                <div class="media-right">
-                                    <span>500c.</span>
-                                </div>
                             </div>
                         </div>
                         <div class="task task-clean">
@@ -264,9 +195,6 @@
                                     <a href="#" class="media-heading">
                                         Купить в ИКЕА и доставить детский столик и стульчик
                                     </a>
-                                </div>
-                                <div class="media-right">
-                                    <span>500c.</span>
                                 </div>
                             </div>
                         </div>
@@ -282,9 +210,6 @@
                                         Купить в ИКЕА и доставить детский столик и стульчик
                                     </a>
                                 </div>
-                                <div class="media-right">
-                                    <span>500c.</span>
-                                </div>
                             </div>
                         </div>
                         <div class="task task-photo hidden-xs">
@@ -298,9 +223,6 @@
                                     <a href="#" class="media-heading">
                                         Купить в ИКЕА и доставить детский столик и стульчик
                                     </a>
-                                </div>
-                                <div class="media-right">
-                                    <span>500c.</span>
                                 </div>
                             </div>
                         </div>
@@ -316,9 +238,6 @@
                                         Купить в ИКЕА и доставить детский столик и стульчик
                                     </a>
                                 </div>
-                                <div class="media-right">
-                                    <span>500c.</span>
-                                </div>
                             </div>
                         </div>
                         <div class="task task-tech hidden-xs">
@@ -332,9 +251,6 @@
                                     <a href="#" class="media-heading">
                                         Купить в ИКЕА и доставить детский столик и стульчик
                                     </a>
-                                </div>
-                                <div class="media-right">
-                                    <span>500c.</span>
                                 </div>
                             </div>
                         </div>
@@ -350,9 +266,6 @@
                                         Купить в ИКЕА и доставить детский столик и стульчик
                                     </a>
                                 </div>
-                                <div class="media-right">
-                                    <span>500c.</span>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -366,23 +279,13 @@
 @section('scripts')
     <script type="text/javascript" src="{{ asset('js/jquery-migrate-1.2.1.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('slick/slick.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/readmore.js') }}"></script>
-    <script>
-            $('.services .list-group').readmore({
-                speed: 500,
-                moreLink: '<a class="moreLink" href="#">Показать еще <i class="fa fa-chevron-right"></i></a>',
-                lessLink: '<a class="lessLink" href="#">Закрыть</a>',
-                collapsedHeight: 120,
-                heightMargin: 10
-            });
-    </script>
-
     <script type="text/javascript">
         $(document).ready(function(){
             $('.tasks').slick({
                 dots: false,
                 infinite: true,
-                speed: 300,
+                autoplay: true,
+                speed: 600,
                 slidesToShow: 3,
                 slidesToScroll: 1,
                 responsive: [
@@ -403,6 +306,20 @@
                     // settings: "unslick"
                     // instead of a settings object
                 ]
+            });
+
+            $('.btn-all').click(function () {
+                $(this).hide();
+                $('.column').each(function () {
+                    $(this).show();
+                });
+            });
+
+            $('#btnServices').click(function () {
+                $('.btn-all').hide();
+                $('.column').each(function () {
+                    $(this).show();
+                });
             });
         });
     </script>

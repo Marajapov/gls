@@ -27,6 +27,17 @@ class OrderController extends Controller
 
         return view('Front::order.new', [
             'order' => new Order,
+            'categories' => $categories
+        ]);
+    }
+
+    public function categoryNewOrder(Category $selectedCategory)
+    {
+        $categories = Category::where('published','=','1')->get();
+
+        return view('Front::order.category', [
+            'order' => new Order,
+            'selectedCategory' => $selectedCategory,
             'categories' => $categories,
         ]);
     }

@@ -51,8 +51,6 @@ p {
 
 a,a:hover,a:focus{
     outline: none;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
     box-shadow: none;
 }
 
@@ -115,10 +113,6 @@ body {
 
 a {
     color: #68B3C8;
-    -webkit-transition: all 150ms linear;
-    -moz-transition: all 150ms linear;
-    -o-transition: all 150ms linear;
-    -ms-transition: all 150ms linear;
     transition: all 150ms linear;
 }
 a:hover, a:focus {
@@ -159,10 +153,6 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
 .tagsinput,
 .navbar,
 .navbar .alert {
-    -webkit-transition: all 300ms linear;
-    -moz-transition: all 300ms linear;
-    -o-transition: all 300ms linear;
-    -ms-transition: all 300ms linear;
     transition: all 300ms linear;
 }
 
@@ -171,20 +161,12 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
 .filter,
 .btn-hover,
 [data-toggle="collapse"] i {
-    -webkit-transition: all 150ms linear;
-    -moz-transition: all 150ms linear;
-    -o-transition: all 150ms linear;
-    -ms-transition: all 150ms linear;
     transition: all 150ms linear;
 }
 
 .btn-morphing .fa,
 .btn-morphing .circle,
 .gsdk-collapse {
-    -webkit-transition: all 300ms linear;
-    -moz-transition: all 300ms linear;
-    -o-transition: all 300ms linear;
-    -ms-transition: all 300ms linear;
     transition: all 300ms linear;
 }
 
@@ -265,6 +247,7 @@ input.ct-red + span + label + span.switch-right {
 
 .navbar .navbar-nav > li > a.btn, .btn {
     border-radius: 20px;
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
     border-width: 2px;
     background-color: transparent;
@@ -274,10 +257,6 @@ input.ct-red + span + label + span.switch-right {
     padding: 0px 18px;
     border-color: #66615B;
     color: #66615B;
-    -webkit-transition: all 150ms linear;
-    -moz-transition: all 150ms linear;
-    -o-transition: all 150ms linear;
-    -ms-transition: all 150ms linear;
     transition: all 150ms linear;
 }
 .navbar .navbar-nav > li > a.btn:hover .caret, .navbar .navbar-nav > li > a.btn:focus .caret, .navbar .navbar-nav > li > a.btn:active .caret, .navbar .navbar-nav > li > a.btn.active .caret, .open > .navbar .navbar-nav > li > a.btn.dropdown-toggle .caret, .btn:hover .caret, .btn:focus .caret, .btn:active .caret, .btn.active .caret, .open > .btn.dropdown-toggle .caret {
@@ -315,7 +294,6 @@ input.ct-red + span + label + span.switch-right {
     outline: 0 !important;
 }
 .navbar .navbar-nav > li > a.btn:active, .navbar .navbar-nav > li > a.btn.active, .open > .navbar .navbar-nav > li > a.btn.dropdown-toggle, .btn:active, .btn.active, .open > .btn.dropdown-toggle {
-    -webkit-box-shadow: none;
     box-shadow: none;
     outline: 0 !important;
 }
@@ -684,17 +662,14 @@ input.ct-red + span + label + span.switch-right {
     transition: background-color 0.3s ease 0s;
     padding: 0px 18px;
     height: 40px;
-    -webkit-box-shadow: none;
     box-shadow: none;
 }
 .form-control:focus {
     background-color: #FFFFFF;
-    -webkit-box-shadow: none;
     box-shadow: none;
     outline: 0 !important;
 }
 .has-success .form-control, .has-error .form-control, .has-success .form-control:focus, .has-error .form-control:focus {
-    -webkit-box-shadow: none;
     box-shadow: none;
 }
 .has-success .form-control {
@@ -848,6 +823,7 @@ textarea.form-control {
 /* For IE8 - See #6727 */
 .ui-slider.ui-state-disabled .ui-slider-handle,
 .ui-slider.ui-state-disabled .ui-slider-range {
+    -webkit-filter: inherit;
     filter: inherit; }
 
 .ui-slider-horizontal {
@@ -936,15 +912,10 @@ textarea.form-control {
 .ui-widget-header .ui-state-default {
     background: white;
     /* Old browsers */
-    background: -moz-linear-gradient(top, white 0%, #f1f1f2 100%);
     /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(100%, #f1f1f2));
     /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top, white 0%, #f1f1f2 100%);
     /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top, white 0%, #f1f1f2 100%);
     /* Opera 11.10+ */
-    background: -ms-linear-gradient(top, white 0%, #f1f1f2 100%);
     /* IE10+ */
     background: linear-gradient(to bottom, white 0%, #f1f1f2 100%);
     /* W3C */
@@ -1194,7 +1165,6 @@ textarea.form-control {
     font-weight: 400;
     padding: 0;
     z-index: 1031;
-    -webkit-box-shadow: none;
     box-shadow: none; }
 
 .popover-title {
@@ -1310,7 +1280,6 @@ textarea.form-control {
     margin-bottom: 12px;
     padding-left: 30px;
     position: relative;
-    -webkit-transition: color 0.25s linear;
     transition: color 0.25s linear;
     font-size: 16px;
     font-weight: normal;
@@ -1335,7 +1304,6 @@ textarea.form-control {
     line-height: 21px;
     font-size: 20px;
     cursor: pointer;
-    -webkit-transition: color 0.2s linear;
     transition: color 0.2s linear; }
 
 .checkbox .icons .first-icon,
@@ -1358,7 +1326,6 @@ textarea.form-control {
 
 .checkbox:hover,
 .radio:hover {
-    -webkit-transition: color 0.2s linear;
     transition: color 0.2s linear; }
 
 .checkbox:hover .first-icon,
@@ -1380,7 +1347,6 @@ textarea.form-control {
 .radio.checked .second-icon {
     opacity: 1;
     filter: alpha(opacity=100);
-    -webkit-transition: color 0.2s linear;
     transition: color 0.2s linear; }
 
 .checkbox.disabled,
@@ -1427,8 +1393,8 @@ textarea.form-control {
     padding: 10px;
 }
 .navbar .navbar-brand {
-    height: 70px;
-    padding: 10px 15px;
+    height: 80px;
+    padding: 3px 15px;
     font-size: 22px;
     font-weight: 600;
 }
@@ -1448,7 +1414,7 @@ textarea.form-control {
     position: relative;
     top: 1px; }
 .navbar .btn {
-    margin: 15px 3px;
+    margin: 20px 3px;
     font-size: 14px;
 }
 .navbar .btn-simple {
@@ -1580,7 +1546,6 @@ textarea.form-control {
     margin: 3px 0 0; }
 
 .navbar-form {
-    -webkit-box-shadow: none;
     box-shadow: none; }
 .navbar-form .form-control {
     border-radius: 0;
@@ -1657,7 +1622,6 @@ textarea.form-control {
     padding: 0px; }
 
 .dropdown-menu {
-    -webkit-box-shadow: 0 2px rgba(17, 16, 15, 0.1), 0 2px 10px rgba(17, 16, 15, 0.1);
     box-shadow: 0 2px rgba(17, 16, 15, 0.1), 0 2px 10px rgba(17, 16, 15, 0.1); }
 .open .dropdown-menu {
     opacity: 1;
@@ -1672,22 +1636,11 @@ textarea.form-control {
     padding: 10px 15px; }
 .select .dropdown-menu {
     border-radius: 0 0 10px 10px;
-    -webkit-box-shadow: none;
     box-shadow: none;
     -webkit-transform-origin: 50% -40px;
-    -moz-transform-origin: 50% -40px;
-    -o-transform-origin: 50% -40px;
-    -ms-transform-origin: 50% -40px;
     transform-origin: 50% -40px;
     -webkit-transform: scale(1);
-    -moz-transform: scale(1);
-    -o-transform: scale(1);
-    -ms-transform: scale(1);
     transform: scale(1);
-    -webkit-transition: all 150ms linear;
-    -moz-transition: all 150ms linear;
-    -o-transition: all 150ms linear;
-    -ms-transition: all 150ms linear;
     transition: all 150ms linear;
     margin-top: -20px; }
 .select.open .dropdown-menu {
@@ -1696,10 +1649,6 @@ textarea.form-control {
     color: #66615b;
     font-size: 16px;
     padding: 10px 15px;
-    -webkit-transition: none;
-    -moz-transition: none;
-    -o-transition: none;
-    -ms-transition: none;
     transition: none; }
 .dropdown-menu > li > a img {
     margin-top: -3px; }
@@ -2107,7 +2056,6 @@ textarea.form-control {
     width: 100%;
     height: 460px;
     padding: 0;
-    -webkit-background-size: auto;
     background-size: auto;
     background-repeat: no-repeat;
     background-position: center center;
@@ -2192,10 +2140,12 @@ textarea.form-control {
         display: none; }
 
     .navbar-nav > li > .dropdown-menu, .dropdown .dropdown-menu {
+        -webkit-transform: translate3d(0px, -40px, 0px);
         transform: translate3d(0px, -40px, 0px);
         transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0s, opacity 0.3s ease 0s, height 0s linear 0.35s; }
 
     .navbar-nav > li.open > .dropdown-menu, .dropdown.open .dropdown-menu {
+        -webkit-transform: translate3d(0px, 0px, 0px);
         transform: translate3d(0px, 0px, 0px); }
 
     .navbar-nav > li > .dropdown-menu:before {
@@ -2248,14 +2198,7 @@ textarea.form-control {
 
     .wrapper {
         -webkit-transform: translate3d(0px, 0, 0);
-        -moz-transform: translate3d(0px, 0, 0);
-        -o-transform: translate3d(0px, 0, 0);
-        -ms-transform: translate3d(0px, 0, 0);
         transform: translate3d(0px, 0, 0);
-        -webkit-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
-        -moz-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
-        -o-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
-        -ms-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
         transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
         left: 0;
         background-color: white; }
@@ -2263,10 +2206,6 @@ textarea.form-control {
     .navbar .container {
         left: 0;
         width: 100%;
-        -webkit-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
-        -moz-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
-        -o-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
-        -ms-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
         transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
         position: relative; }
 
@@ -2289,14 +2228,7 @@ textarea.form-control {
         border-top: none;
         text-align: left;
         -webkit-transform: translate3d(230px, 0, 0);
-        -moz-transform: translate3d(230px, 0, 0);
-        -o-transform: translate3d(230px, 0, 0);
-        -ms-transform: translate3d(230px, 0, 0);
         transform: translate3d(230px, 0, 0);
-        -webkit-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
-        -moz-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
-        -o-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
-        -ms-transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
         transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1); }
     body > .navbar-collapse ul {
         position: relative;
@@ -2332,9 +2264,6 @@ textarea.form-control {
 
     .nav-open .navbar-collapse {
         -webkit-transform: translate3d(0px, 0, 0);
-        -moz-transform: translate3d(0px, 0, 0);
-        -o-transform: translate3d(0px, 0, 0);
-        -ms-transform: translate3d(0px, 0, 0);
         transform: translate3d(0px, 0, 0); }
 
     .nav-open .navbar .container {
@@ -2343,9 +2272,6 @@ textarea.form-control {
     .nav-open .wrapper {
         left: 0;
         -webkit-transform: translate3d(-230px, 0, 0);
-        -moz-transform: translate3d(-230px, 0, 0);
-        -o-transform: translate3d(-230px, 0, 0);
-        -ms-transform: translate3d(-230px, 0, 0);
         transform: translate3d(-230px, 0, 0); }
 
     .navbar-toggle .icon-bar {
@@ -2370,10 +2296,8 @@ textarea.form-control {
     .bar1 {
         top: 0px;
         -webkit-animation: topbar-back 500ms linear 0s;
-        -moz-animation: topbar-back 500ms linear 0s;
         animation: topbar-back 500ms 0s;
         -webkit-animation-fill-mode: forwards;
-        -moz-animation-fill-mode: forwards;
         animation-fill-mode: forwards; }
 
     .bar2 {
@@ -2382,19 +2306,15 @@ textarea.form-control {
     .bar3 {
         bottom: 0px;
         -webkit-animation: bottombar-back 500ms linear 0s;
-        -moz-animation: bottombar-back 500ms linear 0s;
         animation: bottombar-back 500ms 0s;
         -webkit-animation-fill-mode: forwards;
-        -moz-animation-fill-mode: forwards;
         animation-fill-mode: forwards; }
 
     .toggled .bar1 {
         top: 6px;
         -webkit-animation: topbar-x 500ms linear 0s;
-        -moz-animation: topbar-x 500ms linear 0s;
         animation: topbar-x 500ms 0s;
         -webkit-animation-fill-mode: forwards;
-        -moz-animation-fill-mode: forwards;
         animation-fill-mode: forwards; }
 
     .toggled .bar2 {
@@ -2403,22 +2323,24 @@ textarea.form-control {
     .toggled .bar3 {
         bottom: 6px;
         -webkit-animation: bottombar-x 500ms linear 0s;
-        -moz-animation: bottombar-x 500ms linear 0s;
         animation: bottombar-x 500ms 0s;
         -webkit-animation-fill-mode: forwards;
-        -moz-animation-fill-mode: forwards;
         animation-fill-mode: forwards; }
 
     @keyframes topbar-x {
         0% {
             top: 0px;
+            -webkit-transform: rotate(0deg);
             transform: rotate(0deg); }
         45% {
             top: 6px;
+            -webkit-transform: rotate(145deg);
             transform: rotate(145deg); }
         75% {
+            -webkit-transform: rotate(130deg);
             transform: rotate(130deg); }
         100% {
+            -webkit-transform: rotate(135deg);
             transform: rotate(135deg); } }
     @-webkit-keyframes topbar-x {
         0% {
@@ -2431,27 +2353,20 @@ textarea.form-control {
             -webkit-transform: rotate(130deg); }
         100% {
             -webkit-transform: rotate(135deg); } }
-    @-moz-keyframes topbar-x {
-        0% {
-            top: 0px;
-            -moz-transform: rotate(0deg); }
-        45% {
-            top: 6px;
-            -moz-transform: rotate(145deg); }
-        75% {
-            -moz-transform: rotate(130deg); }
-        100% {
-            -moz-transform: rotate(135deg); } }
     @keyframes topbar-back {
         0% {
             top: 6px;
+            -webkit-transform: rotate(135deg);
             transform: rotate(135deg); }
         45% {
+            -webkit-transform: rotate(-10deg);
             transform: rotate(-10deg); }
         75% {
+            -webkit-transform: rotate(5deg);
             transform: rotate(5deg); }
         100% {
             top: 0px;
+            -webkit-transform: rotate(0deg);
             transform: rotate(0deg); } }
     @-webkit-keyframes topbar-back {
         0% {
@@ -2464,27 +2379,20 @@ textarea.form-control {
         100% {
             top: 0px;
             -webkit-transform: rotate(0deg); } }
-    @-moz-keyframes topbar-back {
-        0% {
-            top: 6px;
-            -moz-transform: rotate(135deg); }
-        45% {
-            -moz-transform: rotate(-10deg); }
-        75% {
-            -moz-transform: rotate(5deg); }
-        100% {
-            top: 0px;
-            -moz-transform: rotate(0deg); } }
     @keyframes bottombar-x {
         0% {
             bottom: 0px;
+            -webkit-transform: rotate(0deg);
             transform: rotate(0deg); }
         45% {
             bottom: 6px;
+            -webkit-transform: rotate(-145deg);
             transform: rotate(-145deg); }
         75% {
+            -webkit-transform: rotate(-130deg);
             transform: rotate(-130deg); }
         100% {
+            -webkit-transform: rotate(-135deg);
             transform: rotate(-135deg); } }
     @-webkit-keyframes bottombar-x {
         0% {
@@ -2497,27 +2405,20 @@ textarea.form-control {
             -webkit-transform: rotate(-130deg); }
         100% {
             -webkit-transform: rotate(-135deg); } }
-    @-moz-keyframes bottombar-x {
-        0% {
-            bottom: 0px;
-            -moz-transform: rotate(0deg); }
-        45% {
-            bottom: 6px;
-            -moz-transform: rotate(-145deg); }
-        75% {
-            -moz-transform: rotate(-130deg); }
-        100% {
-            -moz-transform: rotate(-135deg); } }
     @keyframes bottombar-back {
         0% {
             bottom: 6px;
+            -webkit-transform: rotate(-135deg);
             transform: rotate(-135deg); }
         45% {
+            -webkit-transform: rotate(10deg);
             transform: rotate(10deg); }
         75% {
+            -webkit-transform: rotate(-5deg);
             transform: rotate(-5deg); }
         100% {
             bottom: 0px;
+            -webkit-transform: rotate(0deg);
             transform: rotate(0deg); } }
     @-webkit-keyframes bottombar-back {
         0% {
@@ -2530,23 +2431,7 @@ textarea.form-control {
         100% {
             bottom: 0px;
             -webkit-transform: rotate(0deg); } }
-    @-moz-keyframes bottombar-back {
-        0% {
-            bottom: 6px;
-            -moz-transform: rotate(-135deg); }
-        45% {
-            -moz-transform: rotate(10deg); }
-        75% {
-            -moz-transform: rotate(-5deg); }
-        100% {
-            bottom: 0px;
-            -moz-transform: rotate(0deg); } }
     @-webkit-keyframes fadeIn {
-        0% {
-            opacity: 0; }
-        100% {
-            opacity: 1; } }
-    @-moz-keyframes fadeIn {
         0% {
             opacity: 0; }
         100% {
@@ -2668,8 +2553,6 @@ textarea.form-control {
     left: 0;
     padding: 4px;
     margin-top: 1px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
     border-radius: 4px; }
 .datepicker > div {
     display: none; }
@@ -2681,8 +2564,6 @@ textarea.form-control {
     text-align: center;
     width: 20px;
     height: 20px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
     border-radius: 4px; }
 .datepicker td {
     border-top: 1px solid #DDDDDD;
@@ -2739,8 +2620,6 @@ textarea.form-control {
     float: left;
     margin: 2px;
     cursor: pointer;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
     border-radius: 4px; }
 .datepicker span.old {
     color: #999999; }
@@ -2779,22 +2658,11 @@ textarea.form-control {
     background: #eeeeee; }
 .datepicker.dropdown-menu {
     border-radius: 0 0 10px 10px;
-    -webkit-box-shadow: none;
     box-shadow: none;
     -webkit-transform-origin: 0;
-    -moz-transform-origin: 0;
-    -o-transform-origin: 0;
-    -ms-transform-origin: 0;
     transform-origin: 0;
     -webkit-transform: scale(1);
-    -moz-transform: scale(1);
-    -o-transform: scale(1);
-    -ms-transform: scale(1);
     transform: scale(1);
-    -webkit-transition: all 150ms linear;
-    -moz-transition: all 150ms linear;
-    -o-transition: all 150ms linear;
-    -ms-transition: all 150ms linear;
     transition: all 150ms linear;
     margin-top: -20px; }
 .datepicker.dropdown-menu.open {
