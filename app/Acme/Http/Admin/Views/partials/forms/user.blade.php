@@ -53,7 +53,7 @@
     <div class="col-md-4">
         <div class="form-group">
             <div class="checkbox checkbox-primary">
-                <input id="checkbox3" class="styled" type="checkbox">
+                <input name="published" id="checkbox3" class="styled" type="checkbox">
                 <label for="checkbox3">
                     админ
                 </label>

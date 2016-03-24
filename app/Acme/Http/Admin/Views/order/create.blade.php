@@ -42,7 +42,7 @@
         function categoryChange(source, subcategory, price) {
             var id = source.val();
             var dataString = 'id=' + id;
-            var url = "http://gls.dev/admin/categoryChange";
+            var url = "{{ route('admin.categoryChange') }}";
 
             $.ajaxSetup({
                 headers: {'X-CSRF-Token': $('meta[name=_token]').attr('content')}
@@ -65,7 +65,7 @@
         function subcategoryChange(source, price) {
             var id = source.val();
             var dataString = 'id=' + id;
-            var url = "http://gls.dev/admin/subcategoryChange";
+            var url = "{{ route('admin.subcategoryChange') }}";
 
             $.ajaxSetup({
                 headers: {'X-CSRF-Token': $('meta[name=_token]').attr('content')}
@@ -92,7 +92,7 @@
                 $.ajaxSetup({
                     headers: {'X-CSRF-Token': $('meta[name=_token]').attr('content')}
                 });
-                var url = "http://gls.dev/admin/newSelect";
+                var url = "{{ route('admin.newSelect') }}";
                 var dataString = 'i='+i;
 
                 $.ajax
