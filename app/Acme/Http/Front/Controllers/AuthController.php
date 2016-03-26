@@ -1,6 +1,7 @@
 <?php
 namespace Front\Controllers;
 use Illuminate\Http\Request;
+use \Model\User\ModelName as User;
 class AuthController extends Controller
 {
     public function __construct()
@@ -21,7 +22,7 @@ class AuthController extends Controller
             }
         }
 
-        return redirect()->route('front.login')->with('danger-message', 'Email же сырсөз туура эмес');
+        return redirect()->route('front.login')->with('danger-message', 'Номер же сырсөз туура эмес');
     }
 
     public function postLogout()

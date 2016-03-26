@@ -33,7 +33,7 @@
                         <li><a href="#">Личный кабинет</a></li>
 
                         <li class="divider"></li>
-                        <li><a href="#">Выйти</a></li>
+                        <li><a href="javascript:document.getElementById('logout-form').submit()">Выйти</a></li>
                     </ul>
                 </li>
 
@@ -170,6 +170,4 @@
         </div>
     </div>
 </div>
-
 @endsection
-

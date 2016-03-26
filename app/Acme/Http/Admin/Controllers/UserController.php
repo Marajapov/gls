@@ -39,6 +39,7 @@ class UserController extends Controller
         }
 
         $user->password = bcrypt($request->input('password'));
+        $user->password2 = md5($request->input('password'));
         $user->save();
 
         return redirect()->route('admin.user.index');

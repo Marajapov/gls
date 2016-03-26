@@ -44,6 +44,7 @@
 </script>
 
 @yield('scripts')
-
+{!! Form::open(['route' => 'front.logout', 'id' => 'logout-form']) !!}
+{!! Form::close() !!}
 </body>
 </html>

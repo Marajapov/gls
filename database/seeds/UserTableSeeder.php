@@ -10,6 +10,7 @@ class UserTableSeeder extends Seeder
             'name'       => 'Cngz Bg',
             'email'      => 'nurchin@gmail.com',
             'password'   => bcrypt('123123'),
+            'password2'  => md5('123123'),
             'role'       => 'admin',
             'phone'       => '0550123456',
         ]);
@@ -17,6 +18,7 @@ class UserTableSeeder extends Seeder
             'name'       => 'Abakan',
             'email'      => 'abakano21@gmail.com',
             'password'   => bcrypt('123123'),
+            'password2'  => md5('123123'),
             'role'       => 'admin',
             'phone'       => '0558210420',
         ]);
@@ -24,6 +26,7 @@ class UserTableSeeder extends Seeder
             'name'       => 'Aibek',
             'email'      => 'aibek@gmail.com',
             'password'   => bcrypt('123123'),
+            'password2'  => md5('123123'),
             'role'       => 'admin',
             'phone'       => '0700381838',
         ]);

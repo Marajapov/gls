@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserSubcategoryTiesTable extends Migration
+class CreateTableShared extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,13 @@ class CreateUserSubcategoryTiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_subcategory_ties', function (Blueprint $table) {
+        Schema::create('shared', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
+            $table->integer('order_id');
             $table->integer('subcategory_id');
             $table->integer('count');
-            $table->integer('price');
+            $table->string('price');
+            $table->string('status');
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreateUserSubcategoryTiesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('user_subcategory_ties');
+        Schema::drop('shared');
     }
 }

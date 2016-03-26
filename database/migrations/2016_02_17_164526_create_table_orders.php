@@ -15,6 +15,13 @@ class CreateTableOrders extends Migration
             $table->string('client_adres');
             $table->string('description');
             $table->string('attachment');
+            $table->string('url');
+            $table->integer('category_id');
+            $table->integer('subcategory_id');
+            $table->integer('count');
+            $table->integer('price');
+            $table->integer('priceClient');
+            $table->string('flag');
             $table->enum('status', ['new', 'share','complete','canceled','closed','softDelete'])->nullable()->default('new');
             $table->integer('owner_id')->nullable()->unsigned()->default(null);
 

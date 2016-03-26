@@ -6,6 +6,8 @@ use App\Http\Requests;
 use \Model\Order\ModelName as Order;
 use Model\Category\ModelName as Category;
 use Model\OrderSubcategoryTie\ModelName as OrderSubcategoryTie;
+use Model\UserSubcategoryTie\ModelName as UserSubcategoryTie;
+use Model\Shared\ModelName as Shared;
 
 class OrderController extends Controller
 {
@@ -96,11 +98,81 @@ class OrderController extends Controller
         dd($id);
     }
 
+    // To be shared
     public function share(Request $request, $id)
     {
         $order = Order::where('id','=',$id)->first();
         $order->status = 'share';
         $order->save();
+
+        // insert into ust
+        $ost = OrderSubcategoryTie::where('order_id','=',$id)->get();
+        foreach ($ost as $key => $value) {
+            Shared::create([
+                'order_id' => $value['order_id'],
+                'subcategory_id' => $value['subcategory_id'],
+                'count' => $value['count'],
+                'price' => $value['price'],
+            ]);
+        }
         return redirect()->route('admin.order.index');
+    }
+
+    // Show shared orders
+    public function shared()
+    {
+        $orders = \Model\Order\ModelName::where('status','<>','softDelete')->where('status','=','share')->orderBy('id', 'desc')->get();
+
+        return view('Admin::order.shared', [
+            'orders' => $orders,
+        ]);
+    }
+
+    // To be canceled
+    public function orderCancel(Request $request, $id)
+    {
+        $order = Order::where('id','=',$id)->first();
+        $order->status = 'canceled';
+        $order->save();
+        return redirect()->route('admin.order.index');
+    }
+
+    // Show canceled orders
+    public function canceled()
+    {
+        $orders = \Model\Order\ModelName::where('status','<>','softDelete')->where('status','=','canceled')->orderBy('id', 'desc')->get();
+
+        return view('Admin::order.canceled', [
+            'orders' => $orders,
+        ]);
+    }
+
+    // To be closed
+    public function orderClose(Request $request, $id)
+    {
+        $order = Order::where('id','=',$id)->first();
+        $order->status = 'closed';
+        $order->save();
+        return redirect()->route('admin.order.index');
+    }
+
+    // Show closed orders
+    public function showClosed()
+    {
+        $orders = \Model\Order\ModelName::where('status','<>','softDelete')->where('status','=','closed')->orderBy('id', 'desc')->get();
+
+        return view('Admin::order.closed', [
+            'orders' => $orders,
+        ]);
+    }
+
+    // Show new orders
+    public function showNew()
+    {
+        $orders = \Model\Order\ModelName::where('status','<>','softDelete')->where('status','=','new')->orderBy('id', 'desc')->get();
+
+        return view('Admin::order.new', [
+            'orders' => $orders,
+        ]);
     }
 }

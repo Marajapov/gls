@@ -1,5 +1,5 @@
 @extends('Front::layouts.default') 
-@section('title', 'GLS' ) 
+@section('title', 'TezTap' ) 
 @section('styles')
     <link rel="stylesheet" type="text/css" href="{{ asset('slick/slick.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('slick/slick-theme.css') }}" /> 

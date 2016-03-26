@@ -14,7 +14,7 @@
                 <div class="card">
                     <div class="header">
                         <h4 class="title">
-                            Последние заказы
+                            Разосланные заказы
                         </h4>
                     </div>
                     <div class="content table-responsive table-full-width">

@@ -1,5 +1,5 @@
 @extends('Front::layouts.default')
-@section('title', 'GLS' )
+@section('title', 'TezTap' )
 
 @section('styles')
     <meta name="_token" content="{!! csrf_token() !!}"/>
