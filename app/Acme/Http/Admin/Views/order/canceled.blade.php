@@ -17,73 +17,53 @@
                             Отмененные заказы
                         </h4>
                     </div>
-                    <div class="content table-responsive table-full-width">
-                        <table class="table table-hover">
+                    <div class="content">
+                        <table class="table">
                             <thead>
-                                <th>ID</th>
+                                <th class="hidden-xs hidden-sm">ID</th>
                                 <th>Название</th>
-                                <th>Необходимо</th>
-                                <th>Статус</th>
-                                <th>Дата</th>
-                                <th>Изменить статус</th>
+                                <th>Подкатегория</th>
                                 <th>Действия</th>
                             </thead>
                             <tbody>
                                 @foreach($orders as $order)
                                     <tr class="@if($order->status == "new") success @elseif($order->status == "share") warning @elseif($order->status == "canceled") danger @else info @endif">
-                                        <td>{{ $order->id }}</td>
+                                        <td class="hidden-xs hidden-sm">{{ $order->id }}</td>
                                         <td>
                                             <a href="{{ route('admin.order.show', $order) }}">
                                                 {{ $order->name }}
                                             </a>
+                                            <span class="status">
+                                                @if($order->getStatus() == "new") новый
+                                                @elseif($order->getStatus() == "site") заявка с сайта
+                                                @elseif($order->getStatus() == "share") разослан
+                                                @elseif($order->getStatus() == "complete") комплектован
+                                                @elseif($order->getStatus() == "canceled") отменен
+                                                @elseif($order->getStatus() == "closed") закрыт
+                                                @endif
+                                            </span>
+                                            <span class="date">
+                                                {{ $order->getDate().', '.$order->getTime() }}
+                                            </span>
                                         </td>
-                                        <td>
+                                        <td class="hidden-xs hidden-sm">
                                             <span class="spec">{{ $order->subcategories()->first()->getName() }}</span>
                                         </td>
-                                        <td>
-                                            @if($order->getStatus() == "new") новый
-                                            @elseif($order->getStatus() == "share") разослан
-                                            @elseif($order->getStatus() == "complete") комплектован
-                                            @elseif($order->getStatus() == "canceled") отменен
-                                            @elseif($order->getStatus() == "closed") закрыт
-                                            @endif
-                                        </td>
-                                        <td>{{ $order->getDate() }}</td>
-                                        <td>
-                                            <ul>
-
-                                                <li>
-                                                    <a rel="tooltip" class="" href="{{ route('admin.order.share', $order) }}" title="Разослать">
-                                                        <i class="pe-7s-share"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a rel="tooltip" class="" href="{{ route('admin.order.cancel', $order) }}" title="Отменить">
-                                                        <i class="pe-7s-close-circle"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a rel="tooltip" class="" href="{{ route('admin.order.close', $order) }}" title="Закрыть">
-                                                        <i class="pe-7s-close"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </td>
-                                        <td>
+                                        <td class="td-actions">
                                             <ul>
                                                 <li>
-                                                    <a rel="tooltip" class="view" href="{{ route('admin.order.show', $order) }}" title="Посмотреть">
-                                                        <i class="pe-7s-next-2"></i>
+                                                    <a rel="tooltip" class="view btn btn-default" href="{{ route('admin.order.show', $order) }}" title="Посмотреть">
+                                                        <i class="fa fa-eye"></i>
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a rel="tooltip" class="edit" href="{{ route('admin.order.edit', $order) }}" title="Редактировать">
-                                                        <i class="pe-7s-pen"></i>
+                                                    <a rel="tooltip" class="edit btn btn-default" href="{{ route('admin.order.edit', $order) }}" title="Редактировать">
+                                                        <i class="fa fa-edit"></i>
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a rel="tooltip" class="delete" href="{{ route('admin.order.softDelete', $order) }}" title="Удалить">
-                                                        <i class="pe-7s-trash"></i>
+                                                    <a rel="tooltip" class="delete btn btn-default" href="{{ route('admin.order.softDelete', $order) }}" title="Удалить">
+                                                        <i class="fa fa-trash-o"></i>
                                                     </a>
                                                 </li>
                                             </ul>

@@ -10,6 +10,7 @@ use Model\Subcategory\ModelName as Subcategory;
 use Model\OrderSubcategoryTie\ModelName as OrderSubcategoryTie;
 use Model\UserSubcategoryTie\ModelName as UserSubcategoryTie;
 use Model\Shared\ModelName as Shared;
+use Model\User\ModelName as User;
 
 class OrderController extends Controller
 {
@@ -29,7 +30,7 @@ class OrderController extends Controller
 
     public function clientOrders()
     {
-        $orders = \Model\Order\ModelName::where('status','<>','softDelete')->orderBy('id', 'desc')->get();
+        $orders = \Model\Order\ModelName::where('status','=','site')->orderBy('id', 'desc')->get();
 
         return view('Admin::order.index', [
             'orders' => $orders,
@@ -76,9 +77,12 @@ class OrderController extends Controller
     public function show($order)
     {
         $categories = Category::lists('name', 'id')->toArray();
+        $users = User::all();
+
         return view('Admin::order.show', [
             'order' => $order,
             'categories' => $categories,
+            'users' => $users,
         ]);
     }
 

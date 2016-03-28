@@ -24,7 +24,7 @@
                             {!! Form::model($order, ['route' => 'front.order.store', 'enctype' => 'multipart/form-data', 'class'=>'newTask clearfix', 'id'=>'newTask']) !!}
 
                             <div class="form-group col-md-6">
-                                <label for="taskName" class="required-label">Категория</label>
+                                <label for="category" class="required-label">Категория</label>
                                 <select name="category_id" id="category" class="form-control selectpicker required" title="-- Выберите категорию --" required>
                                     @foreach($categories as $category)
                                         <option value="{{$category->id}}">{{$category->name}}</option>
@@ -36,24 +36,21 @@
                                 </div>
                             </div>
                             <div id="taskType" class="form-group col-md-6 no-ajax">
-                                <label for="taskName" class="required-label">Подкатегория</label>
+                                <label for="type" class="required-label">Подкатегория</label>
                                 <select name="subcategory_id" id="type" class="form-control selectpicker required" title="-- Выберите тип --" required>
                                 </select>
                             </div>
 
-<!--
                             <div class="form-group col-md-12">
-                                <label for="name" class="required-label">Мне нужно</label>
-                                {!! Form::text('name', null, ["class" => "form-control", "id"=>"name", "required" => true, "placeholder" => "Коротко сформулируйте Вашу задачу"]) !!}
+                                <label for="name">Мне нужно</label>
+                                {!! Form::text('name', null, ["class" => "form-control", "id"=>"name", "placeholder" => "Коротко сформулируйте Вашу задачу"]) !!}
                             </div>
--->
 
                             <div class="form-group col-md-12">
                                 <label for="description" class="required-label">Описание задачи</label>
                                 {!! Form::textarea('description', null, ["class" => "form-control", "id"=>"description", "rows"=>4, "required" => true, "placeholder" => "Опишите пожелания и детали, чтобы исполнители лучше оценили вашу задачу"]) !!}
                             </div>
 
-<!--
                             <div class="form-group col-md-6">
                                 <label for="attachment">Добавить фото</label>
                                 <div class="fileinput fileinput-new input-group" data-provides="fileinput">
@@ -70,7 +67,6 @@
                                 </div>
                                 <p class="help-block">Фото помогает исполнителям лучше понять ваше задание и оценить объем работы</p>
                             </div>
--->
 
                             <div class="col-md-12">
                                 <div class="row">

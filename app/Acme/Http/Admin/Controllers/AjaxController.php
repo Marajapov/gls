@@ -7,6 +7,7 @@ use Input;
 use App\Http\Requests;
 use Model\Subcategory\ModelName as Subcategory;
 use Model\Category\ModelName as Category;
+use Model\User\ModelName as User;
 
 class AjaxController extends Controller
 {
@@ -105,6 +106,37 @@ class AjaxController extends Controller
                     </div>';
 
             return $result;
+        }
+    }
+
+    public function orderNewUser(){
+        if(Request::ajax()) {
+            $data = Input::all();
+            $user = User::where('id','=',$data['id'])->first();
+
+            return '
+            <tr>
+                <td>
+                    <a href="#">'.$user->name.'</a>
+                </td>
+                <td>
+                    '.$user->phone.'
+                </td>
+                <td>
+                    <span class="spec">uborka1</span>
+                    <span class="spec">uborka2</span>
+                    <span class="spec">uborka3</span>
+                </td>
+                <td>
+                    '.$user->name.'
+                </td>
+                <td class="td-actions">
+                    <a rel="tooltip" class="delete btn btn-default" href="'.route('admin.order.softDelete', $user) .'" title="Удалить">
+                        <i class="fa fa-trash-o"></i>
+                    </a>
+                </td>
+            </tr>
+            ';
         }
     }
 }

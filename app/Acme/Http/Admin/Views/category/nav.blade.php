@@ -21,9 +21,9 @@
             <ul class="nav navbar-nav navbar-right">
 
                 <li>
-                    <a href="{{ route('admin.order.create') }}">
+                    <a href="{{ route('admin.category.create') }}">
                         <i class="fa fa-plus"></i>
-                        <p>Добавить заказ</p>
+                        <p>Добавить категорию</p>
                     </a>
                 </li>
 

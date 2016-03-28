@@ -21,9 +21,9 @@
             <ul class="nav navbar-nav navbar-right">
 
                 <li>
-                    <a href="{{ route('admin.user.create') }}">
+                    <a href="{{ route('admin.subcategory.create') }}">
                         <i class="fa fa-plus"></i>
-                        <p>Добавить пользователя</p>
+                        <p>Добавить подкатегорию</p>
                     </a>
                 </li>
 

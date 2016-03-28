@@ -14,7 +14,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'access:admin', 'namespace' =
 
     //Route::post('categoryChange', 'AjaxController@orderCategoryChange');
     //Route::post('subcategoryChange', 'AjaxController@subcategoryChange');
-    //Route::post('newSelect', 'AjaxController@orderNewSelect');
+    Route::post('newUser', ['as'=>'admin.newUser', 'uses'=>'AjaxController@orderNewUser']);
 
     Route::post('categoryChange',['as' => 'admin.categoryChange', 'uses' => 'AjaxController@orderCategoryChange']);
     Route::post('subcategoryChange', ['as' => 'admin.subcategoryChange', 'uses' => 'AjaxController@subcategoryChange']);

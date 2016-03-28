@@ -49,7 +49,7 @@
     <div class="col-md-12">
         <div class="form-group">
             <label>Описание заказа</label>
-{!! Form::textarea('description', null, ["class" => "form-control", "rows"=>5, "required" => true, "placeholder" => "Текст описания"]) !!}
+            {!! Form::textarea('description', null, ["class" => "form-control", "rows"=>5, "required" => true, "placeholder" => "Текст описания"]) !!}
         </div>
     </div>
 </div>

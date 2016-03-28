@@ -384,14 +384,27 @@ textarea{
 }
 
 /*TABLE*/
+.card td.td-actions{
+    width: 70px;
+}
+.card td img{
+    width: 100%;
+}
+.card td .status,
+.card td .date
+{
+    display: block;
+    margin-top: 2px;
+    color: #888888;
+}
 .card td ul{
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
 .card td li{
-    display: inline-block;
-    vertical-align: middle;
+    display: block;
+    text-align: center;
 }
 .card td a{
     color: #333333;
@@ -399,19 +412,17 @@ textarea{
 }
 .card td li a,
 .card td li button{
-    padding: 0 8px;
-    font-size: 20px;
+    text-align: center;
+    margin: 5px 0;
+    font-size: 14px;
     line-height: 1;
-    font-weight: bold;
+    font-weight: normal;
 
     -webkit-transition: all 0.2s ease;
     -moz-transition: all 0.2s ease;
     -ms-transition: all 0.2s ease;
     -o-transition: all 0.2s ease;
     transition: all 0.2s ease;
-}
-.card td li i{
-    font-weight: bold;
 }
 .card table .name{
     display: inline-block;
@@ -430,35 +441,43 @@ textarea{
 .spec{
     display: block;
 }
+.card .actions{
+    margin-top: 20px;
+}
 
+@media (max-width: 992px) {
+    .card .actions a{
+        margin-bottom: 5px;
+    }
+}
 /*BUTTONS*/
-.card .view{
-    font-size: 22px;
-    color: #23CCEF;
-}
-.card .edit{
-    color: #87CB16;
-}
-.card .edit:hover,
-.card .edit:focus,
-.card .edit:active{
-    color: #049F0C;
-}
-.card .delete{
-    border: none;
-    background: none;
-    color: #FF4A55;
-    font-size: 24px;
-}
-.card .share{
-    color: #FF9500;
-}
-.card .delete:hover,
-.card .delete:focus,
-.card .delete:active{
-    color: #EE2D20;
-}
-.btn-xs{
-    font-size: 20px;
-    line-height: 1;
-}
+/*.card .view{*/
+    /*font-size: 22px;*/
+    /*color: #23CCEF;*/
+/*}*/
+/*.card .edit{*/
+    /*color: #87CB16;*/
+/*}*/
+/*.card .edit:hover,*/
+/*.card .edit:focus,*/
+/*.card .edit:active{*/
+    /*color: #049F0C;*/
+/*}*/
+/*.card .delete{*/
+    /*border: none;*/
+    /*background: none;*/
+    /*color: #FF4A55;*/
+    /*font-size: 24px;*/
+/*}*/
+/*.card .share{*/
+    /*color: #FF9500;*/
+/*}*/
+/*.card .delete:hover,*/
+/*.card .delete:focus,*/
+/*.card .delete:active{*/
+    /*color: #EE2D20;*/
+/*}*/
+/*.btn-xs{*/
+    /*font-size: 20px;*/
+    /*line-height: 1;*/
+/*}*/

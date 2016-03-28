@@ -42,22 +42,25 @@
                                                 <span class="spec">{{ $subcategory->getName() }}</span>
                                             @endforeach
                                         </td>
-                                        <td>
+
+                                        <td class="td-actions">
                                             <ul>
                                                 <li>
-                                                    <a rel="tooltip" class="view" href="{{ route('admin.user.show') }}" title="Посмотреть">
-                                                        <i class="pe-7s-next-2"></i>
+                                                    <a rel="tooltip" class="view btn btn-default" href="{{ route('admin.user.show', $user) }}" title="Посмотреть">
+                                                        <i class="fa fa-eye"></i>
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a rel="tooltip" class="edit" href="{{ route('admin.user.edit') }}" title="Редактировать">
-                                                        <i class="pe-7s-pen"></i>
+                                                    <a rel="tooltip" class="edit btn btn-default" href="{{ route('admin.user.edit', $user) }}" title="Редактировать">
+                                                        <i class="fa fa-edit"></i>
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a rel="tooltip" class="delete" href="{{ route('admin.user.destroy') }}" title="Удалить">
-                                                        <i class="pe-7s-close-circle"></i>
-                                                    </a>
+                                                    {!! Form::open(['route' => ['admin.user.destroy', $user], 'method' => 'DELETE', 'onsubmit' => "return confirm('Вы уверены ?')"]) !!}
+                                                    <button rel="tooltip" type="submit" class="delete btn btn-default" title="Удалить">
+                                                        <i class="fa fa-trash-o"></i>
+                                                    </button>
+                                                    {!! Form::close() !!}
                                                 </li>
                                             </ul>
                                         </td>

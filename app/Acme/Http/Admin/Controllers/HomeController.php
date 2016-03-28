@@ -1,5 +1,8 @@
 <?php
 namespace Admin\Controllers;
+use \Model\Order\ModelName as Order;
+use Model\Category\ModelName as Category;
+use Model\Subcategory\ModelName as Subcategory;
 
 class HomeController extends Controller {
 
@@ -8,8 +11,15 @@ class HomeController extends Controller {
 	}
 	public function Home()
 	{
-		$lc = app()->getlocale();
-        return view('Admin::home', ['lc' => $lc]);
+        $categories = Category::lists('name', 'id')->toArray();
+        $subcategories = Subcategory::lists('name', 'id')->toArray();
+        $orders = \Model\Order\ModelName::where('status','<>','softDelete')->orderBy('id', 'desc')->get();
+
+        return view('Admin::order.index', [
+            'orders' => $orders,
+            'categories' => $categories,
+            'subcategories' => $subcategories,
+        ]);
 		
 	}
 	public function History()
