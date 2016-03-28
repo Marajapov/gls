@@ -13,7 +13,7 @@ class CreateTableOrders extends Migration
             $table->string('client_name');
             $table->string('client_phone');
             $table->string('client_adres');
-            $table->string('description');
+            $table->text('description');
             $table->string('attachment');
             $table->string('url');
             $table->integer('category_id');

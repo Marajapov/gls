@@ -3,6 +3,7 @@
 
 @section('styles')
     <meta name="_token" content="{!! csrf_token() !!}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/jasny-bootstrap.css') }}" />
 @stop
 
 @section('content')
@@ -20,7 +21,7 @@
                             <h4 class="title">Новый заказ</h4>
                         </div>
                         <div class="content">
-                            {!! Form::model($order, ['route' => 'admin.order.store']) !!}
+                            {!! Form::model($order, ['route' => 'admin.order.store','enctype' => 'multipart/form-data']) !!}
                                 @include('Admin::order.form', [$order])
                             {!! Form::close() !!}
                         </div>
@@ -38,6 +39,7 @@
     <script type="text/javascript" src="{{ asset('js/admin/collapse.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/admin/ru.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/admin/bootstrap-datetimepicker.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/jasny-bootstrap.js') }}"></script>
     <script>
         function categoryChange(source, subcategory, price) {
             var id = source.val();

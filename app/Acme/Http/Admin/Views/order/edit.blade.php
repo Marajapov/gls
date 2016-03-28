@@ -3,6 +3,7 @@
 
 @section('styles')
     <meta name="_token" content="{!! csrf_token() !!}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/jasny-bootstrap.css') }}" />
 @stop
 
 @section('content')
@@ -21,7 +22,7 @@
                             <h4 class="title">Редактировать</h4>
                         </div>
                         <div class="content">
-                            {!! Form::model($order, ['route' => ['admin.order.update', $order], 'method' => 'PUT']) !!}
+                            {!! Form::model($order, ['route' => ['admin.order.update', $order], 'method' => 'PUT','enctype' => 'multipart/form-data']) !!}
                             @include('Admin::order.form', [$order])
                             {!! Form::close() !!}
                         </div>

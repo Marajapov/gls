@@ -38,9 +38,7 @@
                                             </a>
                                         </td>
                                         <td>
-                                            @foreach($order->subcategories as $subcategory)
-                                                <span class="spec">{{ $subcategory->getName() }}</span>
-                                            @endforeach
+                                            <span class="spec">{{ $order->subcategories()->first()->getName() }}</span>
                                         </td>
                                         <td>
                                             @if($order->getStatus() == "new") новый

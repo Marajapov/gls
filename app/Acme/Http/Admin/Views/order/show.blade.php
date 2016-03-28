@@ -39,6 +39,8 @@
                                                     <td>
                                                         {{ $order->getName() }}
                                                     </td>
+                                                </tr>
+                                                <tr>
                                                     <td class="heading">
                                                         Ф.И.О Клиента
                                                     </td>
@@ -53,92 +55,61 @@
                                                     <td>
                                                         {{ $order->getPhone() }}
                                                     </td>
-                                                    <td class="heading">
+                                                </tr>
+
+                                                <tr>
+                                                     <td class="heading">
                                                         Адрес
                                                     </td>
                                                     <td>
                                                         {{ $order->getAdres() }}
                                                     </td>
                                                 </tr>
+                                                
+                                                <tr>
+                                                    <td class="heading">
+                                                        Необходимо
+                                                    </td>
+                                                    <td>
+                                                        <span class="spec">{{ $order->subcategories()->first()->getName() }}</span>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="heading">
+                                                        Количество
+                                                    </td>
+                                                    <td>
+                                                        <span class="spec">{{ $order->getCount() }}</span>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="heading">
+                                                        Цена
+                                                    </td>
+                                                    <td>
+                                                        <span class="spec">{{ $order->getPrice() }}</span>
+                                                    </td>
+                                                </tr>
+
                                                 <tr>
                                                     <td class="heading">
                                                         Описание
                                                     </td>
                                                     <td colspan="3">
                                                         {{ $order->getDescription() }}
-                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, autem distinctio dolorem excepturi minus molestiae optio quia sapiente ullam voluptate.
                                                     </td>
                                                 </tr>
+
                                                 <tr>
                                                     <td class="heading">
-                                                        Необходимо
+                                                        Фото
                                                     </td>
-                                                    <td>
-                                                        @foreach($order->subcategories()->get() as $subcategory)
-                                                            {{ $subcategory->getName() }}
-                                                        @endforeach
+                                                    <td colspan="3">
+                                                        <img src="{{ asset($order->getFile()) }}">
                                                     </td>
                                                 </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-
-                                    <div class="table-responsive">
-                                        <div class="col-md-12">
-                                            <p class="subtitle">Разосланные</p>
-                                        </div>
-                                        <table class="table">
-                                            <thead>
-                                                <th>Имя</th>
-                                                <th>Телефон</th>
-                                                <th>Навыки</th>
-                                                <th>Статус</th>
-                                            </thead>
-                                            <tbody>
-                                            <tr>
-                                                <td>
-                                                    <a href="#">Имя</a>
-                                                </td>
-                                                <td>
-                                                    Телефон
-                                                </td>
-                                                <td>
-                                                    Навыки
-                                                </td>
-                                                <td>
-                                                    статус
-                                                </td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-
-                                    <div class="table-responsive">
-                                        <div class="col-md-12">
-                                            <p class="subtitle">Принятые</p>
-                                        </div>
-                                        <table class="table">
-                                            <thead>
-                                            <th>Имя</th>
-                                            <th>Телефон</th>
-                                            <th>Навыки</th>
-                                            <th>Статус</th>
-                                            </thead>
-                                            <tbody>
-                                            <tr>
-                                                <td>
-                                                    <a href="#">Имя</a>
-                                                </td>
-                                                <td>
-                                                    Телефон
-                                                </td>
-                                                <td>
-                                                    Навыки
-                                                </td>
-                                                <td>
-                                                    статус
-                                                </td>
-                                            </tr>
                                             </tbody>
                                         </table>
                                     </div>
@@ -147,7 +118,7 @@
                                         <a href="{{ route('admin.order.edit', $order)}}" class="btn btn-primary">
                                             Редактировать
                                         </a>
-                                        <a href="#" class="btn btn-danger">
+                                        <a href="{{ route('admin.order.softDelete', $order)}}" class="btn btn-danger">
                                             Удалить
                                         </a>
                                         <a href="#" onclick="history.go(-1);" class="btn btn-default">Назад</a>

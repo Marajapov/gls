@@ -21,7 +21,7 @@
 
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        Азамат
+                        {{ auth()->user()->getName() }}
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">

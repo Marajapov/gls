@@ -3,8 +3,10 @@ namespace Admin\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
+use Intervention\Image\ImageManagerStatic as Image;
 use \Model\Order\ModelName as Order;
 use Model\Category\ModelName as Category;
+use Model\Subcategory\ModelName as Subcategory;
 use Model\OrderSubcategoryTie\ModelName as OrderSubcategoryTie;
 use Model\UserSubcategoryTie\ModelName as UserSubcategoryTie;
 use Model\Shared\ModelName as Shared;
@@ -14,10 +16,14 @@ class OrderController extends Controller
 
     public function index()
     {
+        $categories = Category::lists('name', 'id')->toArray();
+        $subcategories = Subcategory::lists('name', 'id')->toArray();
         $orders = \Model\Order\ModelName::where('status','<>','softDelete')->orderBy('id', 'desc')->get();
 
         return view('Admin::order.index', [
             'orders' => $orders,
+            'categories' => $categories,
+            'subcategories' => $subcategories,
         ]);
     }
 
@@ -32,57 +38,88 @@ class OrderController extends Controller
 
     public function create()
     {
-        $categories = Category::where('published','=','1')->get();
+        $categories = Category::lists('name', 'id')->toArray();
+        $subcategories = Subcategory::lists('name', 'id')->toArray();
         return view('Admin::order.create', [
             'order'  => new Order,
             'categories'  => $categories,
+            'subcategories'  => $subcategories,
         ]);
     }
 
     public function store(Request $request)
     {
-        $order = Order::create($request->except('categories','categories','subcategories','prices','counts','prices','q'));
+        $order = Order::create($request->except('q','attachment'));
 
-        $categories = $request->input('categories');
-        $subcategories = $request->input('subcategories');
-        $counts = $request->input('counts');
-        $prices = $request->input('prices');
-        for($i=0;$i<count($subcategories);$i++){
-            OrderSubcategoryTie::create([
-                'order_id' => $order->id,
-                'category_id' => $categories[$i],
-                'subcategory_id' => $subcategories[$i],
-                'count' => $counts[$i],
-                'price' => $prices[$i],
-            ]);
+        if($request->hasFile('attachment')){
+            $file = $request->file('attachment');
+            $dir  = 'images/attachments';
+            $btw = time();
+
+            $name = $order->id().$btw.'.'.$file->getClientOriginalExtension();
+
+            $storage = \Storage::disk('public');
+            $storage->makeDirectory($dir);
+
+            Image::make($_FILES['attachment']['tmp_name'])->heighten(300)->save($dir.'/'.$name);
+
+            $fileUrl = asset(''.$dir.'/'.$name);
+            $order->url = $fileUrl;
+            $order->attachment = $dir.'/'.$name;
+            
+
+            $order->save();
         }
-
         return redirect()->route('admin.order.index');
-
     }
 
     public function show($order)
     {
+        $categories = Category::lists('name', 'id')->toArray();
         return view('Admin::order.show', [
             'order' => $order,
+            'categories' => $categories,
         ]);
     }
 
     public function edit(Order $order)
     {
-        $categories = Category::where('published','=','1')->get();
+        $categories = Category::lists('name', 'id')->toArray();
+        $subcategories = Subcategory::lists('name', 'id')->toArray();
+
         $order_id = $order->id;
-        $order_ties = OrderSubcategoryTie::where('order_id','=',$order_id)->get();
+
         return view('Admin::order.edit', [
             'order' => $order,
             'categories'  => $categories,
-            'order_ties' => $order_ties,
+            'subcategories'  => $subcategories,
         ]);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, Order $order)
     {
-        //
+        $order->update($request->except('q','attachment'));
+
+        if($request->hasFile('attachment')){
+            $file = $request->file('attachment');
+            $dir  = 'images/attachments';
+            $btw = time();
+
+            $name = $order->id().$btw.'.'.$file->getClientOriginalExtension();
+
+            $storage = \Storage::disk('public');
+            $storage->makeDirectory($dir);
+
+            Image::make($_FILES['attachment']['tmp_name'])->heighten(300)->save($dir.'/'.$name);
+
+            $fileUrl = asset(''.$dir.'/'.$name);
+            $order->url = $fileUrl;
+            $order->attachment = $dir.'/'.$name;
+            
+
+            $order->save();
+        }
+        return redirect()->route('admin.order.show', $order);
     }
 
     public function softDelete(Request $request, $id)
@@ -105,16 +142,6 @@ class OrderController extends Controller
         $order->status = 'share';
         $order->save();
 
-        // insert into ust
-        $ost = OrderSubcategoryTie::where('order_id','=',$id)->get();
-        foreach ($ost as $key => $value) {
-            Shared::create([
-                'order_id' => $value['order_id'],
-                'subcategory_id' => $value['subcategory_id'],
-                'count' => $value['count'],
-                'price' => $value['price'],
-            ]);
-        }
         return redirect()->route('admin.order.index');
     }
 

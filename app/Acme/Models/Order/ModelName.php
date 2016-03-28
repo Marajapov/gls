@@ -71,4 +71,18 @@ class ModelName extends Model
         return $date;
     }
 
+    public function getCount()
+    {
+        return $this->count;
+    }
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    public function getFile()
+    {
+        return $this->attachment;
+    }
+
 }

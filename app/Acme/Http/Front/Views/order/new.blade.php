@@ -25,7 +25,7 @@
 
                             <div class="form-group col-md-6">
                                 <label for="taskName" class="required-label">Категория</label>
-                                <select name="taskCategory" id="category" class="form-control selectpicker required" title="-- Выберите категорию --" required>
+                                <select name="category_id" id="category" class="form-control selectpicker required" title="-- Выберите категорию --" required>
                                     @foreach($categories as $category)
                                         <option value="{{$category->id}}">{{$category->name}}</option>
                                     @endforeach
@@ -37,7 +37,7 @@
                             </div>
                             <div id="taskType" class="form-group col-md-6 no-ajax">
                                 <label for="taskName" class="required-label">Подкатегория</label>
-                                <select name="taskType" id="type" class="form-control selectpicker required" title="-- Выберите тип --" required>
+                                <select name="subcategory_id" id="type" class="form-control selectpicker required" title="-- Выберите тип --" required>
                                 </select>
                             </div>
 

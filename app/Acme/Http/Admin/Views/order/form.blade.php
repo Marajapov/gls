@@ -26,7 +26,24 @@
             {!! Form::text('name', null, ["class" => "form-control", "required" => true, "placeholder" => "Коротко опишите заказ"]) !!}
         </div>
     </div>
+
+
+    <div class="col-md-3">
+        <div class="form-group">
+            <label for="count1">Количество</label>
+            {!! Form::text('count', null, ["class" => "form-control", "required" => true, "placeholder" => "Количество"]) !!}
+        </div>
+    </div>
+
+
+    <div class="col-md-3">
+        <div class="form-group">
+            <label for="price1">Цена</label>
+            {!! Form::text('price', null, ["class" => "form-control", "required" => true, "placeholder" => "Цена"]) !!}
+        </div>
+    </div>
 </div>
+
 
 <div class="row">
     <div class="col-md-12">
@@ -37,52 +54,26 @@
     </div>
 </div>
 
-<h5 class="subtitle">Исполнители</h5>
-
-@if($order->client_name)
-    @foreach($order_ties as $order_tie)
-        <div class="row">
-
-            <div class="col-md-2">
-                <div class="form-group">
-                    <label>Категория</label>
-                    <input class="form-control" type="text" value="{{ $order_tie->category->name }}" disabled/>
-                </div>
+<div class="row">
+    <div class=" col-md-4">
+        <label for="attachment">Добавить фото</label>
+        <div class="fileinput fileinput-new input-group" data-provides="fileinput">
+            <div class="form-control" data-trigger="fileinput">
+                <i class="glyphicon glyphicon-file fileinput-exists"></i>
+                <span class="fileinput-filename"></span>
             </div>
-
-            <div class="col-md-2">
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Подкатегория</label>
-                    <input class="form-control" type="text" value="{{ $order_tie->subcategory->name }}" disabled/>
-                </div>
-            </div>
-
-            <div class="col-md-2">
-                <div class="form-group">
-                    <label>Количество</label>
-                    <input class="form-control" type="text" value="{{ $order_tie->count }}" disabled/>
-                </div>
-            </div>
-
-            <div class="col-md-2">
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Цена</label>
-                    <input class="form-control" type="text" value="{{ $order_tie->price }}" disabled/>
-                </div>
-            </div>
-            
-            <div class="col-md-2">
-                <div class="form-group">
-                    <a rel="tooltip" class="delete" href="{{ route('deleteItem', $order_tie->id) }}" title="Удалить">
-                        <i class="pe-7s-close-circle"></i>
-                    </a>
-                </div> 
-            </div>
-
+            <span class="input-group-addon btn btn-default btn-file">
+                        <span class="fileinput-new">Выберите файл</span>
+            <span class="fileinput-exists">Изменить</span>
+            <input id="attachment" type="file" name="attachment">
+            </span>
+            <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Удалить</a>
         </div>
-    @endforeach
-@endif
+        <p class="help-block">Фото помогает исполнителям лучше понять ваше задание и оценить объем работы</p>
+    </div>
+</div>
 
+<h5 class="subtitle">Исполнители</h5>
 <div class="doers">
 
     <div class="inner">
@@ -90,38 +81,18 @@
             <div class="col-md-3">
                 <div class="form-group">
                     <label for="category1">Категория</label>
-                    <select id="category1" name="categories[]" onchange="categoryChange($('#category1'), $('#subCategory1'), $('#price1'))" class="form-control selectpicker" title = "-- Выберите категорию --">
-                        @foreach($categories as $category)
-                            <option value="{{ $category->getId() }}">{{ $category->getName() }}</option>
-                        @endforeach
-                    </select>
+                    {!! Form::select('category_id', $categories, null, ["class" => "form-control selectpicker", "onchange"=>"categoryChange($('#category1'), $('#subCategory1'), $('#price1'))", "id" => "category1", "title" => "-- Выберите --"]) !!}
+                   
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="form-group">
                     <label for="subCategory1">Подкатегория</label>
-                    <select id="subCategory1" name="subcategories[]" onchange="subcategoryChange($('#subCategory1'), $('#price1'))" class="form-control selectpicker" title="-- Выберите подкатегорию --">
-                    </select>
+                    {!! Form::select('subcategory_id', $subcategories, null, ["class" => "form-control selectpicker", "onchange"=>"subcategoryChange($('#subCategory1'), $('#price1'))", "id" => "subCategory1", "title" => "-- Выберите --"]) !!}
                 </div>
             </div>
-
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label for="count1">Количество</label>
-                    <input id="count1" name="counts[]" type="text" class="form-control">
-                </div>
-            </div>
-
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label for="price1">Цена</label>
-                    <input id="price1" name="prices[]" type="text" class="form-control">
-                </div>
-            </div>
-
         </div>
     </div>
-    <a id="addDoer" class="btn btn-success btn-morphing" href="#">Еще</a>
 </div>
 
 <div class="action">
