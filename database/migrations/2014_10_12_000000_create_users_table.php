@@ -10,10 +10,10 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('phone');
-            $table->string('jcm',250);
+            $table->string('gcm',250);
             $table->string('password', 60);
             $table->string('password2', 60);
-            $table->enum('role', ['manager', 'admin'])->nullable()->default('manager');
+            $table->enum('role', ['manager', 'admin','active','blocked'])->nullable()->default('manager');
             $table->rememberToken();
             $table->timestamps();
         });
