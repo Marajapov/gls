@@ -8,7 +8,7 @@
 @section('content')
     
     <!-- include bottom nav -->
-    @include('Admin::partials.subcategoryNav')
+    @include('Admin::subcategory.nav')
     <!-- end bottom nav -->
 
     <div class="content">

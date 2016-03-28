@@ -4,7 +4,7 @@
 @section('content')
 
    <!-- include bottom nav -->
-    @include('Admin::partials.bottomnav')
+    @include('Admin::category.nav')
     <!-- end bottom nav -->
 
     <div class="content">
@@ -24,7 +24,6 @@
                                 <thead>
                                 <th>ID</th>
                                 <th>Название</th>
-                                <th>Префикс</th>
                                 <th>Статус</th>
                                 <th>Дата</th>
                                 <th>Действия</th>
@@ -36,28 +35,26 @@
                                     <td>
                                         <a href="{{ route('admin.category.show', $category) }}">{{ $category->getName() }}</a>
                                     </td>
-                                    <td>
-                                        {{ $category->class }}
-                                    </td>
                                     <td>{{ $category->getPublished() }}</td>
                                     <td>{{ $category->getDate() }}</td>
-                                    <td>
+
+                                    <td class="td-actions">
                                         <ul>
                                             <li>
-                                                <a rel="tooltip" class="view" href="{{ route('admin.category.show', $category) }}" title="Посмотреть">
-                                                    <i class="pe-7s-next-2"></i>
+                                                <a rel="tooltip" class="view btn btn-default" href="{{ route('admin.category.show', $category) }}" title="Посмотреть">
+                                                    <i class="fa fa-eye"></i>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a rel="tooltip" class="edit" href="{{ route('admin.category.edit', $category) }}" title="Редактировать">
-                                                    <i class="pe-7s-pen"></i>
+                                                <a rel="tooltip" class="edit btn btn-default" href="{{ route('admin.category.edit', $category) }}" title="Редактировать">
+                                                    <i class="fa fa-edit"></i>
                                                 </a>
                                             </li>
                                             <li>
                                                 {!! Form::open(['route' => ['admin.category.destroy', $category], 'method' => 'DELETE', 'onsubmit' => "return confirm('Вы уверены ?')"]) !!}
-                                                    <button rel="tooltip" type="submit" class="delete" title="Удалить">
-                                                        <i class="pe-7s-close-circle"></i>
-                                                    </button>
+                                                <button rel="tooltip" type="submit" class="delete btn btn-default" title="Удалить">
+                                                    <i class="fa fa-trash-o"></i>
+                                                </button>
                                                 {!! Form::close() !!}
                                             </li>
                                         </ul>

@@ -1,6 +1,10 @@
 @extends('Admin::layouts.default')
 @section('title', "Заказ")
 
+@section('styles')
+    <meta name="_token" content="{!! csrf_token() !!}"/>
+@endsection
+
 @section('content')
 
     @include('Admin::order.nav')
@@ -18,6 +22,7 @@
                             </h4>
                             <p class="category">
                                 @if($order->getStatus() == "new") новый
+                                @elseif($order->getStatus() == "site") заявка с сайта
                                 @elseif($order->getStatus() == "share") разослан
                                 @elseif($order->getStatus() == "complete") комплектован
                                 @elseif($order->getStatus() == "canceled") отменен
@@ -29,7 +34,7 @@
                         <div class="content">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div class="table-responsive">
+                                    <div class="">
                                         <table class="table">
                                             <tbody>
                                                 <tr>
@@ -68,7 +73,7 @@
                                                 
                                                 <tr>
                                                     <td class="heading">
-                                                        Необходимо
+                                                        Подкатегория
                                                     </td>
                                                     <td>
                                                         <span class="spec">{{ $order->subcategories()->first()->getName() }}</span>
@@ -97,7 +102,7 @@
                                                     <td class="heading">
                                                         Описание
                                                     </td>
-                                                    <td colspan="3">
+                                                    <td>
                                                         {{ $order->getDescription() }}
                                                     </td>
                                                 </tr>
@@ -106,7 +111,7 @@
                                                     <td class="heading">
                                                         Фото
                                                     </td>
-                                                    <td colspan="3">
+                                                    <td>
                                                         <img src="{{ asset($order->getFile()) }}">
                                                     </td>
                                                 </tr>
@@ -115,6 +120,11 @@
                                     </div>
 
                                     <div class="actions">
+                                        @if(($order->status == 'new') || ($order->status == 'site'))
+                                            <a href="{{ route('admin.order.share', $order)}}" class="btn btn-success">
+                                                Разослать
+                                            </a>
+                                        @endif
                                         <a href="{{ route('admin.order.edit', $order)}}" class="btn btn-primary">
                                             Редактировать
                                         </a>
@@ -128,9 +138,116 @@
                             </div>
                         </div>
                     </div>
+
+
+                    <div class="card card-info">
+
+                        <div class="content">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="accepted-list">
+                                        <div class="col-md-12">
+                                            <p class="subtitle">Принятые</p>
+                                        </div>
+                                        <table id="doers" class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Имя</th>
+                                                    <th>Телефон</th>
+                                                    <th>Подкатегория</th>
+                                                    <th>Статус</th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <a href="#">Имя</a>
+                                                    </td>
+                                                    <td>
+                                                        Телефон
+                                                    </td>
+                                                    <td>
+                                                        <span class="spec">uborka1</span>
+                                                        <span class="spec">uborka2</span>
+                                                        <span class="spec">uborka3</span>
+                                                    </td>
+                                                    <td>
+                                                        статус
+                                                    </td>
+                                                    <td class="td-actions">
+                                                        <a rel="tooltip" class="delete btn btn-default" href="{{ route('admin.order.softDelete', $order) }}" title="Удалить">
+                                                            <i class="fa fa-trash-o"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <div class="actions">
+                                        <form id="" class="form-horizontal">
+                                            <fieldset>
+                                                <div class="form-group">
+                                                    <div class="col-sm-12">
+                                                        <div class="row">
+                                                            <div class="col-md-4 col-sm-12 col-xs-12">
+
+                                                                <select id="userSelect" name="user" class="form-control selectpicker" title="-- Выберите пользователя --" data-live-search="true">
+                                                                    @foreach($users as $user)
+                                                                        <option value="{{ $user->id  }}">{{ $user->phone}}</option>
+                                                                    @endforeach
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+
+                                            <button class="btn btn-success" id="addUser">
+                                                Добавить исполнителя
+                                            </button>
+                                        </form>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
 @endsection
+
+@section('scripts')
+
+    <script>
+        $(document).ready(function () {
+            $('#addUser').click(function (e) {
+
+                e.preventDefault();
+
+                $.ajaxSetup({
+                    headers: {'X-CSRF-Token': $('meta[name=_token]').attr('content')}
+                });
+                var url = "{{ route('admin.newUser') }}";
+                var id = $('#userSelect').val();
+                var dataString = 'id=' + id;
+
+                $.ajax
+                ({
+                    type: "POST",
+                    url: url,
+                    data: dataString,
+                    cache: false,
+                    success: function (data) {
+                        $('#doers tbody').append(data);
+                    }
+                });
+            });
+        });
+    </script>
+
+@stop

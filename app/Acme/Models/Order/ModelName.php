@@ -71,6 +71,10 @@ class ModelName extends Model
         return $date;
     }
 
+    public function getTime(){
+        return date('H:i', strtotime($this->created_at));
+    }
+
     public function getCount()
     {
         return $this->count;
