@@ -134,7 +134,7 @@
 
                                         @if($order->status == 'share')
                                             <a href="{{ route('admin.order.close', $order)}}" class="btn btn-success">
-                                                Закрыть
+                                                Завершить
                                             </a>
                                         @endif
                                         <a href="{{ route('admin.order.edit', $order)}}" class="btn btn-primary">
@@ -196,7 +196,11 @@
                                     </div>
 
                                     <div class="actions">
-                                    {!! Form::model($newUser, ['route' => ['admin.order.update', $order], 'method' => 'PUT','enctype' => 'multipart/form-data','class'=>'form-horizontal']) !!}
+                                    {!! Form::model($newUser, ['route' => ['admin.userOrderTie.store', $newUser], 'method' => 'POST','class'=>'form-horizontal']) !!}
+
+                                        <input name="orderId" type="hidden" value="{{ $order->id }}" />
+                                        <input name="category_id" type="hidden" value="{{ $order->category_id }}" />
+                                        <input name="subcategory_id" type="hidden" value="{{ $order->subcategory_id }}" />
                                             <fieldset>
                                                 <div class="form-group">
                                                     <div class="col-sm-12">
@@ -214,7 +218,7 @@
                                                 </div>
                                             </fieldset>
 
-                                            <button class="btn btn-success" id="addUser">
+                                            <button type="submit" class="btn btn-success" id="addUser">
                                                 Добавить исполнителя
                                             </button>
                                         
@@ -231,34 +235,3 @@
     </div>
 
 @endsection
-
-@section('scripts')
-
-    <script>
-        $(document).ready(function () {
-            $('#addUser').click(function (e) {
-
-                e.preventDefault();
-
-                $.ajaxSetup({
-                    headers: {'X-CSRF-Token': $('meta[name=_token]').attr('content')}
-                });
-                var url = "{{ route('admin.newUser') }}";
-                var id = $('#userSelect').val();
-                var dataString = 'id=' + id;
-
-                $.ajax
-                ({
-                    type: "POST",
-                    url: url,
-                    data: dataString,
-                    cache: false,
-                    success: function (data) {
-                        $('#doers tbody').append(data);
-                    }
-                });
-            });
-        });
-    </script>
-
-@stop

@@ -276,8 +276,9 @@ class OrderController extends Controller
     // rejectUser
     public function rejectUser(Request $request, $id, $orderId)
     {
-        $table = UserOrderTie::where('user_id','=',$id)->orWhere('order_id','=',$orderId)->first();
+        $order = Order::where('id','=',$orderId)->first();
+        $table = UserOrderTie::where('order_id','=',$orderId)->having('user_id','=',$id)->first();
         $table->delete();
-        return redirect()->route('admin.order.index');
+        return redirect()->route('admin.order.show',$order);
     }
 }

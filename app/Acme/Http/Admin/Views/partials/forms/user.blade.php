@@ -2,19 +2,20 @@
     <div class="col-md-3">
         <div class="form-group">
             <label>Ф.И.О.</label>
-            <input name="name" type="text" class="form-control" placeholder="Имя">
+            {!! Form::text('name', null, ["class" => "form-control", "required" => true, "placeholder" => "Имя"]) !!}
         </div>
     </div>
     <div class="col-md-3">
         <div class="form-group">
             <label for="exampleInputEmail1">Телефон</label>
-            <input name="phone" type="text" class="form-control" placeholder="Телефон">
+            {!! Form::text('phone', null, ["class" => "form-control", "required" => true, "placeholder" => "Телефон"]) !!}
+            
         </div>
     </div>
     <div class="col-md-3">
         <div class="form-group">
             <label for="exampleInputEmail1">Пароль</label>
-            <input name="password" type="password" class="form-control" placeholder="Пароль">
+            {!! Form::text('password2', null, ["class" => "form-control", "required" => true, "placeholder" => "Пароль"]) !!}
         </div>
     </div>
 </div>

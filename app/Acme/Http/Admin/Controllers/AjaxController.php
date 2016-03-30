@@ -7,6 +7,7 @@ use Input;
 use App\Http\Requests;
 use Model\Subcategory\ModelName as Subcategory;
 use Model\Category\ModelName as Category;
+use Model\UserSubcategoryTie\ModelName as UserSubcategoryTie;
 use Model\User\ModelName as User;
 
 class AjaxController extends Controller
@@ -113,6 +114,14 @@ class AjaxController extends Controller
         if(Request::ajax()) {
             $data = Input::all();
             $user = User::where('id','=',$data['id'])->first();
+            $subcategories = UserSubcategoryTie::where('user_id','=',$user->id)->get();
+            
+            $userList = '';
+
+            foreach($subcategories as $row)
+            {
+                $userList .= '<span class="spec">'.$row->subcategories()->first()->getName() .'</span>'.'<br />';
+            }
 
             return '
             <tr>
@@ -123,15 +132,13 @@ class AjaxController extends Controller
                     '.$user->phone.'
                 </td>
                 <td>
-                    <span class="spec">uborka1</span>
-                    <span class="spec">uborka2</span>
-                    <span class="spec">uborka3</span>
+                    <span class="spec">'.$userList.'</span>
                 </td>
                 <td>
                     '.$user->name.'
                 </td>
                 <td class="td-actions">
-                    <a rel="tooltip" class="delete btn btn-default" href="'.route('admin.order.softDelete', $user) .'" title="Удалить">
+                    <a rel="tooltip" class="delete btn btn-default" href="'.route('admin.order.softDelete', $user->id.'" title="Удалить">
                         <i class="fa fa-trash-o"></i>
                     </a>
                 </td>
