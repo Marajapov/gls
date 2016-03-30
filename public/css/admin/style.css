@@ -365,7 +365,7 @@ textarea{
     margin-bottom: 15px;
 }
 .doers .form-group{
-    margin-bottom: 0;
+    margin-bottom: 10px;
 }
 .bootstrap-select > .dropdown-toggle{
     background-color: #FFF;
@@ -381,6 +381,9 @@ textarea{
 }
 .action{
     padding: 15px 0;
+}
+.actions .deleteForm{
+    display: inline-block;
 }
 
 /*TABLE*/
@@ -450,34 +453,22 @@ textarea{
         margin-bottom: 5px;
     }
 }
-/*BUTTONS*/
-/*.card .view{*/
-    /*font-size: 22px;*/
-    /*color: #23CCEF;*/
-/*}*/
-/*.card .edit{*/
-    /*color: #87CB16;*/
-/*}*/
-/*.card .edit:hover,*/
-/*.card .edit:focus,*/
-/*.card .edit:active{*/
-    /*color: #049F0C;*/
-/*}*/
-/*.card .delete{*/
-    /*border: none;*/
-    /*background: none;*/
-    /*color: #FF4A55;*/
-    /*font-size: 24px;*/
-/*}*/
-/*.card .share{*/
-    /*color: #FF9500;*/
-/*}*/
-/*.card .delete:hover,*/
-/*.card .delete:focus,*/
-/*.card .delete:active{*/
-    /*color: #EE2D20;*/
-/*}*/
-/*.btn-xs{*/
-    /*font-size: 20px;*/
-    /*line-height: 1;*/
-/*}*/
+.title span,
+.title .switch{
+    display: inline-block;
+    vertical-align: middle;
+}
+.title .switch{
+    margin-left: 10px;
+}
+
+/*SWITCH*/
+.has-switch{
+    width: 80px;
+}
+.has-switch > div{
+    width: 140px;
+}
+.has-switch > div.switch-off{
+    left: -52px;
+}

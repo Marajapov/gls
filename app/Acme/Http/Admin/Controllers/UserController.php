@@ -7,6 +7,7 @@ use App\Http\Requests;
 use Model\User\ModelName as User;
 use Model\Category\ModelName as Category;
 use Model\UserSubcategoryTie\ModelName as UserSubcategoryTie;
+use Model\Subcategory\ModelName as Subcategory;
 
 class UserController extends Controller
 {
@@ -46,7 +47,14 @@ class UserController extends Controller
     }
     public function show(User $user)
     {
-        return view('Admin::user.show', ['user' => $user]);
+        $categories = Category::where('published',1)->get();
+        $subcategories = Subcategory::where('published',1)->get();
+
+        return view('Admin::user.show', [
+            'user' => $user,
+            'subcategories' => $subcategories,
+            'categories' => $categories,
+        ]);
     }
     public function edit(User $user)
     {

@@ -19,22 +19,22 @@
                                 Все подкатегории
                             </h4>
                         </div>
-                        <div class="content table-responsive table-full-width">
-                            <table class="table table-hover table-striped">
+                        <div class="content">
+                            <table class="table table-striped">
                                 <thead>
-                                <th>ID</th>
+                                <th class="hidden-xs hidden-sm">ID</th>
                                 <th>Название</th>
                                 <th>Категория</th>
-                                <th>Цена</th>
-                                <th>Пользователи</th>
-                                <th>Статус</th>
-                                <th>Дата</th>
+                                <th class="hidden-xs hidden-sm">Цена</th>
+                                <th class="hidden-xs hidden-sm">Пользователи</th>
+                                <th class="hidden-xs hidden-sm">Статус</th>
+                                <th class="hidden-xs hidden-sm">Дата</th>
                                 <th>Действия</th>
                                 </thead>
                                 <tbody>
                                 @foreach($subcategories as $subcategory)
                                     <tr>
-                                        <td>{{ $subcategory->getId() }}</td>
+                                        <td class="hidden-xs hidden-sm">{{ $subcategory->getId() }}</td>
                                         <td>
                                             <a href="{{ route('admin.subcategory.show',$subcategory) }}">
                                                 {{ $subcategory->getName() }}
@@ -42,16 +42,16 @@
                                         </td>
 
                                         <td>@if(($subcategory->category()->first()) != null) {{ $subcategory->category()->first()->getName()}} @endif</td>
-                                        <td>
+                                        <td class="hidden-xs hidden-sm">
                                             {{ $subcategory->price }}
                                         </td>
-                                        <td>
+                                        <td class="hidden-xs hidden-sm">
                                             @foreach($subcategory->users as $user)
                                                 <span class="spec">{{ $user->getName() }}</span>
                                             @endforeach
                                         </td>
-                                        <td>{{ $subcategory->getPublished() }}</td>
-                                        <td>{{ $subcategory->getDate() }}</td>
+                                        <td class="hidden-xs hidden-sm">{{ $subcategory->getPublished() }}</td>
+                                        <td class="hidden-xs hidden-sm">{{ $subcategory->getDate() }}</td>
                                         <td class="td-actions">
                                             <ul>
                                                 <li>

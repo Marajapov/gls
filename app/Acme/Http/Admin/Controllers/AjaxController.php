@@ -146,4 +146,17 @@ class AjaxController extends Controller
             ';
         }
     }
+
+    public function userChangeStatus(){
+        if(Request::ajax()) {
+            $data = Input::all();
+            if($data['status'] == 'active'){
+                User::where('id', $data['id'])->update(['status' => 'blocked']);
+                return 0;
+            } elseif($data['status'] == 'blocked') {
+                User::where('id', $data['id'])->update(['status' => 'active']);
+                return 1;
+            }
+        }
+    }
 }

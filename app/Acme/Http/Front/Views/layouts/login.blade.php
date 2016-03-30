@@ -29,7 +29,7 @@
 </head>
 <body class="login">
 
-    @yield('content')
+@yield('content')
 
 <!--   Core JS Files   -->
 <script src="{{ asset('js/jquery-1.11.2.min.js') }}" type="text/javascript"></script>
@@ -40,6 +40,8 @@
 
 <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
 <script src="{{ asset('js/admin/light-bootstrap-dashboard.js') }}"></script>
+
+@yield('scripts')
 
 </body>
 </html>

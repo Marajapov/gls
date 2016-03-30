@@ -24,7 +24,7 @@
                         </div>
                         <div class="content">
                             {!! Form::model($user, ['route' => 'admin.user.store']) !!}
-                            @include('Admin::partials.forms.user', [$user])
+                                @include('Admin::user.form', [$user])
                             {!! Form::close() !!}
                         </div>
                     </div>

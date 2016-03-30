@@ -26,44 +26,43 @@
                         <div class="content">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div class="table-responsive">
-                                        <table class="table">
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        Название
-                                                    </td>
-                                                    <td>
-                                                        {{ $subcategory->getName() }}
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        Категория
-                                                    </td>
-                                                    <td>
-                                                        @if(($subcategory->category()->first()) != null) {{ $subcategory->category()->first()->getName()}} @endif
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        Цена
-                                                    </td>
-                                                    <td>
-                                                        {{ $subcategory->getPrice() }}
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        Статус
-                                                    </td>
-                                                    <td>
-                                                        {{ $subcategory->getPublished() }}
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
+
+                                    <table class="table">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    Название
+                                                </td>
+                                                <td>
+                                                    {{ $subcategory->getName() }}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Категория
+                                                </td>
+                                                <td>
+                                                    @if(($subcategory->category()->first()) != null) {{ $subcategory->category()->first()->getName()}} @endif
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Цена
+                                                </td>
+                                                <td>
+                                                    {{ $subcategory->getPrice() }}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Статус
+                                                </td>
+                                                <td>
+                                                    {{ $subcategory->getPublished() }}
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
 
                                     <div class="btn-group actions">
                                         <a href="#" class="btn btn-primary">

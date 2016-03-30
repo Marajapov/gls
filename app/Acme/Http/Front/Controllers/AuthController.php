@@ -20,9 +20,10 @@ class AuthController extends Controller
             if(auth()->user()->isAdmin()){
                 return redirect()->route('admin.home');
             }
+        } else {
+            return redirect()->route('front.login')->with('status','error');
         }
 
-        return redirect()->route('front.login')->with('danger-message', 'Номер же сырсөз туура эмес');
     }
 
     public function postLogout()
