@@ -22,7 +22,7 @@
                             <thead>
                                 <th class="hidden-xs hidden-sm">ID</th>
                                 <th>Название</th>
-                                <th>Подкатегория</th>
+                                <!-- <th>Подкатегория</th> -->
                                 <th>Действия</th>
                             </thead>
                             <tbody>
@@ -46,9 +46,12 @@
                                                 {{ $order->getDate().', '.$order->getTime() }}
                                             </span>
                                         </td>
+                                        <!-- 
                                         <td>
-                                            <span class="spec">{{ $order->subcategories()->first()->getName() }}</span>
-                                        </td>
+                                            <span class="spec">
+                                                    <span class="spec"></span>
+                                            </span>
+                                        </td> -->
                                         <td class="td-actions">
                                             <ul>
                                                 <li>

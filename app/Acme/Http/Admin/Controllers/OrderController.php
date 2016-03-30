@@ -94,7 +94,7 @@ class OrderController extends Controller
             'categories' => $categories,
             'acceptedUserList' => $acceptedUserList,
             'userList' => $userList,
-            'newUser' = new UserOrderTie,
+            'newUser' => new UserOrderTie,
         ]);
     }
 
