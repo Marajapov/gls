@@ -50,7 +50,11 @@ class UserController extends Controller
     }
     public function edit(User $user)
     {
-        return view('Admin::user.edit', ['user' => $user]);
+        $categories = Category::where('published','=','1')->get();
+        return view('Admin::user.edit', [
+            'user' => $user,
+            'categories' => $categories,
+            ]);
     }
     public function update(Request $request, User $user)
     {

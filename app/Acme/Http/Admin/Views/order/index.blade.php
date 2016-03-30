@@ -62,7 +62,7 @@
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a rel="tooltip" class="delete btn btn-default" href="{{ route('admin.order.softDelete', $order) }}" title="Удалить">
+                                                    <a onclick="return confirm('Вы уверены ?')" rel="tooltip" class="delete btn btn-default" href="{{ route('admin.order.softDelete', $order) }}" title="Удалить">
                                                         <i class="fa fa-trash-o"></i>
                                                     </a>
                                                 </li>
