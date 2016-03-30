@@ -14,7 +14,7 @@
 	<div class="col-md-12 col-sm-12 col-xs-12">
 		<div class="x_panel">
 			<div class="x_title">
-				<h4>{{ trans('site.AdminUserChange') }}</h4>
+				<h4>Изменение</h4>
 
 				<div class="clearfix"></div>
 			</div>
@@ -32,4 +32,54 @@
 
 @section('scripts')
   <script type="text/javascript" src="{{ asset('js/bootstrap-select.js') }}"></script>
+
+   <script>
+
+        function categoryChange(source, target) {
+            var id = source.val();
+            var dataString = 'id=' + id;
+            var url = "";
+
+            $.ajaxSetup({
+                headers: {'X-CSRF-Token': $('meta[name=_token]').attr('content')}
+            });
+
+            $.ajax
+            ({
+                type: "POST",
+                url: url,
+                data: dataString,
+                cache: false,
+                success: function (data) {
+                    target.html(data);
+                    $('.selectpicker').selectpicker('refresh');
+                }
+            });
+        }
+
+        $(document).ready(function () {
+
+            var i = 1;
+            $('#addDoer').click(function () {
+                i++;
+                $.ajaxSetup({
+                    headers: {'X-CSRF-Token': $('meta[name=_token]').attr('content')}
+                });
+                var url = "create/newSelect";
+                var dataString = 'i='+i;
+
+                $.ajax
+                ({
+                    type: "POST",
+                    url: url,
+                    data: dataString,
+                    cache: false,
+                    success: function (data) {
+                        $('.doers .inner').append(data);
+                        $('.selectpicker').selectpicker('refresh');
+                    }
+                });
+            });
+        });
+    </script>
 @stop

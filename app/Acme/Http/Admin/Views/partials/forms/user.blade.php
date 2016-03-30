@@ -49,20 +49,8 @@
     <a id="addDoer" class="btn btn-success btn-morphing" href="#">Еще</a>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <div class="form-group">
-            <div class="checkbox checkbox-primary">
-                <input name="published" id="checkbox3" class="styled" type="checkbox">
-                <label for="checkbox3">
-                    админ
-                </label>
-            </div>
-        </div>
-    </div>
-</div>
 
 <div class="action">
     <button type="submit" class="btn btn-primary">Сохранить</button>
-    <button onclick="history.go(-1);" class="btn btn-default">Назад</button>
+    <a href="#" onclick="history.go(-1);" class="btn btn-default">Назад</a>
 </div>

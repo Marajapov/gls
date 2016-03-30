@@ -111,7 +111,7 @@
                                                     <td class="heading">
                                                         Фото
                                                     </td>
-                                                    <td>
+                                                    <td style="width: 300px;">
                                                         <img src="{{ asset($order->getFile()) }}">
                                                     </td>
                                                 </tr>
@@ -125,10 +125,22 @@
                                                 Разослать
                                             </a>
                                         @endif
+
+                                        @if($order->status == 'share')
+                                            <a href="{{ route('admin.order.cancel', $order)}}" class="btn btn-success">
+                                                Отменить
+                                            </a>
+                                        @endif
+
+                                        @if($order->status == 'share')
+                                            <a href="{{ route('admin.order.close', $order)}}" class="btn btn-success">
+                                                Закрыть
+                                            </a>
+                                        @endif
                                         <a href="{{ route('admin.order.edit', $order)}}" class="btn btn-primary">
                                             Редактировать
                                         </a>
-                                        <a href="{{ route('admin.order.softDelete', $order)}}" class="btn btn-danger">
+                                        <a onclick="return confirm('Вы уверены ?')" href="{{ route('admin.order.softDelete', $order)}}" class="btn btn-danger">
                                             Удалить
                                         </a>
                                         <a href="#" onclick="history.go(-1);" class="btn btn-default">Назад</a>
@@ -154,19 +166,22 @@
                                                 <tr>
                                                     <th>Имя</th>
                                                     <th>Телефон</th>
+<<<<<<< HEAD:app/Acme/Http/Admin/Views/order/show2.blade.php
                                                     <th class="hidden-xs hidden-sm">Подкатегория</th>
                                                     <th class="hidden-xs hidden-sm">Статус</th>
+=======
+                                                    <th>Подкатегория</th>
+>>>>>>> 10b1c90f71738eeaf6534f37dfc79a22f5848991:app/Acme/Http/Admin/Views/order/show.blade.php
                                                     <th></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                            @foreach($acceptedUserList as $row)
                                                 <tr>
                                                     <td>
-                                                        <a href="#">Имя</a>
+                                                        <a href="#">{{ $row->users()->first()->getName()}}</a>
                                                     </td>
-                                                    <td>
-                                                        Телефон
-                                                    </td>
+<<<<<<< HEAD:app/Acme/Http/Admin/Views/order/show2.blade.php
                                                     <td class="hidden-xs hidden-sm">
                                                         <span class="spec">uborka1</span>
                                                         <span class="spec">uborka2</span>
@@ -174,19 +189,29 @@
                                                     </td>
                                                     <td class="hidden-xs hidden-sm">
                                                         статус
+=======
+                                                    <td>
+                                                        {{ $row->users()->first()->getPhone() }}
+                                                    </td>
+                                                    <td>
+                                                        @foreach($row->users()->first()->subcategories as $subcategory)
+                                                            <span class="spec">{{ $subcategory->getName() }}</span>
+                                                        @endforeach
+>>>>>>> 10b1c90f71738eeaf6534f37dfc79a22f5848991:app/Acme/Http/Admin/Views/order/show.blade.php
                                                     </td>
                                                     <td class="td-actions">
-                                                        <a rel="tooltip" class="delete btn btn-default" href="{{ route('admin.order.softDelete', $order) }}" title="Удалить">
+                                                        <a onclick="return confirm('Вы уверены ?')" rel="tooltip" class="delete btn btn-default" href="{{ route('admin.order.rejectUser',array($row->users()->first(), $order->id)) }}" title="Удалить">
                                                             <i class="fa fa-trash-o"></i>
                                                         </a>
                                                     </td>
                                                 </tr>
+                                            @endforeach
                                             </tbody>
                                         </table>
                                     </div>
 
                                     <div class="actions">
-                                        <form id="" class="form-horizontal">
+                                    {!! Form::model($newUser, ['route' => ['admin.order.update', $order], 'method' => 'PUT','enctype' => 'multipart/form-data','class'=>'form-horizontal']) !!}
                                             <fieldset>
                                                 <div class="form-group">
                                                     <div class="col-sm-12">
@@ -194,7 +219,7 @@
                                                             <div class="col-md-4 col-sm-12 col-xs-12">
 
                                                                 <select id="userSelect" name="user" class="form-control selectpicker" title="-- Выберите пользователя --" data-live-search="true">
-                                                                    @foreach($users as $user)
+                                                                    @foreach($userList as $user)
                                                                         <option value="{{ $user->id  }}">{{ $user->phone}}</option>
                                                                     @endforeach
                                                                 </select>
@@ -207,7 +232,8 @@
                                             <button class="btn btn-success" id="addUser">
                                                 Добавить исполнителя
                                             </button>
-                                        </form>
+                                        
+                                        {!! Form::close() !!}
                                     </div>
 
                                 </div>

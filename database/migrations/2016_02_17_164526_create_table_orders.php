@@ -22,7 +22,7 @@ class CreateTableOrders extends Migration
             $table->integer('price');
             $table->integer('priceClient');
             $table->string('flag');
-            $table->enum('status', ['site','new', 'share','complete','canceled','closed','softDelete'])->nullable()->default('site');
+            $table->enum('status', ['site','new', 'share','complete','canceled','closed','softDelete'])->nullable()->default('new');
             $table->integer('owner_id')->nullable()->unsigned()->default(null);
 
             $table->timestamps();

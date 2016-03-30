@@ -9,6 +9,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'access:admin', 'namespace' =
     Route::get('order/shared',['as'=>'admin.order.shared', 'uses'=>'OrderController@shared']);
     Route::get('order/canceled',['as'=>'admin.order.canceled', 'uses'=>'OrderController@canceled']);
     Route::get('order/closed',['as'=>'admin.order.closed', 'uses'=>'OrderController@showClosed']);
+
+    //rejectUser 
+    Route::get('order/rejectUser/{id}/{orderId}',['as' => 'admin.order.rejectUser', 'uses' => 'OrderController@rejectUser']);
+
     Route::post('user/create', 'AjaxController@categoryChange');
     Route::post('user/create/newSelect', 'AjaxController@newSelect');
 

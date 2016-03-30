@@ -75,6 +75,12 @@ class ModelName extends Model
         return date('H:i', strtotime($this->created_at));
     }
 
+    public function getFullDate()
+    {
+        $fullDate = $this->updated_at;
+        $date = date('Y-m-d H:i:s', strtotime($fullDate));
+    }
+
     public function getCount()
     {
         return $this->count;
