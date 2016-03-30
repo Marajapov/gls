@@ -154,8 +154,8 @@
                                                 <tr>
                                                     <th>Имя</th>
                                                     <th>Телефон</th>
-                                                    <th>Подкатегория</th>
-                                                    <th>Статус</th>
+                                                    <th class="hidden-xs hidden-sm">Подкатегория</th>
+                                                    <th class="hidden-xs hidden-sm">Статус</th>
                                                     <th></th>
                                                 </tr>
                                             </thead>
@@ -167,12 +167,12 @@
                                                     <td>
                                                         Телефон
                                                     </td>
-                                                    <td>
+                                                    <td class="hidden-xs hidden-sm">
                                                         <span class="spec">uborka1</span>
                                                         <span class="spec">uborka2</span>
                                                         <span class="spec">uborka3</span>
                                                     </td>
-                                                    <td>
+                                                    <td class="hidden-xs hidden-sm">
                                                         статус
                                                     </td>
                                                     <td class="td-actions">
