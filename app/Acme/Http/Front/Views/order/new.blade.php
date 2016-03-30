@@ -1,4 +1,6 @@
 @extends('Front::layouts.default') @section('title', 'TezTap' )
+@section('title', "Оформить заявку")
+
 @section('styles')
 
 <meta name="_token" content="{!! csrf_token() !!}" />
@@ -74,12 +76,6 @@
                                         <label for="author" class="required-label">Имя</label>
                                         {!! Form::text('client_name', null, ["class" => "form-control", "required" => true, "id"=>"author", "placeholder" => "Укажите имя"]) !!}
                                     </div>
-<!--
-                                    <div class="form-group col-md-4">
-                                        <label for="email" class="required-label">Адрес</label>
-                                        {!! Form::text('client_adres', null, ["class" => "form-control", "id"=>"email", "required" => true, "placeholder" => "Уточните адрес"]) !!}
-                                    </div>
--->
                                     <div class="form-group col-md-4">
                                         <label for="phone" class="required-label">Телефон</label>
                                         {!! Form::text('client_phone', null, ["class" => "form-control", "id"=>"phone", "required" => true, "placeholder" => "Контактный телефон"]) !!}

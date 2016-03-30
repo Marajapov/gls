@@ -166,12 +166,7 @@
                                                 <tr>
                                                     <th>Имя</th>
                                                     <th>Телефон</th>
-<<<<<<< HEAD:app/Acme/Http/Admin/Views/order/show2.blade.php
-                                                    <th class="hidden-xs hidden-sm">Подкатегория</th>
-                                                    <th class="hidden-xs hidden-sm">Статус</th>
-=======
                                                     <th>Подкатегория</th>
->>>>>>> 10b1c90f71738eeaf6534f37dfc79a22f5848991:app/Acme/Http/Admin/Views/order/show.blade.php
                                                     <th></th>
                                                 </tr>
                                             </thead>
@@ -181,15 +176,6 @@
                                                     <td>
                                                         <a href="#">{{ $row->users()->first()->getName()}}</a>
                                                     </td>
-<<<<<<< HEAD:app/Acme/Http/Admin/Views/order/show2.blade.php
-                                                    <td class="hidden-xs hidden-sm">
-                                                        <span class="spec">uborka1</span>
-                                                        <span class="spec">uborka2</span>
-                                                        <span class="spec">uborka3</span>
-                                                    </td>
-                                                    <td class="hidden-xs hidden-sm">
-                                                        статус
-=======
                                                     <td>
                                                         {{ $row->users()->first()->getPhone() }}
                                                     </td>
@@ -197,7 +183,6 @@
                                                         @foreach($row->users()->first()->subcategories as $subcategory)
                                                             <span class="spec">{{ $subcategory->getName() }}</span>
                                                         @endforeach
->>>>>>> 10b1c90f71738eeaf6534f37dfc79a22f5848991:app/Acme/Http/Admin/Views/order/show.blade.php
                                                     </td>
                                                     <td class="td-actions">
                                                         <a onclick="return confirm('Вы уверены ?')" rel="tooltip" class="delete btn btn-default" href="{{ route('admin.order.rejectUser',array($row->users()->first(), $order->id)) }}" title="Удалить">

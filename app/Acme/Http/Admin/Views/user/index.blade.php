@@ -2,13 +2,15 @@
 @section('title', 'Все пользователи' )
 
 @section('styles')
-@endsection
+    <meta name="_token" content="{!! csrf_token() !!}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/sweetalert.css') }}" />
+@stop
 
 @section('content')
 
-    <!-- include bottom nav -->
-    @include('Admin::partials.usernav')
-    <!-- end bottom nav -->
+    <!-- include nav -->
+    @include('Admin::user.nav')
+    <!-- end nav -->
 
     <div class="content">
         <div class="container-fluid">
@@ -22,25 +24,39 @@
                                 Все пользователи
                             </h4>
                         </div>
-                        <div class="content table-responsive table-full-width">
-                            <table class="table table-hover table-striped">
+                        <div class="content">
+                            <table class="table">
                                 <thead>
-                                <th>ID</th>
-                                <th>Имя</th>
-                                <th>Телефон</th>
-                                <th>Навыки</th>
-                                <th>Действия</th>
+                                <tr>
+                                    <th class="hidden-xs hidden-sm">ID</th>
+                                    <th>Имя</th>
+                                    <th>Телефон</th>
+                                    <th class="hidden-xs hidden-sm">Подкатегория</th>
+                                    <th class="hidden-xs hidden-sm">Статус</th>
+                                    <th>Действия</th>
+                                </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($users as $user)
-                                    <tr>
-                                        <td>{{ $user->id }}</td>
-                                        <td>{{ $user->name }}</td>
-                                        <td>{{ $user->phone }}</td>
+                                    <tr class="@if($user->status == "active") success @elseif($user->status == "blocked") danger @endif">
+                                        <td class="hidden-xs hidden-sm">{{ $user->id }}</td>
                                         <td>
+                                            <a href="{{ route('admin.user.show', $user) }}">
+                                                {{ $user->name }}
+                                            </a>
+                                        </td>
+                                        <td>{{ $user->phone }}</td>
+                                        <td class="hidden-xs hidden-md">
                                             @foreach($user->subcategories as $subcategory)
                                                 <span class="spec">{{ $subcategory->getName() }}</span>
                                             @endforeach
+                                        </td>
+                                        <td class="hidden-xs hidden-sm">
+                                            @if($user->status == 'active')
+                                                активный
+                                            @elseif($user->status == 'blocked')
+                                                заблокирован
+                                            @endif
                                         </td>
 
                                         <td class="td-actions">
@@ -56,7 +72,7 @@
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    {!! Form::open(['route' => ['admin.user.destroy', $user], 'method' => 'DELETE', 'onsubmit' => "return confirm('Вы уверены ?')"]) !!}
+                                                    {!! Form::open(['route' => ['admin.user.destroy', $user], 'method' => 'DELETE', 'class'=>'deleteForm']) !!}
                                                     <button rel="tooltip" type="submit" class="delete btn btn-default" title="Удалить">
                                                         <i class="fa fa-trash-o"></i>
                                                     </button>
@@ -79,4 +95,30 @@
 @stop
 
 @section('scripts')
+    {{-- Sweet Alert --}}
+    <script src="{{ asset('js/sweetalert.min.js') }}"></script>
+    <script>
+        var button = $('.delete');
+
+        button.each(function () {
+
+            var form = $(this).parent($('.deleteForm'));
+            $(this).click(function(event) {
+                event.preventDefault();
+                swal({
+                        title: "Вы уверены?",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "Да, удалить",
+                        cancelButtonText: "Отменить",
+                        closeOnConfirm: false
+
+                    },
+                    function(){
+                        form.submit();
+                    });
+            });
+        });
+    </script>
 @endsection

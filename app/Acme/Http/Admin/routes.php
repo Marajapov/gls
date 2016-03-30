@@ -14,16 +14,16 @@ Route::group(['prefix' => 'admin', 'middleware' => 'access:admin', 'namespace' =
     Route::get('order/rejectUser/{id}/{orderId}',['as' => 'admin.order.rejectUser', 'uses' => 'OrderController@rejectUser']);
 
     Route::post('user/create', 'AjaxController@categoryChange');
+    Route::post('userCategoryChange', ['as'=>'admin.userCategoryChange', 'uses'=>'AjaxController@categoryChange']);
     Route::post('user/create/newSelect', 'AjaxController@newSelect');
 
-    //Route::post('categoryChange', 'AjaxController@orderCategoryChange');
-    //Route::post('subcategoryChange', 'AjaxController@subcategoryChange');
     Route::post('newUser', ['as'=>'admin.newUser', 'uses'=>'AjaxController@orderNewUser']);
 
     Route::post('categoryChange',['as' => 'admin.categoryChange', 'uses' => 'AjaxController@orderCategoryChange']);
     Route::post('subcategoryChange', ['as' => 'admin.subcategoryChange', 'uses' => 'AjaxController@subcategoryChange']);
     Route::post('newSelect', ['as' => 'admin.newSelect', 'uses' => 'AjaxController@orderNewSelect']);
-    
+    Route::post('userChangeStatus', ['as' => 'admin.userChangeStatus', 'uses' => 'AjaxController@userChangeStatus']);
+
 
     Route::get('deleteItem/{id}',['as' => 'deleteItem', 'uses' => 'SubcategoryController@deleteItem']);
     Route::get('order/softDelete/{id}',['as' => 'admin.order.softDelete', 'uses' => 'OrderController@softDelete']);
