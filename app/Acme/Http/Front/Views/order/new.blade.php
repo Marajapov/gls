@@ -1,5 +1,5 @@
-@extends('Front::layouts.default') @section('title', 'TezTap' )
-@section('title', "Оформить заявку")
+@extends('Front::layouts.default')
+@section('title', 'TezTap | Добавить задание' )
 
 @section('styles')
 
