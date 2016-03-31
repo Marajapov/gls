@@ -100,11 +100,11 @@ class OrderController extends Controller
 
     public function edit(Order $order)
     {
+        $order = Order::where('id','=',$order->id)->first();
         $categories = Category::lists('name', 'id')->toArray();
-        $subcategories = Subcategory::lists('name', 'id')->toArray();
+        $subcategories = Subcategory::where('id','=',$order->subcategory_id)->lists('name', 'id')->toArray();
 
         $order_id = $order->id;
-
         return view('Admin::order.edit', [
             'order' => $order,
             'categories'  => $categories,
@@ -176,6 +176,7 @@ class OrderController extends Controller
         // GET USER LIST
         $gcm_list = array();
         
+
         $user_query = UserSubcategoryTie::where('subcategory_id','=',$sub_id)->get();
         foreach($user_query as $row)
         {
@@ -246,9 +247,73 @@ class OrderController extends Controller
     public function orderCancel(Request $request, $id)
     {
         $order = Order::where('id','=',$id)->first();
+        // Sending response to apps
+        $response = array();
+        $response["command"] = 3;
+        $response["feed"] = array();
+        // GET ORDER DETAILS
+        $sub_id = 0;            
+        $item = Order::where('id','=',$id)->first();
+        $snames = Subcategory::where('id','=',$item->subcategory_id)->first();
+        $sname = $snames->name;
+        $product = array();
+        $product["id"] = $id;
+        $sub_id = $item["subcategory_id"];
+        $product["subcategory"] = $sname;
+        $product["description"] = substr($item["description"],0, 100);
+        $product["price"] = $item["price"];
+        $product["dt"] = date('Y-m-d H:i:s', strtotime($item['updated_at']));
+        array_push($response["feed"], $product);
+        $sendMessage = json_encode($response);
+        // GET USER LIST
+        $gcm_list = array();
+        
+
+        $user_query = UserSubcategoryTie::where('subcategory_id','=',$sub_id)->get();
+        foreach($user_query as $row)
+        {
+            $rowGcm = $row->users()->first()->gcm;
+            if($rowGcm != ''){
+                array_push($gcm_list, $rowGcm);    
+            }            
+        }
+        $userGlobal = User::where('flag','=',1)->having('gcm','<>','')->get();
+        foreach($userGlobal as $row1)
+        {
+            array_push($gcm_list, $row1->gcm);
+        }
+        // GCM
+        $headers = array(
+                'Authorization: key= AIzaSyA5JH4mkuGEgLUzHJ2hEGelG4kGYKYddSQ',
+                'Content-Type: application/json'
+            );
+        $fields = array(
+                'registration_ids' => $gcm_list,
+                'data' => array("message" => $sendMessage),
+            );        
+        $contentGCM = json_encode($fields);
+        
+        $url = 'https://gcm-http.googleapis.com/gcm/send';
+        // Open connection
+        $ch = curl_init();
+        // Set the url, number of POST vars, POST data
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        // Disabling SSL Certificate support temporarly
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $contentGCM);
+        // Execute post
+        $resultt = curl_exec($ch);
+        if ($resultt === FALSE) {
+            die('Curl failed: ' . curl_error($ch));
+        }    
+        // Close connection
+        curl_close($ch);
         $order->status = 'canceled';
         $order->save();
-        return redirect()->route('admin.order.index');
+        return redirect()->route('admin.order.show', $order);
     }
 
     // Show canceled orders

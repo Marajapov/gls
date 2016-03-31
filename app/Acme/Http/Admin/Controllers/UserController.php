@@ -79,6 +79,12 @@ class UserController extends Controller
     }
     public function destroy(User $user)
     {
+        $ust = UserSubcategoryTie::where('user_id','=',$user->id)->get();
+
+        foreach($ust as $row)
+        {
+            $row->delete();
+        }
         $user->delete();
 
         return redirect()->route('admin.user.index');

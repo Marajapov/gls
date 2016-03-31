@@ -61,6 +61,8 @@ class OrderController extends Controller
             $order->attachment = $dir.'/'.$name;
             $order->save();
         }
+        $order->status = 'site';
+        $order->save();
 
         return redirect()->route('front.order.new')->with('status','success');
     }

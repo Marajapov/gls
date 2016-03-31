@@ -76,7 +76,7 @@
                                                         Подкатегория
                                                     </td>
                                                     <td>
-                                                        <span class="spec">{{ $order->subcategories()->first()->getName() }}</span>
+                                                        <span class="spec"></span>
                                                     </td>
                                                 </tr>
 
@@ -183,6 +183,7 @@
                                                         @foreach($row->users()->first()->subcategories as $subcategory)
                                                             <span class="spec">{{ $subcategory->getName() }}</span>
                                                         @endforeach
+                                                        
                                                     </td>
                                                     <td class="td-actions">
                                                         <a onclick="return confirm('Вы уверены ?')" rel="tooltip" class="delete btn btn-default" href="{{ route('admin.order.rejectUser',array($row->users()->first(), $order->id)) }}" title="Удалить">
