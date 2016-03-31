@@ -7,6 +7,9 @@
 @stop
 
 @section('content')
+
+    @include('Front::partials.nav')
+
     <div class="wrapper">
 
         <div id="carousel" class="carousel slide" data-ride="carousel">
@@ -142,132 +145,24 @@
                     <h2>Последние заявки</h2>
 
                     <div class="tasks">
-                        <div class="task task-cargo">
-                            <div class="media">
-                                <div class="media-left">
-                                    <a href="#">
-                                        <i></i>
-                                    </a>
-                                </div>
-                                <div class="media-body">
-                                    <a href="#" class="media-heading">
-                                        Ежедневно довозить туда-обратно ребенка и взрослого
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="task task-home">
-                            <div class="media">
-                                <div class="media-left">
-                                    <a href="#">
-                                        <i></i>
-                                    </a>
-                                </div>
-                                <div class="media-body">
-                                    <a href="#" class="media-heading">
-                                        Купить в ИКЕА и доставить детский столик и стульчик
-                                    </a>
+
+                        @foreach($orders as $order)
+                            <div class="task task-{{$order->category->class}}">
+                                <div class="media">
+                                    <div class="media-left">
+                                        <a href="#">
+                                            <i></i>
+                                        </a>
+                                    </div>
+                                    <div class="media-body">
+                                        <a href="#" class="media-heading">
+                                            {{$order->name}}
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="task task-courier">
-                            <div class="media">
-                                <div class="media-left">
-                                    <a href="#">
-                                        <i></i>
-                                    </a>
-                                </div>
-                                <div class="media-body">
-                                    <a href="#" class="media-heading">
-                                        Купить в ИКЕА и доставить детский столик и стульчик
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="task task-clean">
-                            <div class="media">
-                                <div class="media-left">
-                                    <a href="#">
-                                        <i></i>
-                                    </a>
-                                </div>
-                                <div class="media-body">
-                                    <a href="#" class="media-heading">
-                                        Купить в ИКЕА и доставить детский столик и стульчик
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="task task-computer">
-                            <div class="media">
-                                <div class="media-left">
-                                    <a href="#">
-                                        <i></i>
-                                    </a>
-                                </div>
-                                <div class="media-body">
-                                    <a href="#" class="media-heading">
-                                        Купить в ИКЕА и доставить детский столик и стульчик
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="task task-photo hidden-xs">
-                            <div class="media">
-                                <div class="media-left">
-                                    <a href="#">
-                                        <i></i>
-                                    </a>
-                                </div>
-                                <div class="media-body">
-                                    <a href="#" class="media-heading">
-                                        Купить в ИКЕА и доставить детский столик и стульчик
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="task task-web hidden-xs">
-                            <div class="media">
-                                <div class="media-left">
-                                    <a href="#">
-                                        <i></i>
-                                    </a>
-                                </div>
-                                <div class="media-body">
-                                    <a href="#" class="media-heading">
-                                        Купить в ИКЕА и доставить детский столик и стульчик
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="task task-tech hidden-xs">
-                            <div class="media">
-                                <div class="media-left">
-                                    <a href="#">
-                                        <i></i>
-                                    </a>
-                                </div>
-                                <div class="media-body">
-                                    <a href="#" class="media-heading">
-                                        Купить в ИКЕА и доставить детский столик и стульчик
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="task task-holiday hidden-xs">
-                            <div class="media">
-                                <div class="media-left">
-                                    <a href="#">
-                                        <i></i>
-                                    </a>
-                                </div>
-                                <div class="media-body">
-                                    <a href="#" class="media-heading">
-                                        Купить в ИКЕА и доставить детский столик и стульчик
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
+
                     </div>
 
                 </div>

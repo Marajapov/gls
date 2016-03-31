@@ -7,6 +7,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'access:admin', 'namespace' =
     Route::get('order/client',['as'=>'admin.order.client', 'uses'=>'OrderController@clientOrders']);
     Route::get('order/new',['as'=>'admin.order.new', 'uses'=>'OrderController@showNew']);
     Route::get('order/shared',['as'=>'admin.order.shared', 'uses'=>'OrderController@shared']);
+    Route::get('order/completed',['as'=>'admin.order.completed', 'uses'=>'OrderController@completed']);
     Route::get('order/canceled',['as'=>'admin.order.canceled', 'uses'=>'OrderController@canceled']);
     Route::get('order/closed',['as'=>'admin.order.closed', 'uses'=>'OrderController@showClosed']);
 

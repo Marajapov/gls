@@ -232,6 +232,16 @@ class OrderController extends Controller
             'orders' => $orders,
         ]);
     }
+
+    // Show shared orders
+    public function completed()
+    {
+        $orders = \Model\Order\ModelName::where('status','=','complete')->orderBy('id', 'desc')->get();
+
+        return view('Admin::order.completed', [
+            'orders' => $orders,
+        ]);
+    }
     // To be canceled
     public function orderCancel(Request $request, $id)
     {

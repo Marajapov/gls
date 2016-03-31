@@ -10,4 +10,8 @@ trait ModelRelationships
     public function categories(){
         return $this->belongsToMany(Category::class, 'order_subcategory_ties', 'order_id', 'category_id');
     }
+    public function category(){
+        return $this->belongsTo(Category::class, 'category_id');
+    }
+
 }

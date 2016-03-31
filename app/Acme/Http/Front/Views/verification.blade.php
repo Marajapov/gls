@@ -5,6 +5,9 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('slick/slick-theme.css') }}" /> 
 @stop 
 @section('content')
+
+    @include('Front::partials.nav2')
+
     <div class="wrapper">
 
         <div class="section landing-section section-with-space section-gray section-verify">
@@ -28,7 +31,8 @@
                 </p>
 
                 <h4>Наши контакты:</h4>
-                <p></p>
+                <p><strong>Адрес:</strong> г. Бишкек, ул. Панфилова 205</p>
+                <p><strong>Телефоны:</strong> 0555 488 388, 0702 488 388</p>
             </div>
 
         </div>

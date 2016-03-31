@@ -9,7 +9,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{route('front.verification')}}">
                         Контакты
                     </a>
                 </li>
