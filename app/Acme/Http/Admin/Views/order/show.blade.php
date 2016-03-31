@@ -126,13 +126,13 @@
                                             </a>
                                         @endif
 
-                                        @if($order->status == 'share')
+                                        @if($order->status == 'share' || $order->status == 'complete')
                                             <a href="{{ route('admin.order.cancel', $order)}}" class="btn btn-success">
                                                 Отменить
                                             </a>
                                         @endif
 
-                                        @if($order->status == 'share')
+                                        @if($order->status == 'share' || $order->status == 'complete')
                                             <a href="{{ route('admin.order.close', $order)}}" class="btn btn-success">
                                                 Завершить
                                             </a>
