@@ -23,8 +23,8 @@
                             <h4 class="title">Изменить пользователя</h4>
                         </div>
                         <div class="content">
-                            {!! Form::model($user, ['route' => 'admin.user.store']) !!}
-                                @include('Admin::user.form', [$user])
+                            {!! Form::model($user, ['route' => ['admin.user.update', $user], 'method' => 'PUT','enctype' => 'multipart/form-data']) !!}
+                                @include('Admin::user.formEdit', [$user])
                             {!! Form::close() !!}
                         </div>
                     </div>

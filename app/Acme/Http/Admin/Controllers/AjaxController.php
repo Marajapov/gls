@@ -138,7 +138,7 @@ class AjaxController extends Controller
                     '.$user->name.'
                 </td>
                 <td class="td-actions">
-                    <a rel="tooltip" class="delete btn btn-default" href="'.route('admin.order.softDelete', $user->id.'" title="Удалить">
+                    <a rel="tooltip" class="delete btn btn-default" href="'.route('admin.order.softDelete', $user->id).'" title="Удалить">
                         <i class="fa fa-trash-o"></i>
                     </a>
                 </td>

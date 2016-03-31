@@ -33,6 +33,7 @@
                                     <th>Телефон</th>
                                     <th class="hidden-xs hidden-sm">Подкатегория</th>
                                     <th class="hidden-xs hidden-sm">Статус</th>
+                                    <th class="hidden-xs hidden-sm">Глобальный</th>
                                     <th>Действия</th>
                                 </tr>
                                 </thead>
@@ -56,6 +57,14 @@
                                                 активный
                                             @elseif($user->status == 'blocked')
                                                 заблокирован
+                                            @endif
+                                        </td>
+
+                                        <td class="hidden-xs hidden-sm">
+                                            @if($user->flag == 1)
+                                                да
+                                            @else
+                                                нет
                                             @endif
                                         </td>
 

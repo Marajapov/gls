@@ -39,8 +39,8 @@
                 <div class="collapse" id="componentsExamples" aria-expanded="true">
                     <ul class="nav">
                         <li><a href="{{ route('admin.order.index') }}">Все</a></li>
-                        <li><a href="{{ route('admin.order.client') }}">Заявки с сайта</a></li>
-                        <li><a href="{{ route('admin.order.new') }}">Новые</a></li>
+                        <li><a href="{{ route('admin.order.client') }}">Заказы с сайта</a></li>
+                        <li><a href="{{ route('admin.order.new') }}">Заказы с админки</a></li>
                         <li><a href="{{ route('admin.order.shared') }}">Разосланные</a></li>
                         <li><a href="{{ route('admin.order.canceled') }}">Отмененные</a></li>
                         <li><a href="{{ route('admin.order.closed') }}">Закрытые</a></li>

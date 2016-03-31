@@ -175,11 +175,19 @@ class OrderController extends Controller
         $sendMessage = json_encode($response);
         // GET USER LIST
         $gcm_list = array();
+        
         $user_query = UserSubcategoryTie::where('subcategory_id','=',$sub_id)->get();
         foreach($user_query as $row)
         {
             $rowGcm = $row->users()->first()->gcm;
-            array_push($gcm_list, $rowGcm);
+            if($rowGcm != ''){
+                array_push($gcm_list, $rowGcm);    
+            }            
+        }
+        $userGlobal = User::where('flag','=',1)->having('gcm','<>','')->get();
+        foreach($userGlobal as $row1)
+        {
+            array_push($gcm_list, $row1->gcm);
         }
         // GCM
         $headers = array(

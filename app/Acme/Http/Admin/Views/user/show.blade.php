@@ -73,6 +73,17 @@
                                             </td>
                                         </tr>
 
+                                        <tr>
+                                            <td>Глобальный пользователь</td>
+                                            <td>
+                                                @if($user->flag == 1)
+                                                    да
+                                                @else
+                                                    нет
+                                                @endif
+                                            </td>
+                                        </tr>
+
                                         </tbody>
                                     </table>
 
@@ -110,30 +121,34 @@
                                             </tr>
                                             </thead>
                                             <tbody>
+                                            @if($listUserSubcategoryTie)
+                                            @foreach($listUserSubcategoryTie as $row)
                                                 <tr>
                                                     <td>
-                                                        <a href="#">Название</a>
+                                                        <a href="#">{{ $row->subcategories()->first()->getName() }}</a>
                                                     </td>
                                                     <td class="td-actions">
-                                                        <a onclick="return confirm('Вы уверены ?')" rel="tooltip" class="delete btn btn-default" href="#" title="Удалить">
+                                                        <a onclick="return confirm('Вы уверены ?')" rel="tooltip" class="btn btn-default" href="{{route('admin.user.deleteSubcategory', $row->id)}}" title="Удалить">
                                                             <i class="fa fa-trash-o"></i>
                                                         </a>
                                                     </td>
                                                 </tr>
+                                            @endforeach
+                                            @endif
                                             </tbody>
                                         </table>
                                     </div>
 
                                     <div class="actions">
-                                        {{--{!! Form::model($newUser, ['route' => ['admin.order.update', $order], 'method' => 'PUT','enctype' => 'multipart/form-data','class'=>'form-horizontal']) !!}--}}
-                                        <form action="" class="form-horizontal">
+                                        {!! Form::model($newUserSubcategoryTie, ['route' => ['admin.user.addSubcategory', $newUserSubcategoryTie], 'method' => 'POST','enctype' => 'multipart/form-data','class'=>'form-horizontal']) !!}
+                                        
                                             <fieldset>
                                                 <div class="form-group">
                                                     <div class="col-sm-12">
                                                         <div class="row">
                                                             <div class="col-md-4 col-sm-12 col-xs-12">
-
-                                                                <select id="category1" name="categories[]" onchange="categoryChange($('#category1'), $('#subCategory1'))" class="form-control selectpicker" title = "-- Выберите категорию --">
+                                                            <input type="hidden" name="user" value="{{$user->id}}" />
+                                                                <select required="required" id="category1" name="categories[]" onchange="categoryChange($('#category1'), $('#subCategory1'))" class="form-control selectpicker" title = "-- Выберите категорию --">
                                                                     @foreach($categories as $category)
                                                                         <option value="{{ $category->getId() }}">{{ $category->getName() }}</option>
                                                                     @endforeach
@@ -142,7 +157,7 @@
                                                             </div>
                                                             <div class="col-md-4 col-sm-12 col-xs-12">
 
-                                                                <select id="subCategory1" name="subcategories[]" class="form-control selectpicker" title="-- Выберите подкатегорию --">
+                                                                <select required="required" id="subCategory1" name="subcategories[]" class="form-control selectpicker" title="-- Выберите подкатегорию --">
                                                                 </select>
 
                                                             </div>
@@ -151,11 +166,11 @@
                                                 </div>
                                             </fieldset>
 
-                                            <button class="btn btn-success">
+                                            <button type="submit" class="btn btn-success">
                                                 Добавить
                                             </button>
 
-                                        </form>
+                                        {!! Form::close() !!}
                                     </div>
 
                                 </div>
