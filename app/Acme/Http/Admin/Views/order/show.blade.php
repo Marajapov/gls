@@ -76,7 +76,7 @@
                                                         Подкатегория
                                                     </td>
                                                     <td>
-                                                        <span class="spec"></span>
+                                                        <span class="spec">{{ $order->subcategories()->first()->getName() }}</span>
                                                     </td>
                                                 </tr>
 
