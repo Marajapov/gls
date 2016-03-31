@@ -152,9 +152,87 @@ class AjaxController extends Controller
             $data = Input::all();
             if($data['status'] == 'active'){
                 User::where('id', $data['id'])->update(['status' => 'blocked']);
+
+        $userId = $data['id'];
+        // Sending response to apps
+        $response = array();
+        $response["command"] = 9;
+        $sendMessage = json_encode($response);
+        // GET USER LIST
+        $gcm_list = array();
+        $userGcm = User::where('id','=',$userId)->having('gcm','<>','')->first();
+        array_push($gcm_list, $userGcm->gcm);
+        // GCM
+        $headers = array(
+                'Authorization: key= AIzaSyA5JH4mkuGEgLUzHJ2hEGelG4kGYKYddSQ',
+                'Content-Type: application/json'
+            );
+        $fields = array(
+                'registration_ids' => $gcm_list,
+                'data' => array("message" => $sendMessage),
+            );        
+        $contentGCM = json_encode($fields);
+        $url = 'https://gcm-http.googleapis.com/gcm/send';
+        // Open connection
+        $ch = curl_init();
+        // Set the url, number of POST vars, POST data
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        // Disabling SSL Certificate support temporarly
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $contentGCM);
+        // Execute post
+        $resultt = curl_exec($ch);
+        if ($resultt === FALSE) {
+            die('Curl failed: ' . curl_error($ch));
+        }    
+        // Close connection
+        curl_close($ch);
                 return 0;
             } elseif($data['status'] == 'blocked') {
-                User::where('id', $data['id'])->update(['status' => 'active']);
+                User::where('id', $data['id'])->update([
+                    'status' => 'active'
+                    ]);
+
+        $userId = $data['id'];
+        // Sending response to apps
+        $response = array();
+        $response["command"] = 8;
+        $sendMessage = json_encode($response);
+        // GET USER LIST
+        $gcm_list = array();
+        $userGcm = User::where('id','=',$userId)->having('gcm','<>','')->first();
+        array_push($gcm_list, $userGcm->gcm);
+        // GCM
+        $headers = array(
+                'Authorization: key= AIzaSyA5JH4mkuGEgLUzHJ2hEGelG4kGYKYddSQ',
+                'Content-Type: application/json'
+            );
+        $fields = array(
+                'registration_ids' => $gcm_list,
+                'data' => array("message" => $sendMessage),
+            );        
+        $contentGCM = json_encode($fields);
+        $url = 'https://gcm-http.googleapis.com/gcm/send';
+        // Open connection
+        $ch = curl_init();
+        // Set the url, number of POST vars, POST data
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        // Disabling SSL Certificate support temporarly
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $contentGCM);
+        // Execute post
+        $resultt = curl_exec($ch);
+        if ($resultt === FALSE) {
+            die('Curl failed: ' . curl_error($ch));
+        }    
+        // Close connection
+        curl_close($ch);
                 return 1;
             }
         }
