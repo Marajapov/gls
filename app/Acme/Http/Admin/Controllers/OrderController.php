@@ -46,6 +46,7 @@ class OrderController extends Controller
             'order'  => new Order,
             'categories'  => $categories,
             'subcategories'  => $subcategories,
+            'orderSubcategory' => null,
         ]);
     }
 
@@ -100,8 +101,12 @@ class OrderController extends Controller
 
     public function edit(Order $order)
     {
+        $order = Order::where('id','=',$order->id)->first();
+        $orderSubcategory = $order->subcategory_id;
         $categories = Category::lists('name', 'id')->toArray();
         $subcategories = Subcategory::lists('name', 'id')->toArray();
+
+
 
         $order_id = $order->id;
 
@@ -109,6 +114,7 @@ class OrderController extends Controller
             'order' => $order,
             'categories'  => $categories,
             'subcategories'  => $subcategories,
+            'orderSubcategory' => $orderSubcategory,
         ]);
     }
 
