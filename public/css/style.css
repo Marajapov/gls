@@ -17,6 +17,23 @@ body{
 .navbar{
     margin: 0;
 }
+
+.phones{
+    position: absolute;
+    top: 30px;
+    left: 0;
+    right: 0;
+    width: 100px;
+    margin: auto;
+    text-align: center;
+}
+.phones span{
+    display: block;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+
 /*CAROUSEL*/
 .carousel-inner > .item:first-of-type{
     background-image: url('../images/carousel/bg-1.jpg');

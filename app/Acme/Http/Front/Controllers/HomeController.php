@@ -3,6 +3,7 @@ namespace Front\Controllers;
 use Illuminate\Http\Request;
 use Input;
 use \Model\Category\ModelName as Category;
+use \Model\Order\ModelName as Order;
 
 class HomeController extends Controller
 {
@@ -19,10 +20,14 @@ class HomeController extends Controller
         $categories1 = Category::where("published","=","1")->take(4)->get();
         $categories2 = Category::where("published","=","1")->take(4)->skip(4)->get();
 
+        $orders = Order::where('status','=','new')->orWhere('status','=','share')->orWhere('status','=','complete')->orWhere('status','=','closed')->orderBy('id','desc')->take(10)->get();
+
         return view('Front::home', [
             'categories' => $categories,
             'categories1' => $categories1,
-            'categories2' => $categories2
+            'categories2' => $categories2,
+
+            'orders' => $orders
         ]);
     }
     

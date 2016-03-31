@@ -13,6 +13,8 @@
             </a>
         </div>
 
+
+
         <div class="phones">
             <span>0555 488 388</span>
             <span>0702 488 388</span>
@@ -22,7 +24,6 @@
         <div class="collapse navbar-collapse" id="navigation-example-2">
             <ul class="nav navbar-nav navbar-right">
                 <a href="{{ route('front.order.new') }}" class="btn btn-fill btn-info">Оформить заявку</a>
-                <a id="btnServices" href="#services" class="btn btn-simple">Услуги</a>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-->
