@@ -1,4 +1,7 @@
-@extends('Front::layouts.default') @section('title', 'GLS' )
+@extends('Front::layouts.default')
+
+@section('title', 'TezTap | Добавить задание' )
+
 @section('styles')
 
     <meta name="_token" content="{!! csrf_token() !!}" />
@@ -8,6 +11,8 @@
 @stop
 
 @section('content')
+    @include('Front::partials.nav2')
+
     <div class="wrapper">
 
         <div class="main">
@@ -24,8 +29,8 @@
                                 {!! Form::model($order, ['route' => 'front.order.store', 'enctype' => 'multipart/form-data', 'class'=>'newTask clearfix', 'id'=>'newTask']) !!}
 
                                 <div class="form-group col-md-6">
-                                    <label for="taskName" class="required-label">Категория</label>
-                                    <select name="taskCategory" id="category" class="form-control selectpicker required" title="-- Выберите категорию --" required>
+                                    <label for="category" class="required-label">Категория</label>
+                                    <select name="category_id" id="category" class="form-control selectpicker required" title="-- Выберите категорию --" required>
                                         @foreach($categories as $category)
                                             <option value="{{$category->id}}" @if($category->id == $selectedCategory->id) selected @endif>{{$category->name}}</option>
                                         @endforeach
@@ -36,8 +41,8 @@
                                     </div>
                                 </div>
                                 <div id="taskType" class="form-group col-md-6 no-ajax">
-                                    <label for="taskName" class="required-label">Подкатегория</label>
-                                    <select name="taskType" id="type" class="form-control selectpicker required" title="-- Выберите тип --" required>
+                                    <label for="type" class="required-label">Подкатегория</label>
+                                    <select name="subcategory_id" id="type" class="form-control selectpicker required" title="-- Выберите тип --" required>
                                         @foreach($selectedCategory->subcategories()->get() as $subcategory)
                                             <option value="{{ $subcategory->id }}">{{ $subcategory->name }}</option>
                                         @endforeach
@@ -45,8 +50,30 @@
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label for="description" class="required-label">Описание задачи</label>
-                                    {!! Form::textarea('description', null, ["class" => "form-control", "id"=>"description", "rows"=>4, "required" => true, "placeholder" => "Опишите пожелания и детали, чтобы исполнители лучше оценили вашу задачу"]) !!}
+                                    <label for="name" class="required-label">Мне нужно</label>
+                                    {!! Form::text('name', null, ["class" => "form-control", "id"=>"name", "required" => true, "placeholder" => "Коротко сформулируйте Вашу задачу"]) !!}
+                                </div>
+
+                                <div class="form-group col-md-12">
+                                    <label for="description">Описание задачи</label>
+                                    {!! Form::textarea('description', null, ["class" => "form-control", "id"=>"description", "rows"=>4, "placeholder" => "Опишите пожелания и детали, чтобы исполнители лучше оценили вашу задачу"]) !!}
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    <label for="attachment">Добавить фото</label>
+                                    <div class="fileinput fileinput-new input-group" data-provides="fileinput">
+                                        <div class="form-control" data-trigger="fileinput">
+                                            <i class="glyphicon glyphicon-file fileinput-exists"></i>
+                                            <span class="fileinput-filename"></span>
+                                        </div>
+                                    <span class="input-group-addon btn btn-default btn-file">
+                                                <span class="fileinput-new">Выберите файл</span>
+                                    <span class="fileinput-exists">Изменить</span>
+                                    <input id="attachment" type="file" name="attachment">
+                                    </span>
+                                        <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Удалить</a>
+                                    </div>
+                                    <p class="help-block">Фото помогает исполнителям лучше понять ваше задание и оценить объем работы</p>
                                 </div>
 
                                 <div class="col-md-12">
