@@ -31,7 +31,7 @@
     left: 50%;
     top: 50%;
     float: none;
-    width: 320px;
+    width: 280px;
     padding:5px 15px;
 
     text-align: center;
@@ -48,4 +48,53 @@
 }
 .login .btn{
     margin-top: 10px;
+}
+
+/*ERROR*/
+/*.login .card-error{*/
+    /*background: none;*/
+    /*border: none;*/
+    /*-webkit-box-shadow: none;*/
+    /*-moz-box-shadow: none;*/
+    /*box-shadow: none;*/
+/*}*/
+.card-error .title,
+.card-error .category{
+}
+.card-error .title{
+    font-size: 48px;
+    line-height: 56px;
+    margin-bottom: 10px;
+}
+.card-error .title b,
+.card-error .title span{
+    display: inline-block;
+    vertical-align: middle;
+}
+.card-error .category{
+    font-size: 14px;
+    line-height: 20px;
+}
+.card-error .logo{
+    display: block;
+    margin: 20px 0;
+}
+.card-error .logo img{
+    height: 70px;
+    width: auto;
+}
+
+@media (min-width: 768px){
+    .login .card-error{
+        width: 640px;
+    }
+    .card-error .title{
+        font-size: 72px;
+        line-height: 96px;
+        margin-bottom: 0;
+    }
+    .card-error .category{
+        font-size: 20px;
+        line-height: 24px;
+    }
 }

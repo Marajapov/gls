@@ -23,7 +23,6 @@ Route::group(['prefix' => '/', 'namespace' => 'Front\Controllers'], function() {
     // new order store
     Route::post('order/store',['as' => 'front.order.store', 'uses' => 'OrderController@store']);
 
-
     // External authentification
     //Route::get('mobile/test.php?phone={phone}&password={password}',['as' => 'front.test', 'uses' => 'HomeController@postLogin']);
 
