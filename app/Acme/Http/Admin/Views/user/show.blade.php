@@ -92,11 +92,11 @@
                                             Редактировать
                                         </a>
                                         {!! Form::open(['route' => ['admin.user.destroy', $user], 'method' => 'DELETE', 'class'=>'deleteForm']) !!}
-                                            <button id="deleteButton" rel="tooltip" type="submit" class="delete btn btn-danger" title="Удалить">
+                                            <button id="deleteButton" type="submit" class="delete btn btn-danger">
                                                 Удалить
                                             </button>
                                         {!! Form::close() !!}
-                                        <a href="#" onclick="history.go(-1);" class="btn btn-default">Назад</a>
+                                        <a href="<?php echo htmlspecialchars($_SERVER['HTTP_REFERER']); ?>" class="btn btn-default">Назад</a>
                                     </div>
 
                                 </div>

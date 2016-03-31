@@ -18,8 +18,8 @@
 <script src="{{ asset('js/admin/light-bootstrap-dashboard.js') }}"></script>
 
 <script>
+
     $(document).ready(function () {
-        $(function () {
             var url = window.location;
             var pathArray = window.location.pathname.split( '/' );
             $('#mainNav > li > a').each(function () {
@@ -38,8 +38,6 @@
                     $(this).parent().parent().parent().addClass('in');
                 }
             });
-//            $('.sidebar a[href="' + url + '"]').parent('li').addClass('active');
-        });
     });
 </script>
 
