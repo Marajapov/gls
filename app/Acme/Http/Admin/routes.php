@@ -18,6 +18,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'access:admin', 'namespace' =
     Route::post('userCategoryChange', ['as'=>'admin.userCategoryChange', 'uses'=>'AjaxController@categoryChange']);
     Route::post('user/create/newSelect', 'AjaxController@newSelect');
     Route::post('user/addSubcategory', ['as'=>'admin.user.addSubcategory', 'uses'=>'UserController@addSubcategory']);
+    Route::post('user/filter/{id}', ['as'=>'admin.user.filter', 'uses'=>'UserController@filterUser']);
     
     Route::get('user/deleteSubcategory/{id}', ['as'=>'admin.user.deleteSubcategory', 'uses'=>'UserController@deleteSubcategory']);
     Route::get('user/changePassword/{id}', ['as'=>'admin.user.changePassword', 'uses'=>'UserController@changePassword']);

@@ -76,7 +76,11 @@
                                                         Подкатегория
                                                     </td>
                                                     <td>
-                                                        <span class="spec">{{ $order->subcategories()->first()->getName() }}</span>
+                                                        <span class="spec">
+                                                        @if($order->subcategories()->first())
+                                                            {{ $order->subcategories()->first()->getName() }}
+                                                        @endif
+                                                        </span>
                                                     </td>
                                                 </tr>
 
@@ -126,7 +130,7 @@
                                             </a>
                                         @endif
 
-                                        @if($order->status == 'share' || $order->status == 'complete')
+                                        @if($order->status == 'share' || $order->status == 'complete' || $order->status == 'new' || $order->status == 'site')
                                             <a href="{{ route('admin.order.cancel', $order)}}" class="btn btn-success">
                                                 Отменить
                                             </a>

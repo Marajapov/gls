@@ -49,7 +49,7 @@
                                         <td>{{ $user->phone }}</td>
                                         <td class="hidden-xs hidden-md">
                                             @foreach($user->subcategories as $subcategory)
-                                                <span class="spec">{{ $subcategory->getName() }}</span>
+                                                <span class="spec">{{ $subcategory->id }}{{ $subcategory->getName() }}</span>
                                             @endforeach
                                         </td>
                                         <td class="hidden-xs hidden-sm">
@@ -93,6 +93,36 @@
                                 @endforeach
                                 </tbody>
                             </table>
+
+                            <nav>
+                                <ul class="pagination">
+
+                                    <li>
+                                        <a href="{{ route('admin.user.index', ['users' => $users, 'page' => 1]) }}" class="btn btn-default @if($users->currentPage() == 1) disabled @endif">Начало</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ $users->previousPageUrl() }}" class="btn btn-default"><span class="glyphicon glyphicon-chevron-left"></span></a>
+                                    </li>
+
+                                    @for($i = 0, $j = 1; $i < $users->total(); $i+=$perPage)
+                                        <li class="@if(($j > $users->currentPage()+3) || ($j < $users->currentPage()-3)) hidden @endif">
+                                            <a href="{{ route('admin.user.index', ['users' => $users, 'page' => $j]) }}" class="btn btn-default @if($users->currentPage() == $j) active @endif">
+                                                {{ $j++ }}
+                                            </a>
+                                        </li>
+                                    @endfor
+
+                                    <li>
+                                        <a href="{{ $users->nextPageUrl() }}" class="btn btn-default"><span class="glyphicon glyphicon-chevron-right"></span></a>
+                                    </li>
+
+                                    <li>
+                                        <a href="{{ route('admin.user.index', ['users' => $users, 'page' => ceil($users->total()/$perPage)]) }}" class="btn btn-default @if($users->currentPage() == ceil($users->total()/$perPage)) disabled @endif">Конец</a>
+                                    </li>
+
+                                </ul>
+                            </nav>
+
 
                         </div>
                     </div>

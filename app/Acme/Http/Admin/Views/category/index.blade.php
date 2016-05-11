@@ -64,6 +64,35 @@
                                 </tbody>
                             </table>
 
+                            <nav>
+                            <ul class="pagination">
+
+                                <li>
+                                    <a href="{{ route('admin.category.index', ['categories' => $categories, 'page' => 1]) }}" class="btn btn-default @if($categories->currentPage() == 1) disabled @endif">Начало</a>
+                                </li>
+                                <li>
+                                    <a href="{{ $categories->previousPageUrl() }}" class="btn btn-default"><span class="glyphicon glyphicon-chevron-left"></span></a>
+                                </li>
+
+                                @for($i = 0, $j = 1; $i < $categories->total(); $i+=$perPage)
+                                    <li class="@if(($j > $categories->currentPage()+3) || ($j < $categories->currentPage()-3)) hidden @endif">
+                                        <a href="{{ route('admin.category.index', ['categories' => $categories, 'page' => $j]) }}" class="btn btn-default @if($categories->currentPage() == $j) active @endif">
+                                            {{ $j++ }}
+                                        </a>
+                                    </li>
+                                @endfor
+
+                                <li>
+                                    <a href="{{ $categories->nextPageUrl() }}" class="btn btn-default"><span class="glyphicon glyphicon-chevron-right"></span></a>
+                                </li>
+
+                                <li>
+                                    <a href="{{ route('admin.category.index', ['categories' => $categories, 'page' => ceil($categories->total()/$perPage)]) }}" class="btn btn-default @if($categories->currentPage() == ceil($categories->total()/$perPage)) disabled @endif">Конец</a>
+                                </li>
+
+                            </ul>
+                        </nav>
+
                         </div>
                     </div>
                 </div>

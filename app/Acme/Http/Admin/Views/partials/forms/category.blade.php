@@ -8,7 +8,7 @@
     <div class="col-md-4">
         <div class="form-group">
             <label>Префикс</label>
-            {!! Form::text('prefix', null, ["class" => "form-control", "required" => true, "placeholder" => "Префикс на английском"]) !!}
+            {!! Form::text('class', null, ["class" => "form-control", "placeholder" => "Префикс на английском"]) !!}
         </div>
     </div>
 </div>

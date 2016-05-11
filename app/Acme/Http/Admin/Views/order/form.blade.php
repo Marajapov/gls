@@ -88,7 +88,7 @@
             <div class="col-md-3">
                 <div class="form-group">
                     <label for="subCategory1">Подкатегория</label>
-                    {!! Form::select('subcategory_id', $subcategories, null, ["class" => "form-control selectpicker", "onchange"=>"subcategoryChange($('#subCategory1'), $('#price1'))", "id" => "subCategory1", "title" => "-- Выберите --"]) !!}
+                    {!! Form::select('subcategory_id', $subcategories, null, ["class" => "form-control selectpicker", "id" => "subCategory1", "title" => "-- Выберите --"]) !!}
                 </div>
             </div>
         </div>

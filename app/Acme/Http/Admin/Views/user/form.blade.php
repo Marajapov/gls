@@ -27,9 +27,17 @@
         </div>        
     </div>
 </div>
+<div class="row">
+    <div class="col-md-3">
+        <div class="form-group">
+            <label for="role">Роль</label>
+            {!! Form::select('role',$userRole, null, ["class" => "form-control selectpicker", "title" => "-- Выберите --"]) !!}
+        </div>        
+    </div>
+</div>
+<hr>
 
 <h5 class="subtitle">Специальности</h5>
-
 <div class="doers">
 
     <div class="inner">

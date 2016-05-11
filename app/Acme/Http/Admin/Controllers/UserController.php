@@ -13,17 +13,28 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::all();
+        $perPage = 5;
+        $users = User::where('role','<>','softDelete')->orderBy('id','desc')->paginate($perPage);
+        
         return view('Admin::user.index', [
+            'perPage' => $perPage,
             'users' => $users,
+
         ]);
     }
     public function create()
     {
         $categories = Category::where('published','=','1')->get();
+        if(auth()->user()->isAdmin()){
+            $userRole = ["admin"=>"Администратор","manager"=> "Оператор","doer"=>"Исполнитель"];
+        }else{
+            $userRole = ["doer"=>"Исполнитель"];    
+        }
+        
         return view('Admin::user.create', [
             'user' => new User(),
             'categories' => $categories,
+            'userRole' => $userRole,
             ]);
     }
     public function store(Request $request)
@@ -37,7 +48,7 @@ class UserController extends Controller
             foreach($subcategories as $subcategory){
                 UserSubcategoryTie::create([
                     'user_id' => $user->id,
-                    'subcategory_id' => $subcategory
+                    'subcategory_id' => $subcategory,
                 ]);
             }
         } // end if
@@ -65,10 +76,17 @@ class UserController extends Controller
     public function edit(User $user)
     {
         $categories = Category::where('published','=','1')->get();
+
+        if(auth()->user()->isAdmin()){
+            $userRole = ["admin"=>"Администратор","manager"=> "Оператор","doer"=>"Исполнитель"];
+        }else{
+            $userRole = ["doer"=>"Исполнитель"];    
+        }
         
         return view('Admin::user.edit', [
             'user' => $user,
             'categories' => $categories,
+            'userRole' => $userRole,
             ]);
     }
     public function update(Request $request, User $user)
@@ -79,13 +97,18 @@ class UserController extends Controller
     }
     public function destroy(User $user)
     {
+        $user->update([
+            'role'=> 'softDelete'
+            ]);
         $ust = UserSubcategoryTie::where('user_id','=',$user->id)->get();
 
         foreach($ust as $row)
         {
-            $row->delete();
+            $row->update([
+                'status'=> 'softDelete'
+                ]);
         }
-        $user->delete();
+        $user->save();
 
         return redirect()->route('admin.user.index');
     }
@@ -142,5 +165,10 @@ class UserController extends Controller
             return redirect()->route('admin.user.show', $user);
 
         }
+    }
+
+    public function filterUser(Request $request, $id)
+    {
+        dd($id);
     }
 }

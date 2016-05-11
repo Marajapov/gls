@@ -1,5 +1,5 @@
 @extends('Admin::layouts.default')
-@section('title', "Posts")
+@section('title', "Подкатегори")
 
 @section('content')
 
@@ -46,9 +46,13 @@
                                             {{ $subcategory->price }}
                                         </td>
                                         <td class="hidden-xs hidden-sm">
+                                            
                                             @foreach($subcategory->users as $user)
+                                                @if($user->role != 'softDelete')
                                                 <span class="spec">{{ $user->getName() }}</span>
+                                                @endif
                                             @endforeach
+                                            
                                         </td>
                                         <td class="hidden-xs hidden-sm">{{ $subcategory->getPublished() }}</td>
                                         <td class="hidden-xs hidden-sm">{{ $subcategory->getDate() }}</td>
@@ -77,6 +81,35 @@
                                 @endforeach
                                 </tbody>
                             </table>
+
+                            <nav>
+                            <ul class="pagination">
+
+                                <li>
+                                    <a href="{{ route('admin.subcategory.index', ['subcategories' => $subcategories, 'page' => 1]) }}" class="btn btn-default @if($subcategories->currentPage() == 1) disabled @endif">Начало</a>
+                                </li>
+                                <li>
+                                    <a href="{{ $subcategories->previousPageUrl() }}" class="btn btn-default"><span class="glyphicon glyphicon-chevron-left"></span></a>
+                                </li>
+
+                                @for($i = 0, $j = 1; $i < $subcategories->total(); $i+=$perPage)
+                                    <li class="@if(($j > $subcategories->currentPage()+3) || ($j < $subcategories->currentPage()-3)) hidden @endif">
+                                        <a href="{{ route('admin.subcategory.index', ['subcategories' => $subcategories, 'page' => $j]) }}" class="btn btn-default @if($subcategories->currentPage() == $j) active @endif">
+                                            {{ $j++ }}
+                                        </a>
+                                    </li>
+                                @endfor
+
+                                <li>
+                                    <a href="{{ $subcategories->nextPageUrl() }}" class="btn btn-default"><span class="glyphicon glyphicon-chevron-right"></span></a>
+                                </li>
+
+                                <li>
+                                    <a href="{{ route('admin.subcategory.index', ['subcategories' => $subcategories, 'page' => ceil($subcategories->total()/$perPage)]) }}" class="btn btn-default @if($subcategories->currentPage() == ceil($subcategories->total()/$perPage)) disabled @endif">Конец</a>
+                                </li>
+
+                            </ul>
+                        </nav>
 
                         </div>
                     </div>

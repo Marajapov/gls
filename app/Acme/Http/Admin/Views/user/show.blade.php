@@ -125,7 +125,11 @@
                                             @foreach($listUserSubcategoryTie as $row)
                                                 <tr>
                                                     <td>
-                                                        <a href="#">{{ $row->subcategories()->first()->getName() }}</a>
+                                                        <a href="#">
+                                                        @if($row->subcategories()->first())
+                                                            {{ $row->subcategories()->first()->getName() }}
+                                                        @endif
+                                                        </a>
                                                     </td>
                                                     <td class="td-actions">
                                                         <a onclick="return confirm('Вы уверены ?')" rel="tooltip" class="btn btn-default" href="{{route('admin.user.deleteSubcategory', $row->id)}}" title="Удалить">

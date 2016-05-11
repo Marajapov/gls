@@ -47,7 +47,11 @@
                                             </span>
                                         </td>
                                         <td class="hidden-xs hidden-sm">
-                                            <span class="spec">{{ $order->subcategories()->first()->getName() }}</span>
+                                            <span class="spec">
+                                            @if($order->subcategories()->first() != null)
+                                                {{ $order->subcategories()->first()->getName() }}
+                                            @endif
+                                            </span>
                                         </td>
                                         <td class="td-actions">
                                             <ul>
@@ -72,6 +76,35 @@
                                 @endforeach
                             </tbody>
                         </table>
+
+                        <nav>
+                            <ul class="pagination">
+
+                                <li>
+                                    <a href="{{ route('admin.order.share', ['orders' => $orders, 'page' => 1]) }}" class="btn btn-default @if($orders->currentPage() == 1) disabled @endif">Начало</a>
+                                </li>
+                                <li>
+                                    <a href="{{ $orders->previousPageUrl() }}" class="btn btn-default"><span class="glyphicon glyphicon-chevron-left"></span></a>
+                                </li>
+
+                                @for($i = 0, $j = 1; $i < $orders->total(); $i+=$perPage)
+                                    <li class="@if(($j > $orders->currentPage()+3) || ($j < $orders->currentPage()-3)) hidden @endif">
+                                        <a href="{{ route('admin.order.share', ['orders' => $orders, 'page' => $j]) }}" class="btn btn-default @if($orders->currentPage() == $j) active @endif">
+                                            {{ $j++ }}
+                                        </a>
+                                    </li>
+                                @endfor
+
+                                <li>
+                                    <a href="{{ $orders->nextPageUrl() }}" class="btn btn-default"><span class="glyphicon glyphicon-chevron-right"></span></a>
+                                </li>
+
+                                <li>
+                                    <a href="{{ route('admin.order.share', ['orders' => $orders, 'page' => ceil($orders->total()/$perPage)]) }}" class="btn btn-default @if($orders->currentPage() == ceil($orders->total()/$perPage)) disabled @endif">Конец</a>
+                                </li>
+
+                            </ul>
+                        </nav>
 
                     </div>
                 </div>

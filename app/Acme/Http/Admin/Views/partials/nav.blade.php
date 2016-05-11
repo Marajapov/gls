@@ -48,6 +48,7 @@
                     </ul>
                 </div>
             </li>
+            @if(auth()->user()->isAdmin())
             <li>
                 <a href="{{ route('admin.category.index') }}" data-href="{{ route('admin.category.index') }}">
                     <i class="pe-7s-keypad"></i>
@@ -60,6 +61,7 @@
                     <p>Подкатегории</p>
                 </a>
             </li>
+            @endif
             <li>
                 <a href="{{ route('admin.user.index') }}" data-href="{{ route('admin.user.index') }}">
                     <i class="pe-7s-users"></i>

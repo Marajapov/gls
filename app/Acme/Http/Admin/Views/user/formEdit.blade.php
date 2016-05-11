@@ -23,6 +23,15 @@
     </div>
 </div>
 
+<div class="row">
+    <div class="col-md-3">
+        <div class="form-group">
+            <label for="role">Роль</label>
+            {!! Form::select('role',$userRole, null, ["class" => "form-control selectpicker", "title" => "-- Выберите --"]) !!}
+        </div>        
+    </div>
+</div>
+
 <div class="action">
     <a href="{{ route('admin.user.changePassword', $user->id) }}" class="btn btn-default">Изменить пароль</a>
     <button type="submit" class="btn btn-primary">Сохранить</button>

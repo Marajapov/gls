@@ -17,16 +17,10 @@ class HomeController extends Controller
         
         $categories = Category::where("published","=","1")->get();
 
-        $categories1 = Category::where("published","=","1")->take(4)->get();
-        $categories2 = Category::where("published","=","1")->take(4)->skip(4)->get();
-
         $orders = Order::where('status','=','new')->orWhere('status','=','share')->orWhere('status','=','complete')->orWhere('status','=','closed')->orderBy('id','desc')->take(10)->get();
 
         return view('Front::home', [
             'categories' => $categories,
-            'categories1' => $categories1,
-            'categories2' => $categories2,
-
             'orders' => $orders
         ]);
     }

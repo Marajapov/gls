@@ -85,6 +85,20 @@
                                     </div>
                                 </div>
 
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="form-group col-md-4">
+                                            <label>Капча</label>
+                                            <input class="form-control" type="text" name="captcha"/>
+                                        </div>
+                                        <div class="form-group col-md-4" style="margin-top:30px;">
+                                                <label for=""></label>
+                                                <img src="{{ captcha_src() }}" alt="captcha" class="captcha-img" data-refresh-config="default">
+                                                <a href="#" id="refresh"><span class="glyphicon glyphicon-refresh"></span></a>
+                                        </div>
+                                    </div>  
+                                </div>
+
                                 <div class="attention col-md-12">
                                     <span></span> - поля, обязательные для заполнения
                                 </div>

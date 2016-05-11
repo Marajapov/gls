@@ -78,7 +78,10 @@
 
                         @foreach($categories as $key=>$category)
 
-                                <div class="col-md-3 col-xs-6 column" @if($key>7) style="display: none;" @endif>
+                            @if($key==7)
+
+                                <!-- <div class="col-md-3 col-xs-6 column" @if($key>7) style="display: none;" @endif> -->
+                                <div class="col-md-3 col-xs-6 column">
                                     <div class="icon-wrap task-{{$category->class}}">
                                         <i></i>
                                     </div>
@@ -88,6 +91,31 @@
                                         </a>
                                     </h4>
                                 </div>
+
+                            @endif
+
+                        @endforeach
+
+                        @foreach($categories as $key=>$category)
+
+                            @if($key==9 || $key==6 || $key==3 || $key==0 || $key==7)
+
+                            @else 
+
+                                <!-- <div class="col-md-3 col-xs-6 column" @if($key>7) style="display: none;" @endif> -->
+                                <div class="col-md-3 col-xs-6 column">
+                                    <div class="icon-wrap task-{{$category->class}}">
+                                        <i></i>
+                                    </div>
+                                    <h4>
+                                        <a href="{{ route('front.order.new.category',$category) }}">
+                                            {{$category->name}}
+                                        </a>
+                                    </h4>
+                                </div>
+
+                            @endif
+
                         @endforeach
 
                     </div>
@@ -147,7 +175,7 @@
                     <div class="tasks">
 
                         @foreach($orders as $order)
-                            <div class="task task-{{$order->category->class}}">
+                            <div class="task task-@if($order->category){{$order->category->class}}@endif">
                                 <div class="media">
                                     <div class="media-left">
                                         <a href="#">

@@ -14,7 +14,7 @@ class CreateUsersTable extends Migration
             $table->string('password', 60);
             $table->string('password2', 60);
             $table->boolean('flag')->nullable()->default(false);
-            $table->enum('role', ['manager','admin','doer'])->nullable()->default('doer');
+            $table->enum('role', ['manager','admin','doer','softDelete'])->nullable()->default('doer');
             $table->enum('status', ['active','blocked'])->nullable()->default('active');
             $table->rememberToken();
             $table->timestamps();

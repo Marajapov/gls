@@ -10,9 +10,11 @@ class SubcategoryController extends Controller
 
     public function index()
     {
-        $subcategories = Subcategory::all();
+        $perPage = 10;
+        $subcategories = Subcategory::orderBy('id','desc')->paginate($perPage);
 
         return view('Admin::subcategory.index', [
+            'perPage' => $perPage,
             'subcategories' => $subcategories,
         ]);
     }

@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['domain' => 'gls.dev', 'prefix' => '/', 'namespace' => 'Front\Controllers'], function() {
+Route::group(['domain' => 'www.gls.dev', 'prefix' => '/', 'namespace' => 'Front\Controllers'], function() {
     Route::get('/', ['as' => 'front.home',   'uses' => 'HomeController@Home']);
 });
 

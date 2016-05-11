@@ -18,11 +18,13 @@ class OrderController extends Controller
 
     public function index()
     {
+        $perPage = 10;
         $categories = Category::lists('name', 'id')->toArray();
         $subcategories = Subcategory::lists('name', 'id')->toArray();
-        $orders = \Model\Order\ModelName::where('status','<>','softDelete')->orderBy('id', 'desc')->get();
+        $orders = Order::where('status','<>','softDelete')->orderBy('id', 'desc')->paginate($perPage);
 
         return view('Admin::order.index', [
+            'perPage' => $perPage,
             'orders' => $orders,
             'categories' => $categories,
             'subcategories' => $subcategories,
@@ -31,9 +33,11 @@ class OrderController extends Controller
 
     public function clientOrders()
     {
-        $orders = \Model\Order\ModelName::where('status','=','site')->orderBy('id', 'desc')->get();
+        $perPage = 10;
+        $orders = \Model\Order\ModelName::where('status','=','site')->orderBy('id', 'desc')->paginate($perPage);
 
         return view('Admin::order.index', [
+            'perPage' => $perPage,
             'orders' => $orders,
         ]);
     }
@@ -120,19 +124,13 @@ class OrderController extends Controller
             $file = $request->file('attachment');
             $dir  = 'images/attachments';
             $btw = time();
-
             $name = $order->id().$btw.'.'.$file->getClientOriginalExtension();
-
             $storage = \Storage::disk('public');
             $storage->makeDirectory($dir);
-
             Image::make($_FILES['attachment']['tmp_name'])->heighten(300)->save($dir.'/'.$name);
-
             $fileUrl = asset(''.$dir.'/'.$name);
             $order->url = $fileUrl;
             $order->attachment = $dir.'/'.$name;
-            
-
             $order->save();
         }
         return redirect()->route('admin.order.show', $order);
@@ -162,29 +160,35 @@ class OrderController extends Controller
         // GET ORDER DETAILS
         $sub_id = 0;            
         $item = Order::where('id','=',$id)->first();
+        
         $snames = Subcategory::where('id','=',$item->subcategory_id)->first();
-        $sname = $snames->name;
+        if($snames == null){
+            $sname = '';
+        }else{
+            $sname = $snames->name;
+        }
         $product = array();
         $product["id"] = $id;
         $sub_id = $item["subcategory_id"];
         $product["subcategory"] = $sname;
-        $product["description"] = substr($item["description"],0, 100);
-        $product["price"] = $item["price"];
+        $product["phone"] = $item["client_phone"];
+        $product["name"] = $item["client_name"];
         $product["dt"] = date('Y-m-d H:i:s', strtotime($item['updated_at']));
         array_push($response["feed"], $product);
         $sendMessage = json_encode($response);
         // GET USER LIST
         $gcm_list = array();
-        
-
         $user_query = UserSubcategoryTie::where('subcategory_id','=',$sub_id)->get();
-        foreach($user_query as $row)
-        {
-            $rowGcm = $row->users()->first()->gcm;
-            if($rowGcm != ''){
-                array_push($gcm_list, $rowGcm);    
-            }            
+        if(count($user_query) > 1){
+            foreach($user_query as $row)
+            {
+                $rowGcm = $row->users()->first()->gcm;
+                if($rowGcm != ''){
+                    array_push($gcm_list, $rowGcm);    
+                }            
+            }    
         }
+        
         $userGlobal = User::where('flag','=',1)->having('gcm','<>','')->get();
         foreach($userGlobal as $row1)
         {
@@ -200,6 +204,7 @@ class OrderController extends Controller
                 'data' => array("message" => $sendMessage),
             );        
         $contentGCM = json_encode($fields);
+        //dd($contentGCM,$sendMessage,$gcm_list);
         
         $url = 'https://gcm-http.googleapis.com/gcm/send';
         // Open connection
@@ -227,9 +232,11 @@ class OrderController extends Controller
     // Show shared orders
     public function shared()
     {
-        $orders = \Model\Order\ModelName::where('status','<>','softDelete')->where('status','=','share')->orderBy('id', 'desc')->get();
+        $perPage = 10;
+        $orders = Order::where('status','<>','softDelete')->where('status','=','share')->orderBy('id', 'desc')->paginate($perPage);
 
         return view('Admin::order.shared', [
+            'perPage' => $perPage,
             'orders' => $orders,
         ]);
     }
@@ -237,9 +244,11 @@ class OrderController extends Controller
     // Show shared orders
     public function completed()
     {
-        $orders = \Model\Order\ModelName::where('status','=','complete')->orderBy('id', 'desc')->get();
+        $perPage = 10;
+        $orders = \Model\Order\ModelName::where('status','=','complete')->orderBy('id', 'desc')->paginate($perPage);
 
         return view('Admin::order.completed', [
+            'perPage' => $perPage,
             'orders' => $orders,
         ]);
     }
@@ -270,12 +279,14 @@ class OrderController extends Controller
         
 
         $user_query = UserSubcategoryTie::where('subcategory_id','=',$sub_id)->get();
-        foreach($user_query as $row)
-        {
-            $rowGcm = $row->users()->first()->gcm;
-            if($rowGcm != ''){
-                array_push($gcm_list, $rowGcm);    
-            }            
+        if(count($user_query) > 1){
+            foreach($user_query as $row)
+            {
+                $rowGcm = $row->users()->first()->gcm;
+                if($rowGcm != ''){
+                    array_push($gcm_list, $rowGcm);    
+                }            
+            }
         }
         $userGlobal = User::where('flag','=',1)->having('gcm','<>','')->get();
         foreach($userGlobal as $row1)
@@ -319,9 +330,11 @@ class OrderController extends Controller
     // Show canceled orders
     public function canceled()
     {
-        $orders = \Model\Order\ModelName::where('status','<>','softDelete')->where('status','=','canceled')->orderBy('id', 'desc')->get();
+        $perPage = 10;
+        $orders = Order::where('status','<>','softDelete')->where('status','=','canceled')->orderBy('id', 'desc')->paginate($perPage);
 
         return view('Admin::order.canceled', [
+            'perPage' => $perPage,
             'orders' => $orders,
         ]);
     }
@@ -338,9 +351,11 @@ class OrderController extends Controller
     // Show closed orders
     public function showClosed()
     {
-        $orders = \Model\Order\ModelName::where('status','<>','softDelete')->where('status','=','closed')->orderBy('id', 'desc')->get();
+        $perPage = 10;
+        $orders = Order::where('status','<>','softDelete')->where('status','=','closed')->orderBy('id', 'desc')->paginate($perPage);
 
         return view('Admin::order.closed', [
+            'perPage' => $perPage,
             'orders' => $orders,
         ]);
     }
@@ -348,10 +363,16 @@ class OrderController extends Controller
     // Show new orders
     public function showNew()
     {
-        $orders = \Model\Order\ModelName::where('status','<>','softDelete')->where('status','=','new')->orderBy('id', 'desc')->get();
+        $perPage = 10;
+        $categories = Category::lists('name', 'id')->toArray();
+        $subcategories = Subcategory::lists('name', 'id')->toArray();
+        $orders = Order::where('status','=','new')->orderBy('id', 'desc')->paginate($perPage);
 
         return view('Admin::order.new', [
+            'perPage' => $perPage,
             'orders' => $orders,
+            'categories' => $categories,
+            'subcategories' => $subcategories,
         ]);
     }
 

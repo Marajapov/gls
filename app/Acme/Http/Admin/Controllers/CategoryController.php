@@ -15,9 +15,11 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::orderBy('id', 'asc')->get();
+        $perPage = 5;
+        $categories = Category::orderBy('id', 'desc')->paginate($perPage);
 
         return view('Admin::category.index', [
+            'perPage' => $perPage,
             'categories' => $categories,
         ]);
     }

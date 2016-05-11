@@ -18,6 +18,7 @@ class CreateUserSubcategoryTiesTable extends Migration
             $table->integer('subcategory_id');
             $table->integer('count');
             $table->integer('price');
+            $table->enum('status',['softDelete','active'])->nullable()->default('active');
             $table->timestamps();
         });
     }

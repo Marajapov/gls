@@ -11,11 +11,13 @@ class HomeController extends Controller {
 	}
 	public function Home()
 	{
+		$perPage = 10;
         $categories = Category::lists('name', 'id')->toArray();
         $subcategories = Subcategory::lists('name', 'id')->toArray();
-        $orders = \Model\Order\ModelName::where('status','<>','softDelete')->orderBy('id', 'desc')->get();
+        $orders = \Model\Order\ModelName::where('status','<>','softDelete')->orderBy('id', 'desc')->paginate($perPage);
 
         return view('Admin::order.index', [
+            'perPage' => $perPage,
             'orders' => $orders,
             'categories' => $categories,
             'subcategories' => $subcategories,
